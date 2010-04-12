@@ -1,0 +1,29 @@
+<h1>Lista de espacios</h1>
+
+<table>
+  <tr>
+    <th>Codigo</th>
+    <th>Descripcion</th>
+    <th>Capacidad</th>
+    <th>Tipo</th>
+  </tr>
+
+<% @espacios.each do |espacio| %>
+  <tr>
+    <td><%=h espacio.codigo %></td>
+    <td><%=h espacio.descripcion %></td>
+    <td><%=h espacio.capacidad %></td>
+    <td><%=h Tipoespacio.find(:first, :conditions => {:id => espacio.tipoespacio_id}).nombre %></td>
+    <td><%= link_to 'Detalle', espacio %></td>
+    <td><%= link_to 'Editar', edit_espacio_path(espacio) %></td>
+    <td><%= link_to 'Eliminar', espacio, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo espacio', new_espacio_path %><br>
+<%= link_to 'Volver al indice', root_path %>
+
+

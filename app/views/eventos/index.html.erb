@@ -1,0 +1,64 @@
+<h1>Lista de eventos</h1>
+
+<table id="event-list">
+  <tr>
+    <th>Asunto</th>
+    <th>Inicio</th>
+    <th>Fin</th>
+    <th>Recurr?</th>
+    <th>Frecuencia</th>
+    <th>Dia</th>
+    <th>Cada...</th>
+    <th>Espacio</th>
+  </tr>
+
+<% @eventos.each do |evento| %>
+  <tr>
+    <td><%=h evento.description %></td>
+    <td><%=h evento.dtstart.strftime '%d-%m-%Y %H:%M' %></td>
+    <td><%=h evento.dtend.strftime '%d-%m-%Y %H:%M'  %></td>
+    <td><%=h "SI" if evento.reccurrent %>
+        <%=h "NO" if not evento.reccurrent %></td>
+    <td><% if evento.reccurrent %>
+          <% if evento.freq == 'WEEKLY' %>
+            <%=h 'Semanal' %>
+          <% else %>
+            <%=h 'Diario' %>
+          <% end %>
+        <% else %>
+          <%=h 'Ninguno' %>
+        <% end %></td>
+    <td><%=h case evento.byday
+        when "MO" then "Lunes"
+        when "TU" then "Martes"
+        when "WE" then "Miercoles"
+        when "TH" then "Jueves"
+        when "FR" then "Viernes"
+        when "SA" then "Sabado"
+        when "SU" then "Domingo"
+        else "No se repite"
+      end %>
+    </td>
+    <td><%=h evento.interval %>
+        <% if evento.freq == 'WEEKLY' %>
+          <%= ' Semana/s' %>
+        <% else %>
+          <%= ' Dia/s' %>
+        <% end %></td>
+    <td>
+    <% begin %>
+      <%=h Espacio.find(:first, :conditions => {:id => evento.espacio_id}).codigo %>
+    <% rescue => e %>
+      N/D
+    <% end %></td>
+    <td><%= link_to 'Detalle', evento %></td>
+    <td><%= link_to 'Editar', edit_evento_path(evento) %></td>
+    <td><%= link_to 'Eliminar', evento, :confirm => '¿Esta seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo evento', new_evento_path %>
+<%= link_to 'Volver al indice', root_path %>

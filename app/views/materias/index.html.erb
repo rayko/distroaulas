@@ -1,0 +1,34 @@
+<h1>Lista de materias</h1>
+
+<table>
+  <tr>
+    <th>Codigo</th>
+    <th>Codigo Carrera</th>
+    <th>Codigo Plan</th>
+    <th>Nombre</th>
+    <th>Año</th>
+  </tr>
+
+<% @materias.each do |materia| %>
+  <tr>
+    <td><%=h materia.codigo %></td>
+    <td><%=h materia.codigo_carrera %></td>
+    <td><%=h materia.codigo_plan %></td>
+    <td><%=h materia.nombre %></td>
+    <td><%=h materia.anio %></td>
+    <td><%= link_to 'Detalle', materia %></td>
+    <% if current_user.tipo == 'a' %>
+      <td><%= link_to 'Editar', edit_materia_path(materia) %></td>
+      <td><%= link_to 'Eliminar', materia, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva materia', new_materia_path %>
+<br>
+<%= link_to 'Volver al indice', root_path %>
+
+

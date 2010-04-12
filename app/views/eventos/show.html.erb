@@ -1,0 +1,88 @@
+<h4>Detalle del evento</h4>
+
+<p>
+  <b>Razon del evento:</b>
+  <%=h @evento.description %>
+</p>
+
+<p>
+  <b>Fecha y hora de inicio:</b>
+  <%=h @evento.dtstart.to_s[0..15] %>
+</p>
+
+<p>
+  <b>Hora de finalizado:</b>
+  <%=h @evento.dtend.to_s[0..15] %>
+</p>
+
+<p>
+  <b>Es recurrente?</b>
+  <%=h "Si" if @evento.reccurrent %>
+  <%=h "No" if not @evento.reccurrent %>
+</p>
+
+<p>
+  <b>Fin de recurrencia:</b>
+  <%=h @evento.renddate.to_s[0..15] if @evento.reccurrent %>
+  <%=h 'No se repite' if not @evento.reccurrent %>
+
+<p>
+  <b>Frecuencia:</b>
+  <% if @evento.freq == "DAILY" %>
+    Diario (se repite todos los dias)
+  <% elsif @evento.freq == "WEEKLY" %>
+    Semanal (se repite cada semana)
+  <% else %>
+    No se repite
+  <% end %>
+
+</p>
+
+<p>
+  <b>Dia de recurrencia:</b>
+  <%= case @evento.byday 
+    when "MO" then "Lunes"
+    when "TU" then "Martes"
+    when "WE" then "Miercoles"
+    when "TH" then "Jueves"
+    when "FR" then "Viernes"
+    when "SA" then "Sabado"
+    when "SU" then "Domingo"
+    else "No se repite"
+  end %>
+</p>
+
+<p>
+  <b>Omisiones (cada X semanas/dias):</b>
+  <%= @evento.interval %>
+</p>
+
+<p>
+  <b>Espacio asignado:</b>
+  <% begin %>
+    <%=h Espacio.find(:first, :conditions => {:id => @evento.espacio_id}).codigo %>
+  <% rescue => e %>
+    Sin Espacios
+  <% end %>
+</p>
+
+<% if not @evento.rdate.empty? %>
+  <p><b>Ocurrencias excepcionales</b></p>
+  <ul>
+  <% @evento.rdate.split(',').each do |date| %>
+    <li><%=h DateTime.parse date %></li>
+  <% end %>
+  </ul>
+<% end %>
+<% if not @evento.exdate.empty? %>
+  <p><b>Excepciones (dias que no hay ocurrencia)</b></p>
+  <ul>
+  <% @evento.exdate.split(',').each do |date| %>
+    <li><%=h DateTime.parse date %></li>
+  <% end %>
+  </ul>
+
+<% end %>
+
+<%= link_to 'Editar', edit_evento_path(@evento) %> |
+<%= link_to 'Atras', eventos_path %>

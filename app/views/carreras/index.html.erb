@@ -1,0 +1,25 @@
+<h1>Lista de carreras</h1>
+
+<table>
+  <tr>
+    <th>Codigo</th>
+    <th>Nombre</th>
+  </tr>
+
+<% @carreras.each do |carrera| %>
+  <tr>
+    <td><%=h carrera.codigo %></td>
+    <td><%=h carrera.nombre %></td>
+    <td><%= link_to 'Detalle', carrera %></td>
+    <% if current_user.tipo == 'a' %>
+      <td><%= link_to 'Editar', edit_carrera_path(carrera) %></td>
+      <td><%= link_to 'Eliminar', carrera, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva carrera', new_carrera_path %><br>
+<%= link_to 'Volver al indice', root_path %>

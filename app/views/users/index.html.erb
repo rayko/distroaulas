@@ -1,0 +1,42 @@
+<h1>Lista de usuarios registrados</h1>
+<p>Los administradores gozaran del privilegio de resetear la contraseña de cualquier
+usuario, eliminarlo o crear nuevos, mientras que los usuarios comunes solo podran
+resetear su propia contraseña</p>
+
+<table>
+  <tr>
+    <th>Login</th>
+    <th>Mail</th>
+    <th>Creado el</th>
+    <th>Tipo</th>
+  </tr>
+
+<% User.all.each do |user| %>
+  <tr>
+    <td><%=h user.login %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.created_at.strftime '%d-%m-%Y %H:%M' %></td>
+    <td>
+      <%=h "Administrador" if user.tipo == 'a' %>
+      <%=h "Usuario" if user.tipo == 'u' %>
+    </td>
+    <% if user.id == current_user.id and current_user.tipo == "u" %>
+      <td><%= link_to 'Reestablecer mi contraseña', '/users/reset_pass?user_id=' + user.id.to_s %></td>
+    <% else %>
+      <% if current_user.tipo == "a" %>
+        <td><%= link_to 'Reset Pass', '/users/reset_pass?user_id=' + user.id.to_s %></td>
+        <td><%= link_to 'Eliminar', "/users/destroy?user_id=#{user.id}", :confirm => '¿Esta seguro?' %></td>
+
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if current_user.tipo == "a" %>
+
+  <%= link_to 'Nuevo usuario', :controller => 'users', :action => 'new' %>
+
+<% end %>

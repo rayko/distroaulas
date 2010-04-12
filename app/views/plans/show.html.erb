@@ -1,0 +1,17 @@
+<p>
+  <b>Codigo:</b>
+  <%=h @plan.codigo %>
+</p>
+
+<p>
+  <b>Codigo de Carrera:</b>
+  <%=h @plan.codigo_carrera %>
+</p>
+<p>
+  <b>Nombre:</b>
+  <%=h @plan.nombre %>
+</p>
+
+
+<%= link_to 'Editar', edit_plan_path(@plan) %> |
+<%= link_to 'Atras', plans_path %>

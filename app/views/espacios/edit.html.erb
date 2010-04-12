@@ -1,0 +1,27 @@
+<h1>Editando espacio</h1>
+
+<% form_for(@espacio) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :codigo %><br />
+    <%= f.text_field :codigo %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </p>
+  <p>
+    <%= f.label :capacidad %><br />
+    <%= f.text_field :capacidad %>
+  </p>
+  <p>
+    <%= f.label :tipoespacio_id %><br />
+    <%= collection_select :espacio, :tipoespacio_id, Tipoespacio.all, :id, :nombre %>  </p>
+  <p>
+    <%= f.submit 'Actualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Detalle', @espacio %> |
+<%= link_to 'Atras', espacios_path %>

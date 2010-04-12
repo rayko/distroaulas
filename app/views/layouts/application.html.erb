@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Distroaulas - Administracion de espacios</title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'weekly' %>
+  <%= javascript_include_tag :all %>
+</head>
+<body>
+
+
+  <div id="menu">
+    <div id="logo">
+      <%= image_tag "ucse.jpg" %>
+    </div>
+    <h2>Distroaulas</h2>
+
+  <% if not current_user.nil? %>
+
+    <div class="item">
+    <%= link_to "Home", "/" %><br/>
+    </div>
+    <div class="item">
+    <%= link_to "Eventos", {:controller => "eventos", :action => "index"}, :id => "item" %><br/>
+    </div>
+    <div class="item">
+    <%= link_to "Nuevo Evento", {:controller => "eventos", :action => "new"}, :id => "item" %><br/>
+    </div>
+    <div class="item">
+    <%= link_to "Eventos del Dia", {:controller => "eventos", :action => "browse_by_day"}, :id => "item" %><br/>
+    </div>
+    <div class="item">
+    <%= link_to "Eventos por espacio", {:controller => "eventos", :action => "browse_by_space"}, :id => "item" %><br/>
+    </div>
+
+    <br />
+
+    <div class="item">
+    <%= link_to "Espacios", {:controller => "espacios", :action => "index"}, :id => "item" %><br/>
+    </div>
+    <div class="item">
+    <%= link_to "Tipo Espacios", {:controller => "tipoespacios", :action => "index"}, :id => "item" %>
+    </div>
+    <br />
+
+    <div class="item">
+    <%= link_to "Carreras", {:controller => "carreras", :action => "index"}, :id => "item" %><br/>
+    </div>
+    <div class="item">
+    <%= link_to "Planes", {:controller => "plans", :action => "index"}, :id => "item" %><br/>
+    </div>
+    <div class="item">
+    <%= link_to "Materias", {:controller => "materias", :action => "index"}, :id => "item" %><br/>
+    </div>
+
+    <h4>Otros links</h4>
+    <div class="item">
+    <%= link_to "Administracion", {:controller => "administration", :action => "index"} %><br/>
+    </div>
+    <div class="item">
+    <%= link_to "Salir", {:controller => "sessions", :action => "destroy"}, :id => "item" %>
+    </div>
+  <% end %>
+  </div>
+
+  <div id="banner">
+        <h1>Universidad Catolica de Santiago del Estero</h1>
+  </div>
+
+
+  <div id="contenido">
+      <div id="info">
+        <% if flash[:notice].nil? == false %>
+        <p style="color: green; background-color: #FFFB99; text-align:center;"><%= flash[:notice] %></p>
+        <% end %>
+      </div>
+
+     <%= yield %>
+  </div>
+
+
+</div>
+
+
+</body>
+</html>
