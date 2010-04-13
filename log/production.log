@@ -1,0 +1,108 @@
+
+
+Processing EventosController#browse_by_space (for 192.168.8.200 at 2010-04-13 09:11:43) [GET]
+Rendering template within layouts/application
+Rendering eventos/browse_by_space
+Completed in 305ms (View: 157, DB: 31) | 200 OK [http://192.168.8.100/]
+
+
+Processing CarrerasController#index (for 192.168.8.200 at 2010-04-13 09:11:55) [GET]
+Rendering template within layouts/application
+Rendering carreras/index
+Completed in 130ms (View: 101, DB: 6) | 200 OK [http://192.168.8.100/carreras]
+
+
+Processing CarrerasController#index (for 192.168.8.200 at 2010-04-13 09:16:02) [GET]
+Redirected to http://192.168.8.100:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 78ms (DB: 13) | 302 Found [http://192.168.8.100/carreras]
+
+
+Processing SessionsController#new (for 192.168.8.200 at 2010-04-13 09:16:02) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 68ms (View: 55, DB: 2) | 200 OK [http://192.168.8.100/session/new]
+
+
+Processing SessionsController#create (for 192.168.8.200 at 2010-04-13 09:16:08) [POST]
+  Parameters: {"commit"=>"Iniciar Sesion", "authenticity_token"=>"NhJYvbVYQXMULuJv6wt4ixtc8Agoii0zCMwdT1cjdGA=", "login"=>"admin", "password"=>"inox66por"}
+Redirected to http://192.168.8.100:3000/carreras
+Completed in 39ms (DB: 6) | 302 Found [http://192.168.8.100/session]
+
+
+Processing CarrerasController#index (for 192.168.8.200 at 2010-04-13 09:16:08) [GET]
+Rendering template within layouts/application
+Rendering carreras/index
+Completed in 92ms (View: 64, DB: 5) | 200 OK [http://192.168.8.100/carreras]
+
+
+Processing AdministrationController#index (for 192.168.8.200 at 2010-04-13 09:16:11) [GET]
+Rendering template within layouts/application
+Rendering administration/index
+Completed in 111ms (View: 75, DB: 20) | 200 OK [http://192.168.8.100/administration]
+
+
+Processing ImportController#import (for 192.168.8.200 at 2010-04-13 09:16:20) [GET]
+Rendering template within layouts/application
+Rendering import/import
+Completed in 15245ms (View: 41, DB: 4597) | 200 OK [http://192.168.8.100/import]
+
+
+Processing EventosController#browse_by_space (for 192.168.8.200 at 2010-04-13 09:16:38) [GET]
+Rendering template within layouts/application
+Rendering eventos/browse_by_space
+Completed in 204ms (View: 114, DB: 26) | 200 OK [http://192.168.8.100/]
+
+
+Processing EventosController#index (for 192.168.8.200 at 2010-04-13 09:16:40) [GET]
+Rendering template within layouts/application
+Rendering eventos/index
+Completed in 68ms (View: 51, DB: 5) | 200 OK [http://192.168.8.100/eventos]
+
+
+Processing EventosController#browse_by_space (for 192.168.8.200 at 2010-04-13 09:16:43) [GET]
+Rendering template within layouts/application
+Rendering eventos/browse_by_space
+Completed in 342ms (View: 290, DB: 15) | 200 OK [http://192.168.8.100/]
+
+
+Processing EventosController#index (for 192.168.8.200 at 2010-04-13 09:16:44) [GET]
+Rendering template within layouts/application
+Rendering eventos/index
+Completed in 53ms (View: 37, DB: 4) | 200 OK [http://192.168.8.100/eventos]
+
+
+Processing EspaciosController#index (for 192.168.8.200 at 2010-04-13 09:16:46) [GET]
+Rendering template within layouts/application
+Rendering espacios/index
+Completed in 67ms (View: 42, DB: 4) | 200 OK [http://192.168.8.100/espacios]
+
+
+Processing TipoespaciosController#index (for 192.168.8.200 at 2010-04-13 09:16:48) [GET]
+Rendering template within layouts/application
+Rendering tipoespacios/index
+Completed in 73ms (View: 40, DB: 6) | 200 OK [http://192.168.8.100/tipoespacios]
+
+
+Processing CarrerasController#index (for 192.168.8.200 at 2010-04-13 09:16:50) [GET]
+Rendering template within layouts/application
+Rendering carreras/index
+Completed in 434ms (View: 415, DB: 6) | 200 OK [http://192.168.8.100/carreras]
+
+
+Processing PlansController#index (for 192.168.8.200 at 2010-04-13 09:16:52) [GET]
+Rendering template within layouts/application
+Rendering plans/index
+Completed in 287ms (View: 258, DB: 5) | 200 OK [http://192.168.8.100/plans]
+
+
+Processing MateriasController#index (for 192.168.8.200 at 2010-04-13 09:16:53) [GET]
+Rendering template within layouts/application
+Rendering materias/index
+Completed in 6563ms (View: 6440, DB: 30) | 200 OK [http://192.168.8.100/materias]
+
+
+Processing EventosController#browse_by_space (for 192.168.8.200 at 2010-04-13 09:18:00) [GET]
+Rendering template within layouts/application
+Rendering eventos/browse_by_space
+Completed in 314ms (View: 118, DB: 163) | 200 OK [http://192.168.8.100/]

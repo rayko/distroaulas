@@ -3,8 +3,9 @@ class ImportController < ApplicationController
     @log = "INICIO DE IMPORTACION \n"
     begin
       @log += "Intentando acceder a Carreras.txt \n"
-      c = File::read('importer/Carreras.txt')
-      @log += "Acceso logrado... Leyendo... \n Se encontraron #{c.lines.count} registros... \n"
+      @log += "Ruta #{RAILS_ROOT}/importer/Carreras.txt \n"
+      c = File::read("#{RAILS_ROOT}/importer/Carreras.txt")
+      @log += "Acceso logrado... Leyendo... \n Se encontraron #{c.split("\n").size} registros... \n"
       c.each_line do |line|
         nueva_carrera = Carrera.new
         nueva_carrera.codigo = line[0..-2].split(';').collect[0]
@@ -22,8 +23,9 @@ class ImportController < ApplicationController
    end
     begin
       @log += "Intentando acceder a Planes.txt... \n"
-      p = File::read('importer/Planes.txt')
-      @log += "Acceso logrado... Leyendo... \n Se encontraron #{p.lines.count} registros... \n"
+      @log += "Ruta #{RAILS_ROOT}/importer/Planes.txt \n"
+      p = File::read("#{RAILS_ROOT}/importer/Planes.txt")
+      @log += "Acceso logrado... Leyendo... \n Se encontraron #{p.split("\n").size} registros... \n"
       p.each_line do |line|
         nuevo_plan = Plan.new
         nuevo_plan.codigo_carrera = line[0..-2].split(';').collect[0]
@@ -38,12 +40,13 @@ class ImportController < ApplicationController
       end
       @log += "Planes.txt fue procesado correctamente \n"
     rescue => e
-      @log += "Error: Planes.txt corrupto, inexistente o malformateado. No se pudo imporar. \n"
+      @log += "Error: Planes.txt corrupto, inexistente o malformateado. No se pudo imporar. \n "
     end
     begin
       @log += "Intentando acceder a Materias.txt... \n"
-      m = File::read('importer/Materias.txt')
-      @log += "Acceso logrado... Leyendo... \n Se encontraron #{m.lines.count} registros... \n"
+      @log += "Ruta #{RAILS_ROOT}/importer/Materias.txt \n"
+      m = File::read("#{RAILS_ROOT}/importer/Materias.txt")
+      @log += "Acceso logrado... Leyendo... \n Se encontraron #{m.split("\n").size} registros... \n"
       m.each_line do |line|
         nueva_materia = Materia.new
         nueva_materia.codigo_carrera = line[0..-2].split(';').collect[0]
@@ -59,7 +62,7 @@ class ImportController < ApplicationController
       end
       @log += "Materias.txt fue procesado correctamente \n"
     rescue => e
-      @log += "Error: Materias.txt corrupto, inexistente o malformateado. No se pudo imporar.\n"
+      @log += "Error: Materias.txt corrupto, inexistente o malformateado. No se pudo imporar.\n "
     end
     @log += "FIN DE LA IMPORTACION"
     render :action => 'import'
