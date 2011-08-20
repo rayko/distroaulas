@@ -6,6 +6,12 @@ gem 'rails', '3.0.10'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'nifty-generators', :group => :development
+gem 'compass'
+gem 'formtastic', '~> 1.2.3'
+gem 'ri_cal'
+gem "haml"
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
