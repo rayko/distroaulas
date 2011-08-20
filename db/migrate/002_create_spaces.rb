@@ -5,7 +5,7 @@ class CreateSpaces < ActiveRecord::Migration
       t.string :short_name
       t.text :description
       t.integer :capacity
-      t.integer :spacetype_id
+      t.integer :space_type_id
       t.timestamps
     end
   end

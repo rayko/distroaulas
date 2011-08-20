@@ -11,11 +11,51 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110820002858) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "careers", :force => true do |t|
     t.string   "name"
     t.string   "short_name"
+    t.integer  "plan_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.integer  "matter_id"
+    t.integer  "space_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "matters", :force => true do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.integer  "career_id"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "space_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spaces", :force => true do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.text     "description"
+    t.integer  "capacity"
+    t.integer  "space_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

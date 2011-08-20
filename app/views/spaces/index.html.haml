@@ -13,7 +13,7 @@
       %td= space.short_name
       %td= space.description
       %td= space.capacity
-      %td= space.spacetype_id
+      %td= space.space_type.name
       %td= link_to 'Show', space
       %td= link_to 'Edit', edit_space_path(space)
       %td= link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete

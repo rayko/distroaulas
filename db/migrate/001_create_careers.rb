@@ -3,6 +3,7 @@ class CreateCareers < ActiveRecord::Migration
     create_table :careers do |t|
       t.string :name
       t.string :short_name
+      t.integer :plan_id
       t.timestamps
     end
   end

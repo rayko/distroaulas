@@ -14,7 +14,7 @@
   = @space.capacity
 %p
   %strong Spacetype:
-  = @space.spacetype_id
+  = @space.space_type.name
 
 %p
   = link_to "Edit", edit_space_path(@space)
