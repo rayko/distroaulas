@@ -1,0 +1,19 @@
+- title "Matters"
+
+%table
+  %tr
+    %th Name
+    %th Short name
+    %th Career
+    %th Year
+  - for matter in @matters
+    %tr
+      %td= matter.name
+      %td= matter.short_name
+      %td= matter.career_id
+      %td= matter.year
+      %td= link_to 'Show', matter
+      %td= link_to 'Edit', edit_matter_path(matter)
+      %td= link_to 'Destroy', matter, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Matter", new_matter_path

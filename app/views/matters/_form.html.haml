@@ -1,0 +1,20 @@
+= form_for @matter do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :short_name
+    %br
+    = f.text_field :short_name
+  %p
+    = f.label :career_id
+    %br
+    = f.text_field :career_id
+  %p
+    = f.label :year
+    %br
+    = f.text_field :year
+  %p
+    = f.submit

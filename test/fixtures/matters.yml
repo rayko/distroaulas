@@ -1,0 +1,11 @@
+one:
+  name: MyString
+  short_name: MyString
+  career_id: 1
+  year: 1
+
+two:
+  name: MyString
+  short_name: MyString
+  career_id: 1
+  year: 1

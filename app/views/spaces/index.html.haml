@@ -1,0 +1,21 @@
+- title "Spaces"
+
+%table
+  %tr
+    %th Name
+    %th Short name
+    %th Description
+    %th Capacity
+    %th Spacetype
+  - for space in @spaces
+    %tr
+      %td= space.name
+      %td= space.short_name
+      %td= space.description
+      %td= space.capacity
+      %td= space.spacetype_id
+      %td= link_to 'Show', space
+      %td= link_to 'Edit', edit_space_path(space)
+      %td= link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Space", new_space_path

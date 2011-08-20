@@ -1,0 +1,24 @@
+- title "Space"
+
+%p
+  %strong Name:
+  = @space.name
+%p
+  %strong Short Name:
+  = @space.short_name
+%p
+  %strong Description:
+  = @space.description
+%p
+  %strong Capacity:
+  = @space.capacity
+%p
+  %strong Spacetype:
+  = @space.spacetype_id
+
+%p
+  = link_to "Edit", edit_space_path(@space)
+  |
+  = link_to "Destroy", @space, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", spaces_path

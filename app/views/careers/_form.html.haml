@@ -1,12 +1,3 @@
-= form_for @career do |f|
-  = f.error_messages
-  %p
-    = f.label :name
-    %br
-    = f.text_field :name
-  %p
-    = f.label :short_name
-    %br
-    = f.text_field :short_name
-  %p
-    = f.submit
+- semantic_form_for @career do |f|
+  = f.inputs
+  = f.buttons

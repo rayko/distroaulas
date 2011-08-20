@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  short_name: MyString
+  description: MyText
+  capacity: 1
+  spacetype_id: 1
+
+two:
+  name: MyString
+  short_name: MyString
+  description: MyText
+  capacity: 1
+  spacetype_id: 1

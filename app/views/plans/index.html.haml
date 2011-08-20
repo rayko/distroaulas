@@ -1,0 +1,13 @@
+- title "Plans"
+
+%table
+  %tr
+    %th Name
+  - for plan in @plans
+    %tr
+      %td= plan.name
+      %td= link_to 'Show', plan
+      %td= link_to 'Edit', edit_plan_path(plan)
+      %td= link_to 'Destroy', plan, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Plan", new_plan_path

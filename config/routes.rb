@@ -1,4 +1,14 @@
 DistroaulasRails3::Application.routes.draw do
+  resources :events
+
+  resources :space_types
+
+  resources :plans
+
+  resources :matters
+
+  resources :spaces
+
   resources :careers
 
   # The priority is based upon order of creation:
