@@ -4,6 +4,12 @@ class CreateEvents < ActiveRecord::Migration
       t.string :name
       t.integer :matter_id
       t.integer :space_id
+      t.datetime :dtstart
+      t.datetime :dtend
+      t.text :exdate
+      t.text :rdate
+      t.boolean :recurrent
+      t.string :freq
       t.timestamps
     end
   end
