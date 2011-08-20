@@ -26,6 +26,6 @@ class Event < ActiveRecord::Base
 
   private
   def time_to_rfc time
-    time.strftime "TZID=America/Buenos_aires:%Y%m%dT%H%M00"
+    time.strftime "TZID=America/Buenos_Aires:%Y%m%dT%H%M00"
   end
 end
