@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 7) do
+
+  create_table "calendars", :force => true do |t|
+    t.string   "name"
+    t.integer  "career_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "careers", :force => true do |t|
     t.string   "name"
@@ -25,6 +32,13 @@ ActiveRecord::Schema.define(:version => 6) do
     t.string   "name"
     t.integer  "matter_id"
     t.integer  "space_id"
+    t.datetime "dtstart"
+    t.datetime "dtend"
+    t.text     "exdate"
+    t.text     "rdate"
+    t.boolean  "recurrent"
+    t.string   "freq"
+    t.integer  "calendar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

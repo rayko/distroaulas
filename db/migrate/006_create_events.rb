@@ -10,6 +10,7 @@ class CreateEvents < ActiveRecord::Migration
       t.text :rdate
       t.boolean :recurrent
       t.string :freq
+      t.integer :calendar_id
       t.timestamps
     end
   end
