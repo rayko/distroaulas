@@ -1,0 +1,15 @@
+- title "Career"
+
+%p
+  %strong Name:
+  = @career.name
+%p
+  %strong Short Name:
+  = @career.short_name
+
+%p
+  = link_to "Edit", edit_career_path(@career)
+  |
+  = link_to "Destroy", @career, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", careers_path

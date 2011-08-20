@@ -6,10 +6,11 @@ gem 'rails', '3.0.10'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'nifty-generators', :group => :development
+gem 'nifty-generators'
 gem 'compass'
 gem 'formtastic', '~> 1.2.3'
 gem 'ri_cal'
+gem "haml-rails"
 gem "haml"
 
 
@@ -35,3 +36,4 @@ gem "haml"
 # group :development, :test do
 #   gem 'webrat'
 # end
+gem "mocha", :group => :test
