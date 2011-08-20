@@ -1,4 +1,6 @@
 DistroaulasRails3::Application.routes.draw do
+  resources :calendars
+
   resources :events
 
   resources :space_types

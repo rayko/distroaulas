@@ -1,0 +1,13 @@
+- title "Calendars"
+
+%table
+  %tr
+    %th Name
+  - for calendar in @calendars
+    %tr
+      %td= calendar.name
+      %td= link_to 'Show', calendar
+      %td= link_to 'Edit', edit_calendar_path(calendar)
+      %td= link_to 'Destroy', calendar, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Calendar", new_calendar_path
