@@ -1,0 +1,15 @@
+- title "Equipment"
+
+%p
+  %strong Name:
+  = @equipment.name
+%p
+  %strong Description:
+  = @equipment.description
+
+%p
+  = link_to "Edit", edit_equipment_path(@equipment)
+  |
+  = link_to "Destroy", @equipment, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", equipment_index_path
