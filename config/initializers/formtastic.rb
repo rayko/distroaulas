@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 # --------------------------------------------------------------------------------------------------
-# Please note: If you're subclassing Formtastic::SemanticFormBuilder in a Rails 3 project, 
-# Formtastic uses class_attribute for these configuration attributes instead of the deprecated 
-# class_inheritable_attribute. The behaviour is slightly different with subclasses (especially 
-# around attributes with Hash or Array) values, so make sure you understand what's happening. 
+# Please note: If you're subclassing Formtastic::SemanticFormBuilder in a Rails 3 project,
+# Formtastic uses class_attribute for these configuration attributes instead of the deprecated
+# class_inheritable_attribute. The behaviour is slightly different with subclasses (especially
+# around attributes with Hash or Array) values, so make sure you understand what's happening.
 # See the documentation for class_attribute in ActiveSupport for more information.
 # --------------------------------------------------------------------------------------------------
 
@@ -12,7 +12,7 @@
 # Formtastic::SemanticFormBuilder.default_text_field_size = 50
 
 # Set the default text area height when input is a text. Default is 20.
-# Formtastic::SemanticFormBuilder.default_text_area_height = 5
+Formtastic::SemanticFormBuilder.default_text_area_height = 2
 
 # Set the default text area width when input is a text. Default is nil.
 # Formtastic::SemanticFormBuilder.default_text_area_width = 50

@@ -7,6 +7,19 @@ class Event < ActiveRecord::Base
   belongs_to :space
   belongs_to :calendar
 
+  validates :calendar, :presence => true
+  validates :name, :presence => true
+  # validates :space, :presence => true
+  validates :dtstart, :presence => true
+  validates :dtend, :presence => true
+
+  # Custom validations
+  require 'event_validations'
+  include EventCustomValidations
+
+  validates_with PeriodValidator
+  validates_with StartDateValidator
+
   require 'ri_cal'
 
   def to_rical
@@ -29,3 +42,5 @@ class Event < ActiveRecord::Base
     time.strftime "TZID=America/Buenos_Aires:%Y%m%dT%H%M00"
   end
 end
+
+

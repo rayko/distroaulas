@@ -1,4 +1,6 @@
 DistroaulasRails3::Application.routes.draw do
+  resources :equipment
+
   resources :calendars
 
   resources :events
