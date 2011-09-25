@@ -20,12 +20,18 @@
 %p
   %strong Occurrences
   %div.calendar
-    - calendar_for @event.to_rical.occurrences do |occurrence|
-      = occurrence.head 'mon', 'tus', 'wen', 'thu', 'fry', 'sat', 'sun'
+    %div.calendar_title
+      = link_to '<', :month => (@date.beginning_of_month - 1).strftime("01-%m-%Y")
+      = @date.strftime "%B %Y"
+      = link_to '>', :month => (@date.end_of_month + 1).strftime("01-%m-%Y")
+      %br
+      = link_to 'Current Month'
+    - calendar_for @event.to_rical.occurrences, :year => @date.year, :month => @date.month do |occurrence|
+      = occurrence.head 'sun', 'mon', 'tus', 'wen', 'thu', 'fry', 'sat'
       - occurrence.day(:day_method => :dtstart) do |day, occurrences|
         = day.day
         - occurrences.each do |o|
-          = o.dtstart
+          = image_tag "CheckMark.png"
 
 %p
   = link_to "Edit", edit_event_path(@event)

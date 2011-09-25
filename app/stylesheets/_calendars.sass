@@ -1,0 +1,45 @@
+.calendar
+  :text-align center
+  :width 900px
+  a
+    :text-decoration none
+    :color #8F8F8F
+    :font-weight bold
+    &:hover
+      :color red
+  table
+    :margin-left auto
+    :margin-right auto
+    :text-align left
+    :border 1px solid
+    :border-collapse collapse
+    tr
+      :margin 0
+      :padding 0
+      th
+        :text-align center
+        :border 1px solid
+      td
+        img
+          :width 50px
+          :height 50px
+          :float right
+          :margin-top 15px
+          :margin-right 20px
+        :vertical-align top
+        :width 90px
+        :height 90px
+        :border 1px solid
+        :border-color #8F8F8F
+        :background-color #F6F88F
+      td.notmonth
+        :background-color #B7BF86
+        :color #8F8F8F
+      td.weekend
+        :background-color #FFA8A8
+      td.weekend.notmonth
+        :background-color #AC7878
+        :color #3F3F3F
+      td.today
+        :background-color #A8D7FF
+        :font-weight bold
