@@ -26,6 +26,7 @@ class Event < ActiveRecord::Base
     event = RiCal.Event
     event.dtstart = self.dtstart_to_rfc
     event.dtend = self.dtend_to_rfc
+    event.space = self.space
     return event
   end
 
