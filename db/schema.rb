@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 8) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "calendars", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(:version => 8) do
     t.integer  "calendar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "interval"
+    t.datetime "until_date"
+    t.string   "byday"
+    t.integer  "count"
   end
 
   create_table "matters", :force => true do |t|

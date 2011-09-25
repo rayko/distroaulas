@@ -5,6 +5,29 @@
   = @event.name
 
 %p
+  %strong Matter:
+  = @event.matter.nil? ? 'none (free event)' : @event.matter.name
+
+%p
+  %strong Space:
+  = @event.space.nil? ? 'Not Assigned' : @event.space.name
+
+- if @event.recurrent
+  %p
+    %strong RRULE:
+    = @event.reccurrence_rule.to_rical
+
+%p
+  %strong Occurrences
+  %div.calendar
+    - calendar_for @event.to_rical.occurrences do |occurrence|
+      = occurrence.head 'mon', 'tus', 'wen', 'thu', 'fry', 'sat', 'sun'
+      - occurrence.day(:day_method => :dtstart) do |day, occurrences|
+        = day.day
+        - occurrences.each do |o|
+          = o.dtstart
+
+%p
   = link_to "Edit", edit_event_path(@event)
   |
   = link_to "Destroy", @event, :confirm => 'Are you sure?', :method => :delete
