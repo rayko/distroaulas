@@ -4,9 +4,13 @@
   %strong Name:
   = @calendar.name
 
+%div
+  = weekly
+
 %p
   = link_to "Edit", edit_calendar_path(@calendar)
   |
   = link_to "Destroy", @calendar, :confirm => 'Are you sure?', :method => :delete
   |
   = link_to "View All", calendars_path
+
