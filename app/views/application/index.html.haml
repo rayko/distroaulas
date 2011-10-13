@@ -1,15 +1,5 @@
 %h1 Index
 
-%ul
-  %li= link_to 'Careers', careers_path unless Plan.count == 0
-  %li= link_to 'Plans', plans_path
-  %li= link_to 'Matters', matters_path unless Career.count == 0
-  %li= link_to 'Events', events_path unless Calendar.count == 0
-  %li= link_to 'Spaces', spaces_path unless SpaceType.count == 0
-  %li= link_to 'Space Types', space_types_path
-  %li= link_to 'Calendars', calendars_path
-  %li= link_to 'Equipment', equipment_index_path
-
 %div.weekly-header
   = weekly_calendar([], :date => @date, :include_24_hours => false, :only_header => true) do |w|
     = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|

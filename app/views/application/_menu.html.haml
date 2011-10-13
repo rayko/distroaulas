@@ -1,0 +1,40 @@
+%ul#sddm
+  %li
+    %a{:href => root_path} Home
+  %li
+    %a{:href => events_path, :onmouseover => "mopen('events_menu')", :onmouseout => "mclosetime()"} Events
+    %div{:id => "events_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+      %a{:href => new_event_path} New Event
+  %li
+    %a{:href => spaces_path, :onmouseover => "mopen('spaces_menu')"} Spaces
+    %div{:id => "spaces_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+      %a{:href => new_space_path} New Space
+      %a{:href => space_types_path} Space Types
+      %a{:href => new_space_type_path} New Space Type
+  %li
+    %span{:onmouseover => "mopen('edu_menu')"} Educational
+    %div{:id => "edu_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+      %a{:href => careers_path} Careers
+      %a{:href => plans_path} Plans
+      %a{:href => matters_path} Matters
+  %li
+    %a{:href => calendars_path, :onmouseover => "mopen('calendars_menu')"} Calendars
+    %div{:id => "calendars_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+      %a{:href => new_calendar_path} New Calendar
+  %li
+    %a{:href => equipment_index_path, :onmouseover => "mopen('equipment_menu')"} Equipment
+    %div{:id => "equipment_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+      %a{:href => new_equipment_path} New Equipment
+  %li
+    %a{:href => "#", :onmouseover => "mopen('admin_menu')"} TODO Admin
+    %div{:id => "admin_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+      %a{:href => "#"} Users
+      %a{:href => "#"} Statics
+      %a{:href => "#"} Personal Data
+      %a{:href => "#"} Import
+  %li
+    %a{:href => "#"} Logout
+
+
+
+%div{:style => "clear:both"}

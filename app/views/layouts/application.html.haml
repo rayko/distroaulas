@@ -5,13 +5,20 @@
     %title
       = yield(:title) || "Untitled"
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    = stylesheet_link_tag "screen", "formtastic", "formtastic_changes", "weekly"
+    = stylesheet_link_tag "screen", "formtastic", "formtastic_changes", "weekly", "drop_menu"
     = javascript_include_tag :defaults
+    = javascript_include_tag "drop_menu.js"
     = csrf_meta_tag
     = yield(:head)
 
   %body
+
     #container
+      #banner
+        = render :partial => "application/banner"
+      #menu
+        = render :partial => "application/menu"
+
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
 
