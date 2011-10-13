@@ -1,19 +1,21 @@
 class WeeklyCalendar::Builder
   include ::ActionView::Helpers::TagHelper
 
-  def initialize(objects, template, options, start_date, end_date)
+  def initialize(objects, template, options, start_date, end_date, row_title)
     raise ArgumentError, "WeeklyBuilder expects an Array but found a #{objects.inspect}" unless objects.is_a? Array
-    @objects, @template, @options, @start_date, @end_date = objects, template, options, start_date, end_date
+    @objects, @template, @options, @start_date, @end_date, @row_title = objects, template, options, start_date, end_date, row_title
   end
 
   def days
     concat(tag("div", :class => "days"))
-      concat(content_tag("div", "Weekly View", :class => "placeholder"))
+      concat(content_tag("div", 'Weekly View', :class => "placeholder"))
       for day in @start_date..@end_date
         concat(tag("div", :class => "day"))
         concat(content_tag("b", day.strftime('%A')))
         concat(tag("br"))
         concat(day.strftime('%B %d'))
+        concat(tag("br"))
+        concat(@row_title) unless @row_title.nil?
         concat("</div>")
       end
     concat("</div>")

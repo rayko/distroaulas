@@ -10,3 +10,14 @@
   %li= link_to 'Calendars', calendars_path
   %li= link_to 'Equipment', equipment_index_path
 
+%div.weekly-header
+  = weekly_calendar([], :date => @date, :include_24_hours => false, :only_header => true) do |w|
+    = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
+      =  link_to event.name, event_path(event.id)
+
+%div.weekly-clean
+  - Space.all.each do |space|
+    = weekly_calendar([], :date => @date, :include_24_hours => false, :row_title => space.name) do |w|
+      = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
+        =  link_to event.name, event_path(event.id)
+

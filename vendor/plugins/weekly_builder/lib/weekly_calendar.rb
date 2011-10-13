@@ -5,11 +5,18 @@ module WeeklyCalendar
     options = args.last.is_a?(Hash) ? args.pop : {}
     date = options[:date] || Time.now
     start_date = Date.new(date.year, date.month, date.day)
-    end_date = Date.new(date.year, date.month, date.day) + 6
-    
+    row_title = options[:row_title]
+
+    if row_title.nil?
+      end_date = Date.new(date.year, date.month, date.day) + 6
+    else
+      end_date = Date.new(date.year, date.month, date.day) # Weekly view for spaces
+    end
+
+
     safe_concat(tag("div", :class => "week"))
 
-      yield WeeklyCalendar::Builder.new(objects || [], self, options, start_date, end_date)
+      yield WeeklyCalendar::Builder.new(objects || [], self, options, start_date, end_date, row_title)
 
     safe_concat("</div>")
 
@@ -18,11 +25,11 @@ module WeeklyCalendar
     end
     ""
   end
-  
+
   def weekly_links(options)
     #view helper to insert the next and previous week links
     date = options[:date] || Time.now
-    start_date = Date.new(date.year, date.month, date.day) 
+    start_date = Date.new(date.year, date.month, date.day)
     end_date = Date.new(date.year, date.month, date.day) + 7
     safe_concat("<a href='?start_date=#{start_date - 7}?user_id='>&laquo; Previous Week</a> ")
     safe_concat("#{start_date.strftime("%B %d -")} #{end_date.strftime("%B %d")} #{start_date.year}")
