@@ -76,7 +76,7 @@ class WeeklyCalendar::Builder
   def left(starts_at,business_hours)
     if business_hours == "true" or business_hours.blank?
       minutes = starts_at.strftime('%M').to_f * 1.25
-      hour = starts_at.strftime('%H').to_f - 6
+      hour = starts_at.strftime('%H').to_f - 13
     else
       minutes = starts_at.strftime('%M').to_f * 1.25
       hour = starts_at.strftime('%H').to_f
