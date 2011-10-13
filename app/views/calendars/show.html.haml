@@ -4,8 +4,16 @@
   %strong Name:
   = @calendar.name
 
-%div
-  = weekly
+= weekly_calendar(@calendar.occurrences(:after => @date, :before => (@date + 7.days)), :date => @date, :include_24_hours => true) do |w|
+  = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
+    =  link_to event.name, event_path(event.id)
+\|
+= link_to '< Previous Week', :date => (@date - 7.days).strftime("%d-%m-%Y")
+\|
+= link_to 'Current Week', :date => Date.today
+\|
+= link_to 'Next Week >', :date => (@date + 7.days).strftime("%d-%m-%Y")
+
 
 %p
   = link_to "Edit", edit_calendar_path(@calendar)

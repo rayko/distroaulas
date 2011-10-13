@@ -13,4 +13,14 @@ class Calendar < ActiveRecord::Base
     end
     return calendar
   end
+
+  def occurrences options={}
+    until_date = options[:before] || Date.today + 5.years
+    after_date = options[:after] || Date.new
+    occurrences = []
+    self.events.each do |event|
+      occurrences << event.to_rical.occurrences(:starting => after_date, :before => until_date)
+    end
+    return occurrences.flatten
+  end
 end

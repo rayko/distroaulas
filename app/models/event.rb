@@ -32,6 +32,9 @@ class Event < ActiveRecord::Base
     if self.recurrent
       ReccurrenceRule.new(self.reccurrence_values).load_rule(event)
     end
+
+    # Added DB record to keep track of the event
+    event.related_object = self
     return event
   end
 
@@ -53,6 +56,14 @@ class Event < ActiveRecord::Base
   # Converts the dtend value into an RFC date time
   def dtend_to_rfc
     time_to_rfc self.dtend
+  end
+
+  def starts_at
+    self.dtstart
+  end
+
+  def ends_at
+    self.dtend
   end
 
   private

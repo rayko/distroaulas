@@ -4,6 +4,14 @@ class CalendarsController < ApplicationController
   end
 
   def show
+    if params[:date]
+      @date = Date.parse params[:date]
+    else
+      @date = Date.today
+    end
+    until @date.monday?
+      @date -= 1.day
+    end
     @calendar = Calendar.find(params[:id])
   end
 
