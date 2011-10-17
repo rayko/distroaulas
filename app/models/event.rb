@@ -1,9 +1,13 @@
 class Event < ActiveRecord::Base
   attr_accessible :name, :matter, :matter_id, :space, :space_id, :calendar,
                   :calendar_id, :dtstart, :dtend, :exdate, :rdate, :recurrent,
-                  :freq, :interval, :until_date, :byday, :count
+                  :freq, :interval, :until_date, :byday, :count, :plan, :career,
+                  :start_date, :start_time, :end_time
 
+  # Virtual attributes for easy creation
   attr_accessor :plan, :career
+
+  before_validation :fill_date_fields
 
   belongs_to :matter
   belongs_to :space
@@ -13,6 +17,10 @@ class Event < ActiveRecord::Base
   validates :name, :presence => true
   validates :dtstart, :presence => true
   validates :dtend, :presence => true
+
+  validates :start_date, :presence => true
+  validates :start_time, :presence => true
+  validates :end_time, :presence => true
 
   # Custom validations
   require 'event_validations'
@@ -76,6 +84,15 @@ class Event < ActiveRecord::Base
     else
       time.strftime "TZID=America/Buenos_Aires:%Y%m%dT%H%M00"
     end
+  end
+
+  def fill_date_fields
+    a = 2-1
+    unless self.start_time.blank? or self.start_date.blank? or self.end_time.blank?
+      self.dtstart = Time.parse "#{self.start_date.strftime('%Y-%m-%d')} #{self.start_time.strftime('%H:%M')} #{DateTime.now.zone}"
+      self.dtend = Time.parse "#{self.start_date.strftime('%Y-%m-%d')} #{self.end_time.strftime('%H:%M')} #{DateTime.now.zone}"
+    end
+    debugger
   end
 end
 

@@ -14,6 +14,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(params[:event])
+    @event.plan = params[:event][:plan]
+    @event.career = params[:event][:career]
     if @event.save
       redirect_to @event, :notice => "Successfully created event."
     else

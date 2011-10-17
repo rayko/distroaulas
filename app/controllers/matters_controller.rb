@@ -38,4 +38,12 @@ class MattersController < ApplicationController
     @matter.destroy
     redirect_to matters_url, :notice => "Successfully destroyed matter."
   end
+
+  def ajax_get_matters_by_career
+    @matters = Matter.find :all, :conditions => {:career_id => params[:id]}
+    respond_to do |format|
+      format.json { render :json => @matters.to_json, :status => 200 }
+    end
+  end
+
 end

@@ -24,7 +24,7 @@ module DistroaulasRails3
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'America/Buenos_Aires'
 
     config.active_record.timestamped_migrations = false
 
