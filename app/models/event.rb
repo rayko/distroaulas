@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
                   :calendar_id, :dtstart, :dtend, :exdate, :rdate, :recurrent,
                   :freq, :interval, :until_date, :byday, :count
 
+  attr_accessor :plan, :career
+
   belongs_to :matter
   belongs_to :space
   belongs_to :calendar

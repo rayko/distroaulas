@@ -7,6 +7,7 @@ DistroaulasRails3::Application.routes.draw do
   resources :calendars
 
   resources :events
+  match 'ajax_careers_by_plan/:id' => 'careers#ajax_careers_by_plan', :as => "ajax_careers_by_plan"
 
   resources :space_types
 

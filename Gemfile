@@ -14,6 +14,7 @@ gem "haml-rails"
 gem "haml"
 gem "devise"
 gem "cancan"
+gem 'jquery-rails', '>= 1.0.12'
 
 
 # Use unicorn as the web server

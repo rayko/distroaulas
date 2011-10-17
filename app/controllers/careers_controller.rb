@@ -38,4 +38,11 @@ class CareersController < ApplicationController
     @career.destroy
     redirect_to careers_url, :notice => "Successfully destroyed career."
   end
+
+  def ajax_careers_by_plan
+    @careers = Career.find :all, :conditions => {:plan_id => params[:id]}
+    respond_to do |format|
+      format.json { render :json => @careers.to_json, :status => 200}
+    end
+  end
 end

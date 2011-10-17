@@ -1,0 +1,2 @@
+- semantic_fields_for @event |f| do
+  = f.input :career, :as => :select, :collection =>
