@@ -12,6 +12,8 @@ gem 'formtastic', '~> 1.2.3'
 gem 'ri_cal'
 gem "haml-rails"
 gem "haml"
+gem "devise"
+gem "cancan"
 
 
 # Use unicorn as the web server
