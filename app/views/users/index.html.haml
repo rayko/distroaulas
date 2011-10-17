@@ -1,1 +1,12 @@
-%h2 Users Index
+- title "Users"
+
+%table
+  %tr
+    %th Name
+    %th e-Mail
+    %th Role
+  - for user in @users
+    %tr
+      %td= user.username
+      %td= user.email
+      %td= user.role
