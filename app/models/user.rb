@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :full_name, :role, :email, :password, :password_confirmation, :remember_me
 
   # Posible roles for users
-  def self.Roles
-    [['user', 'User'], ['admin', 'Administrator'], ['op', 'Operator']]
+  def self.roles
+    [['User', 'user'], ['Administrator', 'admin'], ['Operator', 'op']]
   end
 end

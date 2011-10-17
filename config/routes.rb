@@ -1,6 +1,6 @@
 DistroaulasRails3::Application.routes.draw do
-  devise_for :users
-  resources :users, :only => [:index]
+  devise_for :users, :path_prefix => 'd'
+  resources :users
 
   resources :equipment
 

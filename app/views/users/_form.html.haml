@@ -1,0 +1,5 @@
+- semantic_form_for @user do |f|
+  = f.inputs :email, :password, :password_confirmation, :username, :full_name
+  - f.inputs do
+    = f.input :role, :collection => User.roles
+  = f.buttons
