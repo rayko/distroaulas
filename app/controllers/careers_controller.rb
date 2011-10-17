@@ -1,4 +1,6 @@
 class CareersController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @careers = Career.all
   end

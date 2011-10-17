@@ -1,4 +1,6 @@
 class MattersController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @matters = Matter.all
   end

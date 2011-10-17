@@ -1,4 +1,6 @@
 class EquipmentController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @equipment = Equipment.all
   end

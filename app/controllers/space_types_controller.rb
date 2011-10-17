@@ -1,4 +1,6 @@
 class SpaceTypesController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @space_types = SpaceType.all
   end

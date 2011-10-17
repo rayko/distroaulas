@@ -1,0 +1,7 @@
+%div#datetime_event_filter
+  %p
+    - form_tag do
+      Date and Time
+      = select_date @date, :start_year => (Date.today - 5.years).year, :end_year => (Date.today + 5.years).year
+      = submit_tag(value = "Go")
+
