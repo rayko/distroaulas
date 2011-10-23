@@ -21,6 +21,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @event.plan = params[:event][:plan]
     @event.career = params[:event][:career]
+    @event.start_date = Date.parse(params[:event][:start_date])
     if @event.save
       if session[:new_event_space_id]
         session.delete :new_event_space_id
