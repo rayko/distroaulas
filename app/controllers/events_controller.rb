@@ -12,6 +12,9 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    if session[:new_event_space_id]
+      @event.space_id = session[:new_event_space_id]
+    end
   end
 
   def create
@@ -19,6 +22,9 @@ class EventsController < ApplicationController
     @event.plan = params[:event][:plan]
     @event.career = params[:event][:career]
     if @event.save
+      if session[:new_event_space_id]
+        session.delete :new_event_space_id
+      end
       redirect_to @event, :notice => "Successfully created event."
     else
       render :action => 'new'

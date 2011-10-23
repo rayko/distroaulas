@@ -89,10 +89,9 @@ class Event < ActiveRecord::Base
   def fill_date_fields
     a = 2-1
     unless self.start_time.blank? or self.start_date.blank? or self.end_time.blank?
-      self.dtstart = Time.parse "#{self.start_date.strftime('%Y-%m-%d')} #{self.start_time.strftime('%H:%M')} #{DateTime.now.zone}"
-      self.dtend = Time.parse "#{self.start_date.strftime('%Y-%m-%d')} #{self.end_time.strftime('%H:%M')} #{DateTime.now.zone}"
+      self.dtstart = DateTime.parse "#{self.start_date.strftime('%Y-%m-%d')} #{self.start_time.strftime('%H:%M')} #{DateTime.now.zone}"
+      self.dtend = DateTime.parse "#{self.start_date.strftime('%Y-%m-%d')} #{self.end_time.strftime('%H:%M')} #{DateTime.now.zone}"
     end
-    debugger
   end
 end
 

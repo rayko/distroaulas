@@ -3,10 +3,16 @@ class ApplicationController < ActionController::Base
 
   def index
     if params[:date]
-      @date = Date.parse("#{params[:date][:year]}-#{params[:date][:month]}-#{params[:date][:day]}")
+      @datetime = DateTime.parse("#{params[:date][:year]}-#{params[:date][:month]}-#{params[:date][:day]} #{DateTime.now.strftime('%H:%M')} #{DateTime.now.zone}")
     else
-      @date = Date.today
+      @datetime = DateTime.now
     end
+    @free_spaces = Space.free_spaces :before => @datetime, :after => @datetime.beginning_of_day
+  end
+
+  def new_event
+    session[:new_event_space_id] = params[:space]
+    redirect_to new_event_path
   end
 
 end

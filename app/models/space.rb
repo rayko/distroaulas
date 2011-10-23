@@ -23,4 +23,10 @@ class Space < ActiveRecord::Base
     end
     return occurrences.flatten
   end
+
+  def self.free_spaces options={}
+    until_date = options[:before] || Date.today + 5.years
+    after_date = options[:after] || Date.new
+    Space.all.select{|s| s.rical_occurrences(:before => until_date, :after => after_date).empty? }
+  end
 end

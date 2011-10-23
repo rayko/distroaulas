@@ -92,7 +92,7 @@ class WeeklyCalendar::Builder
     end_minutes = ends_at.strftime('%M').to_i + end_hours # 30 + 300 = 330
     difference =  (end_minutes.to_i - start_minutes.to_i) * 1.25 # (330 - 180) = 150 * 1.25 = 187.5
 
-    unless difference < 60
+    unless difference < 12 # original -> difference < 60 but it doesn't allow events of 30 minutes for example
       width = difference - 12
     else
       width = 63 #default width (75px minus padding+border)
