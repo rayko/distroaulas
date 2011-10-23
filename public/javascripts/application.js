@@ -143,3 +143,8 @@ jQuery(function($) {
         };
     });
 });
+
+// Clock
+jQuery(function($) {
+     $("div#clock").clock({"langSet":"es"});
+});
