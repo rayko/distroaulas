@@ -29,5 +29,15 @@ module EventCustomValidations
     end
   end
 
+  class OverlappingValidator < ActiveModel::Validator
+    def validate(record)
+      master_calendar = []
+      Event.all.each do |event|
+        master_calendar << event.to_rical
+      end
+
+    end
+  end
+
 end
 

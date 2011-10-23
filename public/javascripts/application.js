@@ -148,3 +148,32 @@ jQuery(function($) {
 jQuery(function($) {
      $("div#clock").clock({"langSet":"es"});
 });
+
+// Tagbox
+jQuery(function() {
+    $(".rdate-tagbox").tagit();
+    tagit_field = document.getElementById('tagit-new-field');
+    if (tagit_field) {
+        tagit_field.readOnly = true
+    }
+});
+
+jQuery(function() {
+    $(".add_new_rdate").click(function() {
+        $(".rdate-tagbox").tagit('createTag', document.getElementById('rdate_picker').value);
+    });
+});
+
+jQuery(function() {
+    $(".exdate-tagbox").tagit();
+    tagit_field = document.getElementById('tagit-new-field');
+    if (tagit_field) {
+        tagit_field.readOnly = true
+    }
+});
+
+jQuery(function() {
+    $(".add_new_exdate").click(function() {
+        $(".exdate-tagbox").tagit('createTag', document.getElementById('exdate_picker').value);
+    });
+});
