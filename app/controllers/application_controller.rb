@@ -3,7 +3,12 @@ class ApplicationController < ActionController::Base
 
   def index
     if params[:date]
-      @datetime = DateTime.parse("#{params[:date][:year]}-#{params[:date][:month]}-#{params[:date][:day]} #{DateTime.now.strftime('%H:%M')} #{DateTime.now.zone}")
+      if params[:date].blank?
+        date = Date.today
+      else
+        date = Date.parse params[:date]
+      end
+      @datetime = DateTime.parse("#{date.year}-#{date.month}-#{date.day} #{DateTime.now.strftime('%H:%M')} #{DateTime.now.zone}")
     else
       @datetime = DateTime.now
     end

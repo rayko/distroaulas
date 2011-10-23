@@ -87,19 +87,22 @@ jQuery(function($) {
 // Hidde event recurrent fields on form load
 jQuery(function($) {
     $('#new_event').ready(function() {
-        if (document.getElementById('event_recurrent').checked) {
-            document.getElementById('event_count_input').style['display'] = '';
-            document.getElementById('event_freq_input').style['display'] = '';
-            document.getElementById('event_interval_input').style['display'] = '';
-            document.getElementById('event_byday_input').style['display'] = '';
-            document.getElementById('event_until_date_input').style['display'] = '';
-        }
-        else {
-            document.getElementById('event_until_date_input').style['display'] = 'none';
-            document.getElementById('event_count_input').style['display'] = 'none';
-            document.getElementById('event_freq_input').style['display'] = 'none';
-            document.getElementById('event_interval_input').style['display'] = 'none';
-            document.getElementById('event_byday_input').style['display'] = 'none';
+        recurrent_options = document.getElementById('event_recurrent');
+        if (recurrent_options) {
+            if (document.getElementById('event_recurrent').checked) {
+                document.getElementById('event_count_input').style['display'] = '';
+                document.getElementById('event_freq_input').style['display'] = '';
+                document.getElementById('event_interval_input').style['display'] = '';
+                document.getElementById('event_byday_input').style['display'] = '';
+                document.getElementById('event_until_date_input').style['display'] = '';
+            }
+            else {
+                document.getElementById('event_until_date_input').style['display'] = 'none';
+                document.getElementById('event_count_input').style['display'] = 'none';
+                document.getElementById('event_freq_input').style['display'] = 'none';
+                document.getElementById('event_interval_input').style['display'] = 'none';
+                document.getElementById('event_byday_input').style['display'] = 'none';
+            };
         };
     });
 });
@@ -127,4 +130,16 @@ jQuery(function($) {
 // Datepicker
 $(document).ready(function(){
   $('input.ui-date-picker').datepicker();
+});
+
+// Filter toggle button to hide/show filter options on events view
+jQuery(function($) {
+    $("input#toggle_filter").click(function () {
+        if (this.checked) {
+            $('div#datetime_event_filter').show("fold", {}, 1000);
+        }
+        else {
+            $('div#datetime_event_filter').hide("fold", {}, 1000);
+        };
+    });
 });
