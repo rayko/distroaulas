@@ -1,12 +1,13 @@
 - title "Spaces"
 
-%table
+%table.index
   %tr
     %th Name
     %th Short name
     %th Description
     %th Capacity
     %th Spacetype
+    %th Actions
   - for space in @spaces
     %tr
       %td= space.name
@@ -14,8 +15,9 @@
       %td= space.description
       %td= space.capacity
       %td= space.space_type.name
-      %td= link_to 'Show', space
-      %td= link_to 'Edit', edit_space_path(space)
-      %td= link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to 'Show', space
+        = link_to 'Edit', edit_space_path(space)
+        = link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "New Space", new_space_path

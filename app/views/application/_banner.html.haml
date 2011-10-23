@@ -1,6 +1,11 @@
 %h1 Distroaulas
+
 %div#user_info
-  = current_user.email
+  - if user_signed_in?
+    Current user:
+    = current_user.email
+  - else
+    Login
 
 %div#clock
 

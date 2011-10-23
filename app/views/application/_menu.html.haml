@@ -19,16 +19,13 @@
         %a{:href => plans_path} Plans
         %a{:href => matters_path} Matters
     %li
-      %a{:href => calendars_path, :onmouseover => "mopen('calendars_menu')"} Calendars
-      %div{:id => "calendars_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-        %a{:href => new_calendar_path} New Calendar
-    %li
       %a{:href => equipment_index_path, :onmouseover => "mopen('equipment_menu')"} Equipment
       %div{:id => "equipment_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
         %a{:href => new_equipment_path} New Equipment
     %li
       %a{:href => "#", :onmouseover => "mopen('admin_menu')"} TODO Admin
       %div{:id => "admin_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+        %a{:href => calendars_path} Calendars
         %a{:href => users_path} Users
         %a{:href => "#"} Statics
         %a{:href => "#"} Personal Data

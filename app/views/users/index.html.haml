@@ -1,17 +1,22 @@
 - title "Users"
 
-%table
+%table.index
   %tr
-    %th Name
+    %th Username
+    %th Full Name
     %th e-Mail
     %th Role
+    %th Actions
   - for user in @users
     %tr
       %td= user.username
+      %td= user.full_name
       %td= user.email
       %td= user.role
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to 'Show', user
+        = link_to 'Edit', edit_user_path(user)
+        = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Reset Pass', '#TODO'
 
 %p= link_to "New User", new_user_path

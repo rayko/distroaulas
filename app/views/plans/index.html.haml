@@ -1,13 +1,15 @@
 - title "Plans"
 
-%table
+%table.index
   %tr
     %th Name
+    %th Actions
   - for plan in @plans
     %tr
       %td= plan.name
-      %td= link_to 'Show', plan
-      %td= link_to 'Edit', edit_plan_path(plan)
-      %td= link_to 'Destroy', plan, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to 'Show', plan
+        = link_to 'Edit', edit_plan_path(plan)
+        = link_to 'Destroy', plan, :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "New Plan", new_plan_path

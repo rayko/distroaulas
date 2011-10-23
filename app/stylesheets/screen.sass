@@ -11,17 +11,44 @@
 @import formtastic
 @import formtastic_changes
 
+body
+  width: 950px
+
 #banner
   margin: 0
   padding: 0
   width: 100%
   text-align: center
   #clock
-    margin: 0
-    padding: 0
-    background-color: red
+    margin-right: 5px
     float: right
     position: relative
   #user_info
-    background-color: green
+    margin-left: 5px
     float: left
+
+#content
+  padding: 15px
+  table.index
+    text-align: center
+    span
+      float: left
+    width: 100%
+    border: 1px dotted
+    border-collapse: collapse
+    th
+      border: 1px dotted
+      background-color: #4b7399
+      color: white
+    td
+      border: 1px dotted
+    tr
+      &:hover
+        background-color: #FDFF87
+
+#footer
+  margin: auto
+  text-align: center
+  width: 70%
+  border-top: 1px solid
+  padding-bottom: 15px

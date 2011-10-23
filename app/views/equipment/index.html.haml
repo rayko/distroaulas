@@ -1,15 +1,17 @@
 - title "Equipment"
 
-%table
+%table.index
   %tr
     %th Name
     %th Description
+    %th Actions
   - for equipment in @equipment
     %tr
       %td= equipment.name
       %td= equipment.description
-      %td= link_to 'Show', equipment
-      %td= link_to 'Edit', edit_equipment_path(equipment)
-      %td= link_to 'Destroy', equipment, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to 'Show', equipment
+        = link_to 'Edit', edit_equipment_path(equipment)
+        = link_to 'Destroy', equipment, :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "New Equipment", new_equipment_path
