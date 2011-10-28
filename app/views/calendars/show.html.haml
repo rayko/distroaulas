@@ -21,9 +21,7 @@
 
 
 %p
-  = link_to "Edit", edit_calendar_path(@calendar)
-  |
-  = link_to "Destroy", @calendar, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", calendars_path
+  = link_to "Edit", edit_calendar_path(@calendar), :class => "ui-corner-all button"
+  = link_to "Destroy", @calendar, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button"
+  = link_to "View All", calendars_path, :class => "ui-corner-all button"
 

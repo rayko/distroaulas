@@ -21,11 +21,11 @@
   %strong Occurrences
   %div.calendar
     %div.calendar_title
-      = link_to '<', :month => (@date.beginning_of_month - 1).strftime("01-%m-%Y")
-      = @date.strftime "%B %Y"
-      = link_to '>', :month => (@date.end_of_month + 1).strftime("01-%m-%Y")
-      %br
-      = link_to 'Current Month'
+      %p
+        = link_to '<', {:month => (@date.beginning_of_month - 1).strftime("01-%m-%Y")}, :class => "ui-corner-all button"
+        = @date.strftime "%B %Y"
+        = link_to '>', {:month => (@date.end_of_month + 1).strftime("01-%m-%Y")}, :class => "ui-corner-all button"
+      %p= link_to 'Current Month', {}, :class => "ui-corner-all button"
     - calendar_for @event.to_rical.occurrences, :year => @date.year, :month => @date.month do |occurrence|
       = occurrence.head 'sun', 'mon', 'tus', 'wen', 'thu', 'fry', 'sat'
       - occurrence.day(:day_method => :dtstart) do |day, occurrences|
@@ -34,8 +34,6 @@
           = image_tag "CheckMark.png"
 
 %p
-  = link_to "Edit", edit_event_path(@event)
-  |
-  = link_to "Destroy", @event, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", events_path
+  = link_to "Edit", edit_event_path(@event), :class => "ui-corner-all button"
+  = link_to "Destroy", @event, :confirm => 'Are you sure?', :method => :delet, :class => "ui-corner-all button"
+  = link_to "View All", events_path, :class => "ui-corner-all button"

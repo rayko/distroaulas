@@ -8,8 +8,6 @@
   = @equipment.description
 
 %p
-  = link_to "Edit", edit_equipment_path(@equipment)
-  |
-  = link_to "Destroy", @equipment, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", equipment_index_path
+  = link_to "Edit", edit_equipment_path(@equipment), :class => "ui-corner-all button"
+  = link_to "Destroy", @equipment, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button"
+  = link_to "View All", equipment_index_path, :class => "ui-corner-all button"
