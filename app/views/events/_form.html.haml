@@ -2,7 +2,9 @@
   - f.inputs do
     = f.input :calendar
     = f.input :plan, :as => :select, :collection => Plan.all
+    = image_tag 'loading.gif', :class => "loading-icon-small career-loading"
     = f.input :career, :as => :select, :collection => Career.all
+    = image_tag 'loading.gif', :class => "loading-icon-small matter-loading"
     = f.input :matter, :collection => Matter.all
     = f.input :name
     = f.input :start_date, :as => :date_picker

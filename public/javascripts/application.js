@@ -10,7 +10,13 @@ jQuery(function($) {
                 url: "/ajax_careers_by_plan/" + this.value, //I think, it could be something else
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
+                beforeSend: function(xhr) {
+                    $('.career-loading').show();
+                    $('.matter-loading').show();
+                },
                 success: function(data) {
+                    $('.career-loading').hide();
+                    $('.matter-loading').hide();
                     var i = 0;
 
                     // Get the element to update
@@ -51,7 +57,11 @@ jQuery(function($) {
                 url: "/ajax_get_matters_by_career/" + this.value,
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
+                beforeSend: function(xhr){
+                    $('.matter-loading').show();
+                },
                 success: function(data) {
+                    $('.matter-loading').hide();
                     var i = 0;
 
                     // Get the element to update
@@ -152,10 +162,20 @@ jQuery(function($) {
 // Tagbox
 jQuery(function() {
     $(".rdate-tagbox").tagit();
-    tagit_field = document.getElementById('tagit-new-field');
-    if (tagit_field) {
-        tagit_field.readOnly = true
-    }
+});
+
+jQuery(function() {
+    $(".exdate-tagbox").tagit();
+});
+
+// Makes the tagboxes read only
+$(document).ready(function() {
+    tagit_fields = $('input.tagit-new-field')
+    if (tagit_fields.length > 0) {
+        for (i = 0; i < tagit_fields.length; i++) {
+            tagit_fields[i].readOnly = true
+        };
+    };
 });
 
 jQuery(function() {
@@ -164,13 +184,6 @@ jQuery(function() {
     });
 });
 
-jQuery(function() {
-    $(".exdate-tagbox").tagit();
-    tagit_field = document.getElementById('tagit-new-field');
-    if (tagit_field) {
-        tagit_field.readOnly = true
-    }
-});
 
 jQuery(function() {
     $(".add_new_exdate").click(function() {

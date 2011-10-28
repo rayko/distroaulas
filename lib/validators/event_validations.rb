@@ -39,5 +39,15 @@ module EventCustomValidations
     end
   end
 
+  class UntilDateValidator < ActiveModel::Validator
+    def validate(record)
+      if record.recurrent
+        if record.until_date.blank?
+          record.errors[:until_date] << "Can't be blank"
+        end
+      end
+    end
+  end
+
 end
 
