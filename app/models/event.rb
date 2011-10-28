@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
   include EventCustomValidations
 
   validates_with PeriodValidator
-  validates_with StartDateValidator
+  validates_with StartDateValidator, :on => :create
   validates_with UntilDateValidator
 
   require 'reccurrence_rule'
@@ -40,8 +40,12 @@ class Event < ActiveRecord::Base
 
     # Custom value added to RiCal Event Component
     event.space = self.space
-    event.add_rdates self.rdate.split(',').collect{ |date| time_to_rfc(DateTime.parse("#{date} #{self.dtstart.strftime('%H:%M')} #{DateTime.now.zone}"))}
-    event.add_exdates self.exdate.split(',').collect{ |date| time_to_rfc(DateTime.parse("#{date} #{self.dtstart.strftime('%H:%M')} #{DateTime.now.zone}"))}
+    if self.rdate
+      event.add_rdates self.rdate.split(',').collect{ |date| time_to_rfc(DateTime.parse("#{date} #{self.dtstart.strftime('%H:%M')} #{DateTime.now.zone}"))}
+    end
+    if self.exdate
+      event.add_exdates self.exdate.split(',').collect{ |date| time_to_rfc(DateTime.parse("#{date} #{self.dtstart.strftime('%H:%M')} #{DateTime.now.zone}"))}
+    end
     if self.recurrent
       ReccurrenceRule.new(self.reccurrence_values).load_rule(event)
     end
