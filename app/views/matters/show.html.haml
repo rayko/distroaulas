@@ -13,6 +13,17 @@
   %strong Year:
   = @matter.year
 
+%hr
+
+%p
+  %strong Occurrences for this matter
+  - if @matter.occurrences.empty?
+    %br
+    %i No occurrences for this matter yet
+  - else
+    = render :partial => 'occurrences', :locals => {:occurrences => @matter.occurrences}
+
+
 %p
   = link_to "Edit", edit_matter_path(@matter), :class => "ui-corner-all button" if can? :edit, @matter
   = link_to "Destroy", @matter, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @matter
