@@ -4,6 +4,13 @@
   %strong Name:
   = @plan.name
 
+%hr
+
+%p
+  %strong Careers on this plan
+
+= render :partial => 'careers/list', :locals => {:careers => @plan.careers}
+
 %p
   = link_to "Edit", edit_plan_path(@plan), :class => "ui-corner-all button" if can? :edit, @plan
   = link_to "Destroy", @plan, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @plan

@@ -1,21 +1,5 @@
 - title "Matters"
 
-%table.index
-  %tr
-    %th Name
-    %th Short name
-    %th Career
-    %th Year
-    %th Actions
-  - for matter in @matters
-    %tr
-      %td= matter.name
-      %td= matter.short_name
-      %td= matter.career.name
-      %td= matter.year
-      %td
-        = link_to 'Show', matter if can? :read, matter
-        = link_to 'Edit', edit_matter_path(matter) if can? :edit, matter
-        = link_to 'Destroy', matter, :confirm => 'Are you sure?', :method => :delete if can? :destroy, matter
+= render :partial => 'list', :locals => {:matters => @matters}
 
 %p= link_to "New Matter", new_matter_path, :class => "ui-corner-all button" if can? :create, Matter

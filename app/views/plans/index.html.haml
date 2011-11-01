@@ -1,15 +1,5 @@
 - title "Plans"
 
-%table.index
-  %tr
-    %th Name
-    %th Actions
-  - for plan in @plans
-    %tr
-      %td= plan.name
-      %td
-        = link_to 'Show', plan if can? :read, plan
-        = link_to 'Edit', edit_plan_path(plan) if can? :edit, plan
-        = link_to 'Destroy', plan, :confirm => 'Are you sure?', :method => :delete if can? :destroy, plan
+= render :partial => 'list', :locals => {:plans => @plans}
 
 %p= link_to "New Plan", new_plan_path, :class => "ui-corner-all button" if can? :create, Plan

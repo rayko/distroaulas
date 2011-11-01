@@ -7,6 +7,12 @@
   %strong Short Name:
   = @career.short_name
 
+%hr
+
+%p
+  %strong Matters in this career
+  = render :partial => 'matters/list', :locals => {:matters => @career.matters}
+
 %p
   = link_to "Edit", edit_career_path(@career), :class => "ui-corner-all button" if can? :edit, @career
   = link_to "Destroy", @career, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @career
