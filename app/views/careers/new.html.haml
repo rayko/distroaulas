@@ -2,4 +2,4 @@
 
 = render 'form'
 
-%p= link_to "Back to List", careers_path, :class => "ui-corner-all button"
+%p= link_to "Back to List", careers_path, :class => "ui-corner-all button" if can? :read, Career

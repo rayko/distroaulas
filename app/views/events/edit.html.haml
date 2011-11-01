@@ -3,5 +3,5 @@
 = render 'form'
 
 %p
-  = link_to "Show", @event, :class => "ui-corner-all button"
-  = link_to "View All", events_path, :class => "ui-corner-all button"
+  = link_to "Show", @event, :class => "ui-corner-all button" if can? :read, @event
+  = link_to "View All", events_path, :class => "ui-corner-all button" if can? :read, Event

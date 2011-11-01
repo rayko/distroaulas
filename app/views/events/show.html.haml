@@ -34,6 +34,6 @@
           = image_tag "CheckMark.png"
 
 %p
-  = link_to "Edit", edit_event_path(@event), :class => "ui-corner-all button"
-  = link_to "Destroy", @event, :confirm => 'Are you sure?', :method => :delet, :class => "ui-corner-all button"
-  = link_to "View All", events_path, :class => "ui-corner-all button"
+  = link_to "Edit", edit_event_path(@event), :class => "ui-corner-all button" if can? :edit, @event
+  = link_to "Destroy", @event, :confirm => 'Are you sure?', :method => :delet, :class => "ui-corner-all button" if can? :destroy, @event
+  = link_to "View All", events_path, :class => "ui-corner-all button" if can? :read, Event

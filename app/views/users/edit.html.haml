@@ -7,5 +7,5 @@
   = f.buttons
 
 %p
-  = link_to "Show", @user, :class => "ui-corner-all button"
-  = link_to "View All", users_path, :class => "ui-corner-all button"
+  = link_to "Show", @user, :class => "ui-corner-all button" if can? :read, @user
+  = link_to "View All", users_path, :class => "ui-corner-all button" if can? :read, Users

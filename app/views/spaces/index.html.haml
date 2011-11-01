@@ -16,8 +16,8 @@
       %td= space.capacity
       %td= space.space_type.name
       %td
-        = link_to 'Show', space
-        = link_to 'Edit', edit_space_path(space)
-        = link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Show', space if can? :read, space
+        = link_to 'Edit', edit_space_path(space) if can? :edit, space
+        = link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete if can? :destroy, space
 
-%p= link_to "New Space", new_space_path, :class => "ui-corner-all button"
+%p= link_to "New Space", new_space_path, :class => "ui-corner-all button" if can? :create, Space

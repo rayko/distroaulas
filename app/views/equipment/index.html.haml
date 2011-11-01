@@ -10,8 +10,8 @@
       %td= equipment.name
       %td= equipment.description
       %td
-        = link_to 'Show', equipment
-        = link_to 'Edit', edit_equipment_path(equipment)
-        = link_to 'Destroy', equipment, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Show', equipment if can? :read, equipment
+        = link_to 'Edit', edit_equipment_path(equipment) if can? :edit, equipment
+        = link_to 'Destroy', equipment, :confirm => 'Are you sure?', :method => :delete if can? :destroy, equipment
 
-%p= link_to "New Equipment", new_equipment_path, :class => "ui-corner-all button"
+%p= link_to "New Equipment", new_equipment_path, :class => "ui-corner-all button" if can? :create, Equipment

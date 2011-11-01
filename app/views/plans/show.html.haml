@@ -5,6 +5,6 @@
   = @plan.name
 
 %p
-  = link_to "Edit", edit_plan_path(@plan), :class => "ui-corner-all button"
-  = link_to "Destroy", @plan, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button"
-  = link_to "View All", plans_path, :class => "ui-corner-all button"
+  = link_to "Edit", edit_plan_path(@plan), :class => "ui-corner-all button" if can? :edit, @plan
+  = link_to "Destroy", @plan, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @plan
+  = link_to "View All", plans_path, :class => "ui-corner-all button" if can? :read, Plan

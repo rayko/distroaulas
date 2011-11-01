@@ -16,8 +16,8 @@
       %td= event.dtend.strftime '%H:%M'
       %td= event.calendar.name
       %td
-        = link_to 'Show', event
-        = link_to 'Edit', edit_event_path(event)
-        = link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Show', event if can? :read, event
+        = link_to 'Edit', edit_event_path(event) if can? :edit, event
+        = link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete if can? :destroy, event
 
-%p= link_to "New Event", new_event_path, :class => "ui-corner-all button"
+%p= link_to "New Event", new_event_path, :class => "ui-corner-all button" if can? :create, Event

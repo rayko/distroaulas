@@ -3,5 +3,5 @@
 = render 'form'
 
 %p
-  = link_to "Show", @career, :class => "ui-corner-all button"
-  = link_to "View All", careers_path, :class => "ui-corner-all button"
+  = link_to "Show", @career, :class => "ui-corner-all button" if can? :read, @career
+  = link_to "View All", careers_path, :class => "ui-corner-all button" if can? :read, Career

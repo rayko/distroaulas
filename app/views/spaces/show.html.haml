@@ -17,6 +17,6 @@
   = @space.space_type.name
 
 %p
-  = link_to "Edit", edit_space_path(@space), :class => "ui-corner-all button"
-  = link_to "Destroy", @space, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button"
-  = link_to "View All", spaces_path, :class => "ui-corner-all button"
+  = link_to "Edit", edit_space_path(@space), :class => "ui-corner-all button" if can? :edit, @space
+  = link_to "Destroy", @space, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @space
+  = link_to "View All", spaces_path, :class => "ui-corner-all button" if can? :read, Space

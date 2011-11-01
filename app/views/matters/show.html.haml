@@ -14,6 +14,6 @@
   = @matter.year
 
 %p
-  = link_to "Edit", edit_matter_path(@matter), :class => "ui-corner-all button"
-  = link_to "Destroy", @matter, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button"
-  = link_to "View All", matters_path, :class => "ui-corner-all button"
+  = link_to "Edit", edit_matter_path(@matter), :class => "ui-corner-all button" if can? :edit, @matter
+  = link_to "Destroy", @matter, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @matter
+  = link_to "View All", matters_path, :class => "ui-corner-all button" if can? :read, Matter
