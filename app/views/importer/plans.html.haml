@@ -1,0 +1,10 @@
+- title 'Import Plans'
+
+%p
+  = link_to 'Download Template', '/import_templates/plans.xls', :target => 'blank'
+
+- semantic_form_for :plans, :url => importer_upload_plans_path, :html => {:multipart => true} do |f|
+  - f.inputs do
+    = f.input :file, :as => :file, :required => true
+  - f.buttons do
+    = f.commit_button 'Upload'

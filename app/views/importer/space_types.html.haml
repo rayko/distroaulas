@@ -1,0 +1,10 @@
+- title 'Import Space Types'
+
+%p
+  = link_to 'Download Template', '/import_templates/space_types.xls', :target => 'blank'
+
+- semantic_form_for :space_types, :url => importer_upload_space_types_path, :html => {:multipart => true} do |f|
+  - f.inputs do
+    = f.input :file, :as => :file, :required => true
+  - f.buttons do
+    = f.commit_button 'Upload'

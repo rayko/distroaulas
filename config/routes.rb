@@ -5,6 +5,21 @@ DistroaulasRails3::Application.routes.draw do
     put 'update_pass'
   end
 
+  scope '/importer' do
+    get '/' => 'importer#index', :as => 'importer_index'
+    get '/space_types' => 'importer#space_types', :as => 'import_space_types'
+    get '/spaces' => 'importer#spaces', :as => 'import_spaces'
+    get '/plans' => 'importer#plans', :as => 'import_plans'
+    get '/careers' => 'importer#careers', :as => 'import_careers'
+    get '/matters' => 'importer#matters', :as => 'import_matters'
+
+    get '/importer/result' => 'importer#result', :as => 'import_result'
+
+    post '/space_types' => 'importer#upload_space_types', :as => 'importer_upload_space_types'
+    post '/spaces' => 'importer#upload_spaces', :as => 'importer_upload_spaces'
+    post '/plans' => 'importer#upload_plans', :as => 'importer_upload_plans'
+  end
+
   resources :equipment
 
   resources :calendars

@@ -15,7 +15,7 @@ gem "haml"
 gem "devise"
 gem "cancan"
 gem 'jquery-rails', '>= 1.0.12'
-
+gem 'spreadsheet'
 
 # Use unicorn as the web server
 # gem 'unicorn'
