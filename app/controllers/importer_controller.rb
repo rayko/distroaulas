@@ -37,6 +37,18 @@ class ImporterController < ApplicationController
     render 'result'
   end
 
+  def upload_careers
+    flash[:notice] = "File uploaded successfuly."
+    @import_results = Career.import_xls params[:careers][:file]
+    render 'result'
+  end
+
+  def upload_matters
+    flash[:notice] = "File uploaded successfuly."
+    @import_results = Matter.import_xls params[:matters][:file]
+    render 'result'
+  end
+
   def result
 
   end

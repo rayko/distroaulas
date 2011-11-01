@@ -18,6 +18,8 @@ DistroaulasRails3::Application.routes.draw do
     post '/space_types' => 'importer#upload_space_types', :as => 'importer_upload_space_types'
     post '/spaces' => 'importer#upload_spaces', :as => 'importer_upload_spaces'
     post '/plans' => 'importer#upload_plans', :as => 'importer_upload_plans'
+    post '/careers' => 'importer#upload_careers', :as => 'importer_upload_careers'
+    post '/matters' => 'importer#upload_matters', :as => 'importer_upload_matters'
   end
 
   resources :equipment
