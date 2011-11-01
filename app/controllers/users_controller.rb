@@ -10,6 +10,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def reset_pass
+    @user = User.find(params[:user_id])
+    authorize! :reset_pass, @user
+  end
+
+  def update_pass
+    @user = User.find(params[:user_id])
+    if @user.update_attributes(params[:user])
+      redirect_to users_path, :notice  => "Successfully updated user."
+    else
+      render :action => 'reset_pass'
+    end
+  end
+
   def show
     @user = User.find(params[:id])
   end

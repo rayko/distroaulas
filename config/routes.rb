@@ -1,6 +1,9 @@
 DistroaulasRails3::Application.routes.draw do
   devise_for :users, :path_prefix => 'd'
-  resources :users
+  resources :users do
+    get 'reset_pass'
+    put 'update_pass'
+  end
 
   resources :equipment
 

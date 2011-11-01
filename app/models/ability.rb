@@ -12,6 +12,8 @@ class Ability
       can :manage, [Calendar, Career, Equipment, Event, Matter, Plan, Space, SpaceType]
       can :read, User
       can :edit, User, :id => user.id
+      can :reset_pass, User, :id => user.id
+      can :update_pass, User, :id => user.id
     end
     if user.role == 'user'
       can :manage, User, :id => user.id
