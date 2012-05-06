@@ -1,6 +1,13 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+// Auto fill responsable field on event from matter field
+jQuery(function($) {
+    $("#event_matter_id").change(function() {
+        // document.getElementById("event_responsable").value = "something"
+    });
+});
+
 // Ajax update for event career field
 jQuery(function($) {
     $("#event_plan").change(function() {

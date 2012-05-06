@@ -1,6 +1,6 @@
 class Matter < ActiveRecord::Base
   attr_accessible :name, :short_name, :career_id, :year, :career, :events,
-                  :event_ids
+                  :event_ids, :responsable
 
   belongs_to :career
 
@@ -18,7 +18,7 @@ class Matter < ActiveRecord::Base
   end
 
   # column order
-  # 0-name 1-short_name 2-year 3-career
+  # 0-name 1-short_name 2-year 3-career 4-responsable
   def self.import_xls file=nil
     result = []
     if file
@@ -35,7 +35,8 @@ class Matter < ActiveRecord::Base
               matter = Matter.new :name => matters.row(row_index)[0].strip,
                                   :short_name => matters.row(row_index)[1],
                                   :career => career,
-                                  :year => matters.row(row_index)[2]
+                                  :year => matters.row(row_index)[2],
+                                  :responsable => matters.row(row_index)[4]
 
               if matter.save!
                 result << "#{matters.row(row_index)[0]}... Saved!"

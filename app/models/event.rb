@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   attr_accessible :name, :matter, :matter_id, :space, :space_id, :calendar,
                   :calendar_id, :dtstart, :dtend, :exdate, :rdate, :recurrent,
                   :freq, :interval, :until_date, :byday, :count, :plan, :career,
-                  :start_date, :start_time, :end_time
+                  :start_date, :start_time, :end_time, :responsable
 
   # Virtual attributes for easy creation
   attr_accessor :plan, :career
