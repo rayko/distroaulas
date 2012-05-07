@@ -1,8 +1,3 @@
-%h1 Index
-
-- form_tag do
-  = text_field_tag 'lol', '', :class => 'tagbox'
-
 = render :partial => 'datetime_event_filter'
 = render :partial => 'free_spaces', :locals => {:spaces => @free_spaces}
 
