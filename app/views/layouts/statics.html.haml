@@ -1,0 +1,38 @@
+!!!
+%html
+
+  %head
+    %title
+      = yield(:title) || "Untitled"
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag "screen", "jquery-ui-1.8.16.custom", "formtastic", "formtastic_changes", "weekly", "drop_menu", "jquery.tagit"
+    = javascript_include_tag "jquery-1.6.2.min", "jquery-ui-1.8.16.custom.min", "jquery.datepick-es", "application", "rails", "jqclock_201", "tag-it"
+    // = javascript_include_tag :defaults
+    = javascript_include_tag "drop_menu.js"
+
+    = csrf_meta_tag
+    = yield(:head)
+
+  %body
+
+    #container
+      #banner
+        = render :partial => "application/banner"
+      #menu
+        = render :partial => "application/menu"
+      #content
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
+
+        - if show_title?
+          %h1= yield(:title)
+        %div#docs-list
+          = render :partial => 'docs'
+
+        %div#doc-content
+          = yield
+
+      #footer
+        Footer info - Desarrollador - Diseño
+        %br
+        Y otras frutas

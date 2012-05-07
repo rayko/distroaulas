@@ -1,0 +1,90 @@
+%h1 Eventos
+
+%h3 Introduccion
+%p
+  La informacion mas imporante que maneja este sistema esta definido como eventos. Estos
+  objetos representan la ocurrencia temporal de las actividades registradas, dando un
+  inicio y fin a la actividad asociada. Este sistema esta basado en un manejador de calendarios
+  llamado RiCal que permite generar objetos de este tipo asi como tambien operar con dichos objetos.
+  RiCal responde a los estandares generales de iCalendar, que definen todas las reglas para los
+  calendarios a nivel mundial. Sin embargo, muchas funcionalidades no se han implementado para reducir
+  la complejidad y unir la problematica de calendarios con espacios fisicos. Dado que el sistema esta
+  basado en RiCal, los estandares de iCalendar se aplican a muchos programas que manejan calendarios,
+  posibilitando el traslado de la informacion en formato iCalendar a diferentes programas o dispositivos
+  que lo soporten. A continuacion se detallas diferentes tipos de
+  eventos y detalles sobre los atributos de este objeto.
+
+%h3 Tipos de Eventos
+%p
+  El motor del sistema manejador de calendarios llamado RiCal que define diversos tipos
+  de eventos. Para Distroaulas se definieron dos tipos de eventos principales:
+  %ul
+    %li
+      Eventos simples: estos eventos ocurren una vez y llevan definido un comienzo y un fin.
+    %li
+      Eventos recurrentes: se repiten segun una regla que especifica dias, horas, frecuencia
+      e intervalos en los que el evento se repite.
+
+  %br
+  Los eventos recurrentes son los que predominan el sistema, ya que las materias tienen recurrencia
+  normalmente. Las reglas de recurrencia definen el modo en que el evento se repite, asi como tambien
+  cuando termina la repeticion de eventos. El formulario de carga de eventos le permitira crear eventos
+  recurrentes. Muchas opciones disponibles en RiCal no se han implementado en Distroaulas debido a que
+  añaden complejidad considerable, no solo para los usuarios sino para mantener integridad en los datos.
+
+%h3 Reglas de Recurrencia
+%p
+  Las reglas de recurrencia establecen el comportamiento repetitivo de los eventos. Un evento podra
+  tener solo una regla de recurrencia. Los parametros que definen la recurrencia son:
+  %ul
+    %li
+      Fecha de finalizacion: No confunda este dato con el fin del evento, esta fecha es parte de la
+      regla de recurrencia y especifica cuando el evento deja de repetirse. Luego de esta fecha, no
+      habran mas ocurrencias de ese evento.
+    %li
+      Frecuencia: especifica que tan seguido se repite el evento. Los valores disponibles para este
+      valor son: diario, semanal, mensual y anual. Los eventos diarios se repiten todos los dias, los
+      semanales una vez a la semana y similar con los mensuales y anuales.
+    %li
+      Intervalo: dada la frecuencia, el intervalo especifica cuantas unidades de frecuencia ignorar.
+      Si se elije una frecuencia semanal con un intervalo 1, el evento se repetira cada dos semanas,
+      aqui el intervalo define que se saltea una semana antes de la proxima ocurrencia. Se puede elejir
+      hasta valor 5 para el intervalo.
+    %li
+      Dias: este dato especifica los dias que son validos para la ocurrencia. Tenga en cuenta que
+      al especificar este valor, algunos intervalos puden comportarse de manera diferente a la
+      esperada. En un evento semanal que se repite cada semana, si agrega mas dias a este dato, el
+      evento se repetira mas veces en una semana. Esto se debe a que las reglas de recurrencia para
+      RiCal son muy flexibles, permitiendo que los eventos se repitan en periodos no regulares y a
+      distintas horas.
+    %li
+      Cantidad: especifica cuantas veces repetir el evento. Si se deja en blanco se repetira hasta
+      la fecha de finalizacion.
+
+  Existen muchos mas datos disponibles en RiCal para definir reglas de recurrencia, pero para evitar
+  complejizar el sistema mucho mas, se han obviado. Para este tipo de eventos se ha establecido por
+  conveniencia, que los eventos se repiten a la misma hora definida por el inicio y fin de evento, y
+  para el caso de los semanales, mensuales y anuales, se repiten el mismo dia, excepto que se haya
+  especificado el dato Dias.
+
+%h3 Excepciones
+%p
+  En distroaulas se definen como excepciones, las ocurrencias especiales de los eventos que no fueron
+  definidas en el evento original. Hay dos tipos, excepcion de ocurrencia, u ocurrencia agregada. La
+  excepcion de ocurrencia es la no ocurrencia del evento, mientras que la ocurrencia agregada es la
+  ocurrencia del evento. Sonara complicado, pero el siguiente exemplo deberia aclarar su cometido:
+  Suponga que tiene un evento semanal un dia martes de 15 a 16. Este evento es recurrente y se repite
+  cada semana los martes a la misma hora. Suponga ahora que el dia jueves, se le informa de que la
+  semana proxima, el evento se cancela. En vez de eliminar el evento y crear uno nuevo, se agrega una
+  excepcion de ocurrencia. La semana proxima, este evento no se va a repetir, pero la siguiente si,
+  continuando la ejecucion de la regla de ocurrencia (se repetira las siguientes semanas). Ahora suponga
+  que ese mismo jueves, ademas de que el martes proximo se cancela la actividad, le informan de que el
+  miercoles posterior, se podra realizar para no perder la semana. En este caso, ademas de la excepcion
+  de ocurrencia para el martes proximo, se agrega una ocurrencia agregada. Esto quiere decir que el miercoles
+  proximo este evento ocurrira, pero en la semana siguiente, ocurrira el martes como se definio en la
+  regla de recurrencia.
+  %br
+  Tenga en cuenta que estas excepciones tienen prioridad sobre la regla de recurrencia. Con estos dos datos
+  puede agregar o quitar ocurrencias definidas por la regla de recurrencia, a fin de evitar crear eventos
+  nuevos. Distroaulas define que para estos datos, asi como para la regla de recurrencia, se repiten
+  a la misma hora.

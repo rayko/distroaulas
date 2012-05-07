@@ -5,7 +5,7 @@
 
 %div#weekly-view
   %div.weekly-header
-    = weekly_calendar([], :date => @datetime, :include_24_hours => false, :only_header => true, :main_title => @datetime.strftime("%d-%M-%Y")) do |w|
+    = weekly_calendar([], :date => @datetime, :include_24_hours => false, :only_header => true, :main_title => @datetime.strftime("%d-%m-%Y")) do |w|
       = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
         =  link_to event.name, event_path(event.id)
 
