@@ -4,7 +4,21 @@
 // Auto fill responsable field on event from matter field
 jQuery(function($) {
     $("#event_matter_id").change(function() {
-        // document.getElementById("event_responsable").value = "something"
+        responsable_field = document.getElementById("event_responsable")
+        $.ajax({
+            url: "/matters/" + document.getElementById("event_matter_id").value,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            beforeSend: function(xhr) {
+                $('.responsable-loading').show();
+                responsable_field.disabled = true;
+            },
+            success: function(data) {
+                $('.responsable-loading').hide();
+                responsable_field.disabled = false;
+                document.getElementById("event_responsable").value = data["matter"]["responsable"]
+            },
+        });
     });
 });
 

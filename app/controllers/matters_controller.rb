@@ -8,6 +8,11 @@ class MattersController < ApplicationController
 
   def show
     @matter = Matter.find(params[:id])
+    respond_to do |format|
+      # format.html
+      # format.xml  { render :xml => @matter }
+      format.json { render :json => @matter.to_json, :status => 200 }
+    end
   end
 
   def new
