@@ -7,6 +7,14 @@ class SpacesController < ApplicationController
   end
 
   def show
+    if params[:date]
+      @date = Date.parse params[:date]
+    else
+      @date = Date.today
+    end
+    until @date.monday?
+      @date -= 1.day
+    end
     @space = Space.find(params[:id])
   end
 
