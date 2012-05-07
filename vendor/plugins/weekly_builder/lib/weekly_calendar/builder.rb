@@ -1,20 +1,26 @@
 class WeeklyCalendar::Builder
   include ::ActionView::Helpers::TagHelper
 
-  def initialize(objects, template, options, start_date, end_date, row_title)
+  def initialize(objects, template, options, start_date, end_date, row_title, disable_day_name, main_title)
     raise ArgumentError, "WeeklyBuilder expects an Array but found a #{objects.inspect}" unless objects.is_a? Array
-    @objects, @template, @options, @start_date, @end_date, @row_title = objects, template, options, start_date, end_date, row_title
+    @objects, @template, @options, @start_date, @end_date, @row_title, @disable_day_name, @main_title = objects, template, options, start_date, end_date, row_title, disable_day_name, main_title
   end
 
   def days
     concat(tag("div", :class => "days"))
-      concat(content_tag("div", 'Weekly View', :class => "placeholder"))
+    if @main_title
+      concat(content_tag("div", @main_title, :class => "placeholder"))
+    else
+      concat(content_tag("div", 'WeeklyCalendar', :class => "placeholder"))
+    end
       for day in @start_date..@end_date
         concat(tag("div", :class => "day"))
-        concat(content_tag("b", day.strftime('%A')))
-        concat(tag("br"))
-        concat(day.strftime('%B %d'))
-        concat(tag("br"))
+        unless @disable_day_name
+          concat(content_tag("b", day.strftime('%A')))
+          concat(tag("br"))
+          concat(day.strftime('%B %d'))
+          concat(tag("br"))
+        end
         concat(@row_title) unless @row_title.nil?
         concat("</div>")
       end
