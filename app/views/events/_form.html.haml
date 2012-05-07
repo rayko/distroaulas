@@ -28,6 +28,7 @@
     = f.input :until_date, :as => :datetime
     = f.input :freq, :as => :select, :collection => [['Daily', 'DAILY'], ['Weekly', 'WEEKLY'], ['Monthly', 'MONTHLY'], ['Yearly', 'YEARLY']], :include_blank => false
     = f.input :interval, :as => :select, :collection => [1,2,3,4,5,6]
+    // = f.input :byday, :as => :check_boxes, :collection => [['Monday', 'MON',], ['Tuesday', 'TUE',], ['Wensday', 'WEN',], ['Thursday', 'THU',], ['Friday', 'FRI',], ['Saturday', 'SAT',], ['Sunday', 'SUN',]]
     = f.input :byday
     = f.input :count, :as => :select, :collection => [1,2,3,4,5,6,7,8,9,10]
   = f.buttons

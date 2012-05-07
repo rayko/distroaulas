@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @event.plan = params[:event][:plan]
     @event.career = params[:event][:career]
-    @event.start_date = Date.parse(params[:event][:start_date])
+    @event.start_date = Date.parse(params[:event][:start_date]) unless params[:event][:start_date].blank?
     if @event.save
       if session[:new_event_space_id]
         session.delete :new_event_space_id
@@ -34,6 +34,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @event.byday = @event.byday.split(',')
   end
 
   def update
