@@ -18,7 +18,9 @@ gem 'jquery-rails', '>= 1.0.12'
 gem 'spreadsheet'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
+
+# gem 'mongrel', '>= 1.2.0.pre2'
 
 # Deploy with Capistrano
 # gem 'capistrano'

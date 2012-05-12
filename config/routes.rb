@@ -29,6 +29,7 @@ DistroaulasRails3::Application.routes.draw do
   resources :events
   match 'ajax_careers_by_plan/:id' => 'careers#ajax_careers_by_plan'
   match 'new_event' => 'application#new_event', :as => 'new_event_from_free_space'
+  match 'events/tip_summary/:id' => 'events#tip_summary'
 
   resources :space_types
 

@@ -61,7 +61,7 @@
       - occurrence.day(:day_method => :dtstart) do |day, occurrences|
         = day.day
         - occurrences.each do |o|
-          = image_tag "CheckMark.png"
+          = image_tag "CheckMark.png", :class => 'qtip-able', :qtip_text => "Ocurrence at: #{o.dtstart.strftime('%H:%M')} - #{o.dtend.strftime('%H:%M')}"
 
 %p
   = link_to "Edit", edit_event_path(@event), :class => "ui-corner-all button" if can? :edit, @event

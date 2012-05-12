@@ -1,0 +1,29 @@
+%ul
+  %li
+    = @event.name
+  %li
+    = "#{@event.dtstart.strftime('%H:%M')} - #{@event.dtend.strftime('%H:%M')}"
+  %li
+    Responsable:
+    = @event.responsable
+  %li
+    Recurrent?
+    = @event.recurrent ? 'Yes' : 'No'
+  - if @event.recurrent
+    %li
+      Frequency:
+      = @event.freq
+    %li
+      Next Ocurrence:
+      = @event.to_rical.occurrences(:starting => DateTime.now, :count => 1)[0].dtstart.strftime('%d-%m-%Y %H:%M')
+
+  %li
+    Space:
+    = @event.space.name
+  - if @event.matter
+    %li
+      Matter:
+      = @event.matter.name
+    %li
+      Career:
+      = @event.matter.career.name

@@ -1,6 +1,51 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+
+//qTip
+$(document).ready(function(){
+    $('.qtip-event').each(function(){
+        $(this).qtip({
+            content: {
+                url: '/events/tip_summary/' + this.attributes.qtip_event_id.value
+            },
+            position: {
+                corner: {
+                    target: 'rightMiddle'
+                    //tooltip: 'leftMiddle'
+                },
+            },
+            style: {
+                width: 400,
+                name: 'blue',
+                tip: 'leftTop'
+            }
+        })
+    })
+})
+
+$(document).ready(function()
+{
+   // Use the each() method to gain access to each of the elements attributes
+   $('.qtip-able').each(function()
+   {
+      $(this).qtip(
+      {
+          content: this.attributes.qtip_text.value, // Give it some content
+          position: {
+              corner: {
+                  target: 'topRight',
+                  tooltip: 'bottomLeft'
+              }
+          },
+          style: {
+              name: 'blue',
+              tip: 'bottomLeft'
+          }
+      });
+   });
+});
+
 // Auto fill responsable field on event from matter field
 jQuery(function($) {
     $("#event_matter_id").change(function() {
