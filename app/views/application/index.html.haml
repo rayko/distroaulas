@@ -1,18 +1,4 @@
-= render :partial => 'datetime_event_filter'
-= render :partial => 'free_spaces', :locals => {:spaces => @free_spaces}
-
-%br
-
-%div#weekly-view
-  %div.weekly-header
-    = weekly_calendar([], :date => @datetime, :include_24_hours => false, :only_header => true, :main_title => @datetime.strftime("%d-%m-%Y")) do |w|
-      = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
-        =  link_to event.name, event_path(event.id)
-
-  %div.weekly-clean
-    - @spaces.each do |space|
-      = weekly_calendar(space.rical_occurrences(:before => @datetime.end_of_day, :after => @datetime.beginning_of_day), :date => @datetime, :include_24_hours => false, :row_title => space.name, :disable_day_name => true) do |w|
-        = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
-          %div#event-link
-            = link_to event.name, event_path(event.id), :class => 'qtip-event', :qtip_event_id => event.id
-
+- if user_signed_in?
+  = render :partial => 'private_index'
+- else
+  = render :partial => 'public_index'

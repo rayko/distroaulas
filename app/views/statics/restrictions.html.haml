@@ -1,0 +1,43 @@
+%h1 Restricciones
+
+%p
+  RiCal, el componente que define la logica de calendarios en Distroaulas, es muy complejo. Para enfocarse
+  en la problematica de organizacion de espacio y para simplificar la logica de eventos, se ha impuesto
+  algunas restricciones en Distroaulas, las cuales se detallan a continuacion.
+
+%h3 Inicio y fin de evento al mismo dia
+
+%p
+  RiCal permite crear eventos que podrian durar varios dias o lo que el usuario desee. Sin embargo, para
+  el objetivo de Distroaulas es innecesario. Los eventos que se pueden crear solo duran como maximo un
+  dia, definiendo la fecha y las horas de inicio y fin. En resumen, todos los eventos en Distroaulas
+  comienzan y finalizan el mismo dia.
+
+%h3 Excepciones a la misma hora
+
+%p
+  Dentro de los parametros que se pueden definir para los eventos existen las excepciones, que pueden
+  ser ocurrencias adicionales o no ocurrencias. Estos parametros generalmente tienen mas sentido para
+  eventos recurrentes y permiten alterar las ocurrencias, agregando o quitando ocurrencias segun las
+  reglas de recurrencia. En distroaulas, las excepciones solo especificaran las fechas de estos parametros,
+  las horas de inicio y fin se deduciran de los datos del evento original. En resumen, las excepciones (al
+  menos las que agregan ocurrencias) seran a la misma hora.
+
+%p
+  El motivo de esta restriccion reside en que se podrian cortar eventos quitar horas o agregar horas al
+  mismo y eso dificulta el entendimiento del evento como unidad.
+
+%h3 Coliciones
+
+%p
+  Una de las ventajas de Distroaulas es el control de coliciones. Este permite crear eventos que no se
+  superpongan en un mismo espacio y brinda coherencia a los eventos. Sin embargo hay algunas cosas a
+  tener en cuenta.
+
+%p
+  El control de colisiones busca eventos que ocurran parcialmente o completamente en un rango de fechas.
+  Puede ocurrir que si un evento finaliza exactamente a las 15:00 horas, al crear un evento que comienze
+  a las 15:00 se detectara como colision y el espacio sera descartado para ser asignado. Esto se debe a que
+  realmente existe una colision al finalizar el evento, ya que ambas horas son la misma. Para evitar este
+  problema se recomienda terminar los eventos al menos un minuto antes. De esta manera un evento puede
+  finalizar a las 14:59 y otro puede ser creado a las 15:00 para un mismo espacio.

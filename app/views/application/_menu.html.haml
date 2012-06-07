@@ -24,13 +24,14 @@
         %div{:id => "equipment_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
           %a{:href => new_equipment_path} New Equipment
       %li
-        %a{:href => "#", :onmouseover => "mopen('admin_menu')"} TODO Admin
-        %div{:id => "admin_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+        %a{:href => "#", :onmouseover => "mopen('misc_menu')"} Misc
+        %div{:id => "misc_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
           %a{:href => calendars_path} Calendars
           %a{:href => users_path} Users
           %a{:href => "#"} Statics
           %a{:href => "#"} Personal Data
           %a{:href => importer_index_path} Import
+          %a{:href => statics_index_path} Help
       %li
         %a{:href => destroy_user_session_path} Logout
     - elsif current_user.role == 'op'
@@ -57,16 +58,17 @@
         %div{:id => "equipment_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
           %a{:href => new_equipment_path} New Equipment
       %li
-        %a{:href => "#", :onmouseover => "mopen('admin_menu')"} TODO Admin
-        %div{:id => "admin_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+        %a{:href => "#", :onmouseover => "mopen('misc_menu')"} Misc
+        %div{:id => "misc_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
           %a{:href => calendars_path} Calendars
           %a{:href => users_path} Users
           %a{:href => "#"} Statics
           %a{:href => "#"} Personal Data
           %a{:href => importer_index_path} Import
+          %a{:href => statics_index_path} Help
       %li
         %a{:href => destroy_user_session_path} Logout
-    - else 
+    - else
       %li
         %a{:href => root_path} Home
       %li

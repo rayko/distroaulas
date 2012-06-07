@@ -101,7 +101,9 @@ DistroaulasRails3::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
 
   # match '/statics(/:action)*' => "statics#action"
+  match '/statics/index' => "statics#index"
   match '/statics/about' => "statics#about"
+  match '/statics/restrictions' => "statics#restrictions"
   match '/statics/calendars' => "statics#calendars"
   match '/statics/events' => "statics#events"
   match '/statics/spaces' => "statics#spaces"

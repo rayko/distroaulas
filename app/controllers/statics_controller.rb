@@ -1,5 +1,11 @@
 class StaticsController < ApplicationController
 
+  def index
+  end
+
+  def restrictions
+  end
+
   def about
   end
 
