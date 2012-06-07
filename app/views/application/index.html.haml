@@ -10,7 +10,7 @@
         =  link_to event.name, event_path(event.id)
 
   %div.weekly-clean
-    - Space.all.each do |space|
+    - @spaces.each do |space|
       = weekly_calendar(space.rical_occurrences(:before => @datetime.end_of_day, :after => @datetime.beginning_of_day), :date => @datetime, :include_24_hours => false, :row_title => space.name, :disable_day_name => true) do |w|
         = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
           %div#event-link

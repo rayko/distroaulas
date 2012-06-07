@@ -6,7 +6,9 @@
   %p
     - field_set_tag 'Filter' do
       - form_tag do
-        Date and Time
+        Date
         = text_field_tag :date, '', :class => 'ui-date-picker', :size => 8
+        Space Type
+        = select_tag :space_type, '<option value="">All</option>'.html_safe + options_from_collection_for_select(SpaceType.all, "id", "name")
         = submit_tag(value = "Go")
 

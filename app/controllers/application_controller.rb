@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   end
 
   def index
+    if params[:space_type] && !params[:space_type].blank?
+      @spaces = Space.find :all, :conditions => { :space_type_id => params[:space_type]}
+    else
+      @spaces = Space.all
+    end
     if params[:date]
       if params[:date].blank?
         date = Date.today
