@@ -10,7 +10,6 @@
       %td= equipment.name
       %td= equipment.description
       %td
-        = link_to 'Show', equipment if can? :read, equipment
         = link_to 'Edit', edit_equipment_path(equipment) if can? :edit, equipment
         = link_to 'Destroy', equipment, :confirm => 'Are you sure?', :method => :delete if can? :destroy, equipment
 

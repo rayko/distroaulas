@@ -1,11 +1,15 @@
 - title "Career"
 
-%p
-  %strong Name:
-  = @career.name
-%p
-  %strong Short Name:
-  = @career.short_name
+%ul
+  %li
+    %strong Name:
+    = @career.name
+  %li
+    %strong Short Name:
+    = @career.short_name
+  %li
+    %strong Matters:
+    = @career.matters.size
 
 %hr
 

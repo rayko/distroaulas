@@ -1,38 +1,44 @@
 - title "Space"
 
-%p
-  %strong Name:
-  = @space.name
-%p
-  %strong Short Name:
-  = @space.short_name
-%p
-  %strong Description:
-  = @space.description
-%p
-  %strong Capacity:
-  = @space.capacity
-%p
-  %strong Spacetype:
-  = @space.space_type.name
-
+%ul
+  %li
+    %strong Name:
+    = @space.name
+  %li
+    %strong Short Name:
+    = @space.short_name
+  %li
+    %strong Description:
+    = @space.description
+  %li
+    %strong Capacity:
+    = @space.capacity
+  %li
+    %strong Spacetype:
+    = @space.space_type.name
+  %li
+    %strong Events registred for this space:
+    = @space.events.size
+%br
 %p
   %strong Calendar for this space
-  %br
-  = link_to '< Previous Week', :date => (@date - 7.days).strftime("%d-%m-%Y")
-  \|
-  = link_to 'Current Week', :date => Date.today
-  \|
-  = link_to 'Next Week >', :date => (@date + 7.days).strftime("%d-%m-%Y")
-  %div#weekly-view
-    = weekly_calendar(@space.rical_occurrences(:after => @date, :before => (@date + 7.days)), :date => @date, :include_24_hours => false) do |w|
-      = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
-        =  link_to event.name, event_path(event.id)
-  = link_to '< Previous Week', :date => (@date - 7.days).strftime("%d-%m-%Y")
-  \|
-  = link_to 'Current Week', :date => Date.today
-  \|
-  = link_to 'Next Week >', :date => (@date + 7.days).strftime("%d-%m-%Y")
+  %div.space_calendar
+    %div.space_calendar_links
+      = link_to '< Previous Week', :date => (@date - 7.days).strftime("%d-%m-%Y")
+      \|
+      = link_to 'Current Week', :date => Date.today
+      \|
+      = link_to 'Next Week >', :date => (@date + 7.days).strftime("%d-%m-%Y")
+    %div#weekly-view
+      = weekly_calendar(@space.rical_occurrences(:after => @date, :before => (@date + 7.days)), :date => @date, :include_24_hours => false) do |w|
+        = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
+          =  link_to event.name, event_path(event.id)
+    %div.space_calendar_links
+      = link_to '< Previous Week', :date => (@date - 7.days).strftime("%d-%m-%Y")
+      \|
+      = link_to 'Current Week', :date => Date.today
+      \|
+      = link_to 'Next Week >', :date => (@date + 7.days).strftime("%d-%m-%Y")
 
 
 %p

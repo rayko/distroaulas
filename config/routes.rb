@@ -22,7 +22,7 @@ DistroaulasRails3::Application.routes.draw do
     post '/matters' => 'importer#upload_matters', :as => 'importer_upload_matters'
   end
 
-  resources :equipment
+  resources :equipment, :only => [:index, :new, :create, :update, :destroy, :edit]
 
   resources :calendars
 
@@ -31,7 +31,7 @@ DistroaulasRails3::Application.routes.draw do
   match 'new_event' => 'application#new_event', :as => 'new_event_from_free_space'
   match 'events/tip_summary/:id' => 'events#tip_summary'
 
-  resources :space_types
+  resources :space_types, :only => [:index, :new, :create, :update, :destroy, :edit]
 
   resources :plans
 

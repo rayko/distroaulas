@@ -6,10 +6,6 @@ class EquipmentController < ApplicationController
     @equipment = Equipment.paginate(:page => params[:page])
   end
 
-  def show
-    @equipment = Equipment.find(params[:id])
-  end
-
   def new
     @equipment = Equipment.new
   end

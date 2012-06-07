@@ -6,10 +6,6 @@ class SpaceTypesController < ApplicationController
     @space_types = SpaceType.paginate(:page => params[:page])
   end
 
-  def show
-    @space_type = SpaceType.find(params[:id])
-  end
-
   def new
     @space_type = SpaceType.new
   end

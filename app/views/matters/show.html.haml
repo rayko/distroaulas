@@ -1,17 +1,21 @@
 - title "Matter"
 
-%p
-  %strong Name:
-  = @matter.name
-%p
-  %strong Short Name:
-  = @matter.short_name
-%p
-  %strong Career:
-  = @matter.career_id
-%p
-  %strong Year:
-  = @matter.year
+%ul
+  %li
+    %strong Name:
+    = @matter.name
+  %li
+    %strong Short Name:
+    = @matter.short_name
+  %li
+    %strong Career:
+    = @matter.career.name
+  %li
+    %strong Plan:
+    = @matter.career.plan.name
+  %li
+    %strong Year:
+    = @matter.year
 
 %hr
 
