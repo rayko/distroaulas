@@ -39,6 +39,7 @@ DistroaulasRails3::Application.routes.draw do
   match 'ajax_get_matters_by_career/:id' => 'matters#ajax_get_matters_by_career'
 
   resources :spaces
+  match 'ajax_free_spaces' => 'spaces#ajax_free_spaces'
 
   resources :careers
 

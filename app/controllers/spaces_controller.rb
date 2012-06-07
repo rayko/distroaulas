@@ -1,6 +1,6 @@
 class SpacesController < ApplicationController
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:ajax_free_spaces]
 
   def index
     @spaces = Space.paginate(:page => params[:page])
@@ -48,5 +48,14 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
     @space.destroy
     redirect_to spaces_url, :notice => "Successfully destroyed space."
+  end
+
+  def ajax_free_spaces
+    dtstart = DateTime.parse params[:start]
+    dtend = DateTime.parse params[:end]
+    free_spaces = Space.free_spaces :after => dtstart, :before => dtend, :overlapping => true
+    respond_to do |format|
+      format.json { render :json => free_spaces.to_json, :status => 200 }
+    end
   end
 end

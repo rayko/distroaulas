@@ -12,7 +12,13 @@
     = f.input :start_date, :as => :date_picker
     = f.input :start_time, :as => :time
     = f.input :end_time, :as => :time
-    = f.input :space
+
+
+    = link_to 'Check free spaces', '#none', :class => 'check_free_spaces', :id => 'check_free_spaces'
+    %br
+    = image_tag 'loading.gif', :class => "loading-icon-small spaces-loading"
+    = f.input :space, :as => :select, :collection => []
+
 
     = text_field_tag :rdate_picker, '', :class => 'ui-date-picker', :style => "margin-left: 25%"
     = link_to 'Add', '#none', :class => 'add_new_rdate'

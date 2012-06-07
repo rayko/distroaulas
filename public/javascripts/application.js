@@ -2,6 +2,81 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 
+//ajax for free spaces on event form
+jQuery(function($) {
+    $("#check_free_spaces").click(function() {
+        date = document.getElementById('event_start_date').value
+        start_hour = document.getElementById('event_start_time_4i').value
+        start_min = document.getElementById('event_start_time_5i').value
+        end_hour = document.getElementById('event_end_time_4i').value
+        end_min = document.getElementById('event_end_time_5i').value
+        errors = ''
+
+        if(date == ''){
+            errors += "No date provided\n"
+        }
+
+        if(start_hour == ''){
+            errors += "No start hour provided\n"
+        }
+
+        if(start_min == ''){
+            errors += "No start minute provided\n"
+        }
+
+        if(end_hour == ''){
+            errors += "No end hour provided\n"
+        }
+
+        if(end_min == ''){
+            errors += "No end minute provided\n"
+        }
+        start = date + ' ' + start_hour + ':' + start_min + '-0300'
+        end = date + ' ' + end_hour + ':' + end_min + '-0300'
+
+        if(errors != ''){
+            alert(errors)
+        }
+        else{
+            $.ajax({
+                url: "/ajax_free_spaces/?start=" + start + '&end=' + end, //I think, it could be something else
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                beforeSend: function(xhr) {
+                    $('.spaces-loading').show();
+                },
+                success: function(data) {
+                    $('.spaces-loading').hide();
+                    var i = 0;
+
+
+                    // Get the element to update
+                    select_field = document.getElementById('event_space_id');
+
+                    // Clear select options
+                    select_field.options.length = 0;
+
+                    // Append blank element
+                    select_field.options.add(new Option('---', ''));
+
+                    // Add new options
+                    for(i = 0; i <= data.length - 1; i++) {
+                        select_field.options.add(new Option(data[i].space.name, data[i].space.id));
+                    };
+
+                    //alert(data)
+                    if(data.length == 0){
+                        alert('No free spaces found');
+                    }
+                },
+                error: function(xhr,exception,status) {
+                //catch any errors here
+                }
+            });
+        }
+    });
+});
+
 //qTip
 $(document).ready(function(){
     $('.qtip-event').each(function(){

@@ -18,16 +18,23 @@ class Space < ActiveRecord::Base
     until_date = options[:before] || Date.today + 5.years
     after_date = options[:after] || Date.new
     occurrences = []
-    self.events.each do |event|
-      occurrences << event.to_rical.occurrences(:starting => after_date, :before => until_date)
+    if options[:overlapping]
+      self.events.each do |event|
+        occurrences << event.to_rical.occurrences(:overlapping =>[after_date, until_date])
+      end
+    else
+      self.events.each do |event|
+        occurrences << event.to_rical.occurrences(:starting => after_date, :before => until_date)
+      end
     end
+
     return occurrences.flatten
   end
 
   def self.free_spaces options={}
     until_date = options[:before] || Date.today + 5.years
     after_date = options[:after] || Date.new
-    Space.all.select{|s| s.rical_occurrences(:before => until_date, :after => after_date).empty? }
+    Space.all.select{|s| s.rical_occurrences(:before => until_date, :after => after_date, :overlapping => options[:overlapping]).empty? }
   end
 
   # column order
