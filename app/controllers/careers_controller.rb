@@ -3,7 +3,7 @@ class CareersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @careers = Career.all
+    @careers = Career.paginate(:page => params[:page])
   end
 
   def show

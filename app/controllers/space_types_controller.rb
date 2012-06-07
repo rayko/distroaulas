@@ -3,7 +3,7 @@ class SpaceTypesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @space_types = SpaceType.all
+    @space_types = SpaceType.paginate(:page => params[:page])
   end
 
   def show

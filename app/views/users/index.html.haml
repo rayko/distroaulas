@@ -19,4 +19,5 @@
         = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete if can? :destroy, user
         = link_to 'Reset Pass', user_reset_pass_path(user) if can? :reset_pass, user
 
+= will_paginate @users
 %p= link_to "New User", new_user_path, :class => "ui-corner-all button" if can? :create, User

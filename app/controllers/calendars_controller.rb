@@ -3,7 +3,7 @@ class CalendarsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @calendars = Calendar.all
+    @calendars = Calendar.paginate(:page => params[:page])
   end
 
   def show

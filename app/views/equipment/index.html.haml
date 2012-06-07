@@ -14,4 +14,5 @@
         = link_to 'Edit', edit_equipment_path(equipment) if can? :edit, equipment
         = link_to 'Destroy', equipment, :confirm => 'Are you sure?', :method => :delete if can? :destroy, equipment
 
+= will_paginate @equipment
 %p= link_to "New Equipment", new_equipment_path, :class => "ui-corner-all button" if can? :create, Equipment

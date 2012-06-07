@@ -3,7 +3,7 @@ class PlansController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @plans = Plan.all
+    @plans = Plan.paginate(:page => params[:page])
   end
 
   def show

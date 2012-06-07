@@ -2,4 +2,5 @@
 
 = render :partial => 'list', :locals => {:matters => @matters}
 
+= will_paginate @matters
 %p= link_to "New Matter", new_matter_path, :class => "ui-corner-all button" if can? :create, Matter

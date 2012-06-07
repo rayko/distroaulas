@@ -3,7 +3,7 @@ class MattersController < ApplicationController
   load_and_authorize_resource :except => [:ajax_get_matters_by_career]
 
   def index
-    @matters = Matter.all
+    @matters = Matter.paginate(:page => params[:page])
   end
 
   def show

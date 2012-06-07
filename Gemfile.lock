@@ -122,6 +122,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.0.6)
       rack (>= 1.0)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
@@ -142,3 +143,4 @@ DEPENDENCIES
   spreadsheet
   sqlite3
   unicorn
+  will_paginate (~> 3.0)

@@ -3,7 +3,7 @@ class EquipmentController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @equipment = Equipment.all
+    @equipment = Equipment.paginate(:page => params[:page])
   end
 
   def show

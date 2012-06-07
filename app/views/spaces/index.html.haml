@@ -20,4 +20,5 @@
         = link_to 'Edit', edit_space_path(space) if can? :edit, space
         = link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete if can? :destroy, space
 
+= will_paginate @spaces
 %p= link_to "New Space", new_space_path, :class => "ui-corner-all button" if can? :create, Space
