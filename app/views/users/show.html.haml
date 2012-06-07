@@ -1,7 +1,23 @@
 - title "User"
 
-%p
-  %strong e-Mail:
-  = @user.email
+%ul
+  %li
+    %strong e-Mail:
+    = @user.email
+  %li
+    %strong Created:
+    = @user.created_at
+  %li
+    %strong Last seen:
+    = @user.last_sign_in_at
+  %li
+    %strong Username:
+    = @user.username
+  %li
+    %strong Full name:
+    = @user.full_name
+  %li
+    %strong Role:
+    = @user.role
 
 = link_to "View All", users_path, :class => "ui-corner-all button" if can? :read, User
