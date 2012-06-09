@@ -52,6 +52,10 @@ class EventsController < ApplicationController
     redirect_to events_url, :notice => "Successfully destroyed event."
   end
 
+  def generate_calendar
+
+  end
+
   def tip_summary
     @event = Event.find(params[:id])
     render :action => 'tip_summary', :layout => false
