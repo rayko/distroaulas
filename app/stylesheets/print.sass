@@ -1,3 +1,91 @@
 /* Welcome to Compass. Use this file to define print styles.
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+/*
+
+//@import compass/reset
+
+@import 'partials/application'
+@import 'partials/calendars'
+@import 'partials/formtastic'
+@import 'partials/formtastic_changes'
+@import 'partials/weekly'
+@import 'partials/drop_menu'
+
+body
+  width: 100%
+  min-width: 950px
+  margin-bottom: 25px
+  background-color: white
+
+#banner
+  display: none
+
+#menu
+  display: none
+
+#container
+  border: 0
+
+#content
+  .print-link
+    display: none
+  a.check_free_spaces
+    margin-left: 25%
+  .pagination
+    text-align: center
+  padding: 15px
+  table.index
+    text-align: center
+    span
+      float: left
+    width: 100%
+    border: 1px dotted
+    border-collapse: collapse
+    th
+      border: 1px dotted
+      background-color: #4b7399
+      color: white
+    td
+      border: 1px dotted
+    tr
+      &:hover
+        background-color: #FDFF87
+
+#docs-list
+  width: 185px
+  height: 100%
+  float: left
+
+#doc-content
+  margin-left: 200px
+
+#footer
+  margin: auto
+  text-align: center
+  width: 70%
+  border-top: 1px solid
+  padding-bottom: 15px
+  display: none
+
+.loading-icon-small
+  float: left
+  margin-left: 23%
+  height: 28px
+  display: none
+
+.search-loading-icon-small
+  float: left
+  height: 28px
+  display: none
+
+.button
+  background-color: #5970B2
+  padding: 3px
+  color: white
+  text-decoration: none
+  &:hover
+    background-color: #49A3FF
+
+#weekly-view
+  overflow: hidden

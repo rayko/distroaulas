@@ -5,9 +5,9 @@
     %title
       = yield(:title) || "Untitled"
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    = stylesheet_link_tag "screen", "jquery-ui-1.8.16.custom", "formtastic", "formtastic_changes", "weekly", "drop_menu", "jquery.tagit"
+    = stylesheet_link_tag "print", :media => "print"
+    = stylesheet_link_tag "screen"
     = javascript_include_tag "jquery-1.6.2.min", "jquery-ui-1.8.16.custom.min", "jquery.datepick-es", "application", "rails", "jqclock_201", "tag-it", "jquery.qtip-1.0.0-rc3.min"
-    // = javascript_include_tag :defaults
     = javascript_include_tag "drop_menu.js"
 
     = csrf_meta_tag

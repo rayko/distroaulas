@@ -24,4 +24,4 @@
 = will_paginate @events
 %p
   = link_to "New Event", new_event_path, :class => "ui-corner-all button" if can? :create, Event
-  = link_to "Generate Calendar", generate_calendar_path, :class => "ui-corner-all button"
+  = link_to "Generate Calendar", generate_calendar_events_path, :class => "ui-corner-all button"

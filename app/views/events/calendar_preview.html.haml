@@ -1,4 +1,7 @@
+= link_to 'Print this page', 'javascript:window.print()', :class => 'print-link'
 %div#weekly-view
   = weekly_calendar(@events, :date => Date.today, :include_24_hours => false) do |w|
     = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
       =  link_to event.name, event_path(event.id)
+
+= link_to 'Print this page', 'javascript:window.print()', :class => 'print-link'
