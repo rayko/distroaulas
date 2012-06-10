@@ -10,7 +10,7 @@
     = form.input :calendar_id, :as => :select, :collection => Calendar.all, :required => false
     = form.input :plan, :as => :select, :collection => Plan.all, :required => false
     = image_tag 'loading.gif', :class => "loading-icon-small career-loading"
-    = form.input :career, :as => :select, :collection => [], :required => false
+    = form.input :career_id, :as => :select, :collection => [], :required => false
     = form.input :space_id, :label => 'Space', :as => :select, :collection => Space.all, :required => false
     = form.input :recurrent, :as => :boolean, :required => false
     = form.input :responsable, :as => :string, :required => false

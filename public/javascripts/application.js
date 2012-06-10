@@ -190,7 +190,7 @@ jQuery(function($) {
                     var i = 0;
 
                     // Get the element to update
-                    select_field = document.getElementById('search_career');
+                    select_field = document.getElementById('search_career_id');
 
                     // Clear select options
                     select_field.options.length = 0;

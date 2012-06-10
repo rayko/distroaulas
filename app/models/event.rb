@@ -60,9 +60,9 @@ class Event < ActiveRecord::Base
   end
 
   def self.search_events(options={})
-    if options[:career]
-      matter_ids = Matter.find(:all, :conditions => { :career_id => options[:career]}).collect{ |matter| matter.id }
-      options.delete :career
+    if options[:career_id]
+      matter_ids = Matter.find(:all, :conditions => { :career_id => options[:career_id]}).collect{ |matter| matter.id }
+      options.delete :career_id
       options[:matter_id] = matter_ids
     end
     events = Event.where options
