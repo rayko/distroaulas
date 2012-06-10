@@ -55,6 +55,23 @@ class Event < ActiveRecord::Base
     return event
   end
 
+  def self.responsables_list
+    Event.all.collect{ |event| event.responsable }.uniq
+  end
+
+  def self.search_events(options={})
+    if options[:career]
+      matter_ids = Matter.find(:all, :conditions => { :career_id => options[:career]}).collect{ |matter| matter.id }
+      options.delete :career
+      options[:matter_id] = matter_ids
+    end
+    events = Event.where options
+
+    return events
+
+    # Event.find :all, :conditions => ["matter_id IN ? AND responsable = ? AND recurrent = ?", matter_ids, options[:responsable], options[:recurrent], ]
+  end
+
   def rical_occurrences options={}
     until_date = options[:before] || Date.today + 5.years
     after_date = options[:after] || Date.new

@@ -7,11 +7,12 @@
 
 = semantic_form_for :search, :url => generate_calendar_events_path, :remote => true do |form|
   = form.inputs "Search", :class => 'separated' do
+    = form.input :calendar_id, :as => :select, :collection => Calendar.all, :required => false
     = form.input :plan, :as => :select, :collection => Plan.all, :required => false
     = image_tag 'loading.gif', :class => "loading-icon-small career-loading"
     = form.input :career, :as => :select, :collection => [], :required => false
     = form.input :space_id, :label => 'Space', :as => :select, :collection => Space.all, :required => false
-    = form.input :recurrent, :as => :check_boxes, :collection => [['Yes', '1']], :required => false
+    = form.input :recurrent, :as => :boolean, :required => false
     = form.input :responsable, :as => :string, :required => false
     = form.buttons do
       = form.commit_button 'Search'

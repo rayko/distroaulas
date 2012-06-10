@@ -54,8 +54,15 @@ class EventsController < ApplicationController
 
   def generate_calendar
     if request.post?
+      #clean up params to send to model
+      params[:search].delete :plan
+      if params[:search][:recurrent] == "1"
+        params[:search][:recurrent] = true
+      else
+        params[:search].delete :recurrent
+      end
       # search events with criteria
-      @events = Event.all
+      @events = Event.search_events clean_params(params[:search])
     end
   end
 
@@ -75,4 +82,17 @@ class EventsController < ApplicationController
     @events = Event.all
     render :partial => 'events/search_result', :locals => { :events => @events}
   end
+
+  def get_responsables_list
+    list = Event.responsables_list
+    respond_to do |format|
+      format.json { render :json => list.to_json, :status => 200}
+    end
+  end
+
+  private
+  def clean_params p=nil
+    p.delete_if{ |key, value| value.blank? }
+  end
 end
+

@@ -2,6 +2,25 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 
+// Autocomplete in search responsable
+$(document).ready(function(){
+    // get tokens
+    $.ajax({
+        url: '/ajax_get_responsables_list',
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function(data){
+            $('#search_responsable').autocomplete({source: data})
+        },
+        error: function(xhr,exeption,status){
+            // errors?
+        }
+    });
+
+
+});
+
+// Callbacks for search section
 $(document).ready(function(){
     $('form[data-remote]').bind('ajax:beforeSend', function(){
         $('#search_submit')[0].disabled = true
