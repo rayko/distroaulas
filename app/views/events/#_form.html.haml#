@@ -1,0 +1,40 @@
+- semantic_form_for @event do |f|
+  - f.inputs do
+    = f.input :calendar
+    = f.input :plan, :as => :select, :collection => Plan.all
+    = image_tag 'loading.gif', :class => "loading-icon-small career-loading"
+    = f.input :career, :as => :select, :collection => Career.all
+    = image_tag 'loading.gif', :class => "loading-icon-small matter-loading"
+    = f.input :matter, :collection => Matter.all
+    = f.input :name
+    = image_tag 'loading.gif', :class => "loading-icon-small responsable-loading"
+    = f.input :responsable
+    = f.input :start_date, :as => :date_picker
+    = f.input :start_time, :as => :time
+    = f.input :end_time, :as => :time
+
+
+    = link_to 'Check free spaces', '#none', :class => 'check_free_spaces', :id => 'check_free_spaces'
+    %br
+    = image_tag 'loading.gif', :class => "loading-icon-small spaces-loading"
+    = f.input :space, :as => :select, :collection => []
+
+
+    = text_field_tag :rdate_picker, '', :class => 'ui-date-picker', :style => "margin-left: 25%"
+    = link_to 'Add', '#none', :class => 'add_new_rdate'
+    = f.input :rdate, :as => :string, :input_html => {:class => "rdate-tagbox"}
+
+    = text_field_tag :exdate_picker, '', :class => 'ui-date-picker', :style => "margin-left: 25%"
+    = link_to 'Add', '#none', :class => 'add_new_exdate'
+    = f.input :exdate, :as => :string, :input_html => {:class => "exdate-tagbox"}
+
+
+    = f.input :recurrent
+
+    = f.input :until_date, :as => :datetime
+    = f.input :freq, :as => :select, :collection => [['Daily', 'DAILY'], ['Weekly', 'WEEKLY'], ['Monthly', 'MONTHLY'], ['Yearly', 'YEARLY']], :include_blank => false
+    = f.input :interval, :as => :select, :collection => [1,2,3,4,5,6]
+    // = f.input :byday, :as => :check_boxes, :collection => [['Monday', 'MON',], ['Tuesday', 'TUE',], ['Wensday', 'WEN',], ['Thursday', 'THU',], ['Friday', 'FRI',], ['Saturday', 'SAT',], ['Sunday', 'SUN',]]
+    = f.input :byday
+    = f.input :count, :as => :select, :collection => [1,2,3,4,5,6,7,8,9,10]
+  = f.buttons
