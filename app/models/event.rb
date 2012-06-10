@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   attr_accessible :name, :matter, :matter_id, :space, :space_id, :calendar,
                   :calendar_id, :dtstart, :dtend, :exdate, :rdate, :recurrent,
                   :freq, :interval, :until_date, :byday, :count, :plan, :career,
-                  :start_date, :start_time, :end_time, :responsable, :days_of_recurr
+                  :start_date, :start_time, :end_time, :responiable, :days_of_recurr
 
   # Virtual attributes for easy creation
   attr_accessor :plan, :career, :days_of_recurr
@@ -55,8 +55,8 @@ class Event < ActiveRecord::Base
     return event
   end
 
-  def self.responsables_list
-    Event.all.collect{ |event| event.responsable }.uniq
+  def self.responsibles_list
+    Event.all.collect{ |event| event.responsible }.uniq
   end
 
   def self.search_events(options={})

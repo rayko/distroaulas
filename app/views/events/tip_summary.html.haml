@@ -4,8 +4,8 @@
   %li
     = "#{@event.dtstart.strftime('%H:%M')} - #{@event.dtend.strftime('%H:%M')}"
   %li
-    Responsable:
-    = @event.responsable
+    Responsible:
+    = @event.responsible
   %li
     Recurrent?
     = @event.recurrent ? 'Yes' : 'No'

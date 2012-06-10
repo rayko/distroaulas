@@ -4,19 +4,26 @@
 
 // Autocomplete in search responsable
 $(document).ready(function(){
-    // get tokens
-    $.ajax({
-        url: '/ajax_get_responsables_list',
-        dataType: 'json',
-        contentType: 'application/json; charset=utf-8',
-        success: function(data){
-            $('#search_responsable').autocomplete({source: data})
-        },
-        error: function(xhr,exeption,status){
-            // errors?
-        }
-    });
+    $('#search_responsible').focus(function(){
+        // get tokens
+        $.ajax({
+            url: '/ajax_get_responsibles_list',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            beforeSend: function(xhr){
+                $('.responsible-loading').show()
+            },
+            success: function(data){
+                $('.responsible-loading').hide()
+                $('#search_responsible').autocomplete({source: data})
+            },
+            error: function(xhr,exeption,status){
+                // errors?
+            }
+        });
 
+
+    });
 
 });
 

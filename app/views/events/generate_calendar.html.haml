@@ -13,7 +13,8 @@
     = form.input :career_id, :as => :select, :collection => [], :required => false
     = form.input :space_id, :label => 'Space', :as => :select, :collection => Space.all, :required => false
     = form.input :recurrent, :as => :boolean, :required => false
-    = form.input :responsable, :as => :string, :required => false
+    = image_tag 'loading.gif', :class => "loading-icon-small responsible-loading"
+    = form.input :responsible, :as => :string, :required => false
     = form.buttons do
       = form.commit_button 'Search'
       = image_tag 'loading.gif', :class => "search-loading-icon-small search-loading"

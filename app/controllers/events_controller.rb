@@ -83,8 +83,8 @@ class EventsController < ApplicationController
     render :partial => 'events/search_result', :locals => { :events => @events}
   end
 
-  def get_responsables_list
-    list = Event.responsables_list
+  def get_responsibles_list
+    list = Event.responsibles_list
     respond_to do |format|
       format.json { render :json => list.to_json, :status => 200}
     end

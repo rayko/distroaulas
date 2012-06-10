@@ -33,7 +33,7 @@ DistroaulasRails3::Application.routes.draw do
       get 'generate_calendar'
     end
   end
-  match 'ajax_get_responsables_list' => 'events#get_responsables_list'
+  match 'ajax_get_responsibles_list' => 'events#get_responsibles_list'
   match 'ajax_search_events' => 'events#search'
   match 'ajax_careers_by_plan/:id' => 'careers#ajax_careers_by_plan'
   match 'new_event' => 'application#new_event', :as => 'new_event_from_free_space'
