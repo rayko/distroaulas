@@ -1,0 +1,23 @@
+= form_tag calendar_preview_events_path do
+
+  %table.index
+    %tr
+      %th
+      %th Name
+      %th Date
+      %th Starts
+      %th Ends
+      %th Calendar
+    - for event in events
+      %tr
+        %td= check_box_tag 'event_ids', event.id, false, :name => "events_ids[]"
+        %td= event.name
+        %td= event.dtstart.strftime '%d-%m-%Y'
+        %td= event.dtstart.strftime '%H:%M'
+        %td= event.dtend.strftime '%H:%M'
+        %td= event.calendar.name
+  = submit_tag 'Generate'
+
+
+- if events.empty?
+  No events found

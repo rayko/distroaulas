@@ -3,3 +3,14 @@
 %p
   You can generate a calendar for specific events using this section. Find the events you
   want to put into the calendar and then generate the printable view of them.
+
+= semantic_form_for :search, :url => generate_calendar_events_path, :remote => true do |form|
+  = form.inputs "Search", :class => 'separated' do
+    = form.input :name, :as => :string
+    = form.input :recurrent, :as => :check_boxes, :collection => [['Yes', '1']]
+    = form.buttons do
+      = form.commit_button 'Search'
+      = image_tag 'loading.gif', :class => "search-loading-icon-small search-loading"
+
+
+%div#search_result

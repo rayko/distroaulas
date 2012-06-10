@@ -53,11 +53,26 @@ class EventsController < ApplicationController
   end
 
   def generate_calendar
-
+    if request.post?
+      # search events with criteria
+      @events = Event.all
+    end
   end
+
+  def calendar_preview
+    # show events in weekly view with criteria
+    @events = Event.find :all, :conditions => { :id => params[:events_ids]}
+    @events.collect{ |event| event.rical_occurrences(:after => Date.today, :before => (Date.today + 7.days)) }
+  end
+
 
   def tip_summary
     @event = Event.find(params[:id])
     render :action => 'tip_summary', :layout => false
+  end
+
+  def search
+    @events = Event.all
+    render :partial => 'events/search_result', :locals => { :events => @events}
   end
 end

@@ -26,8 +26,14 @@ DistroaulasRails3::Application.routes.draw do
 
   resources :calendars
 
-  resources :events
-  match 'generate_calendar' => 'events#generate_calendar'
+  resources :events do
+    collection do
+      post 'calendar_preview'
+      post 'generate_calendar'
+      get 'generate_calendar'
+    end
+  end
+  match 'ajax_search_events' => 'events#search'
   match 'ajax_careers_by_plan/:id' => 'careers#ajax_careers_by_plan'
   match 'new_event' => 'application#new_event', :as => 'new_event_from_free_space'
   match 'events/tip_summary/:id' => 'events#tip_summary'

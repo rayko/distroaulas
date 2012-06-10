@@ -2,6 +2,18 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 
+$(document).ready(function(){
+    $('form[data-remote]').bind('ajax:beforeSend', function(){
+        $('#search_submit')[0].disabled = true
+        $('.search-loading').show()
+    });
+    $('form[data-remote]').bind('ajax:success', function(){
+        $('#search_submit')[0].disabled = false
+        $('.search-loading').hide()
+        // this doesn't work $("div#search_result").html("escape_javascript(render :partial => 'search_result', :locals => {:events => @events}) ")
+    });
+});
+
 //ajax for free spaces on event form
 jQuery(function($) {
     $("#check_free_spaces").click(function() {

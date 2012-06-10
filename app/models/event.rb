@@ -55,6 +55,14 @@ class Event < ActiveRecord::Base
     return event
   end
 
+  def rical_occurrences options={}
+    until_date = options[:before] || Date.today + 5.years
+    after_date = options[:after] || Date.new
+    occurrences = []
+    occurrences << self.to_rical.occurrences(:starting => after_date, :before => until_date)
+    return occurrences.flatten
+  end
+
   # Returns an instance of ReccurrenceRule with the parameters on the event object
   def reccurrence_rule
     ReccurrenceRule.new(self.reccurrence_values)
