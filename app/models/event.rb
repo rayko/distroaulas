@@ -72,6 +72,36 @@ class Event < ActiveRecord::Base
     # Event.find :all, :conditions => ["matter_id IN ? AND responsable = ? AND recurrent = ?", matter_ids, options[:responsable], options[:recurrent], ]
   end
 
+  def name_with_options options={}
+    name = []
+    name << case options[:display_event_name]
+            when 'display'
+              self.name
+            end
+    if self.matter
+      name << case options[:display_matter_name]
+              when 'full'
+                self.matter.name
+              when 'short'
+                self.matter.short_name
+              end
+    end
+    if self.space
+      name << case options[:display_space_name]
+              when 'full'
+                self.space.name
+              when 'short'
+                self.space.short_name
+              end
+    end
+    name << case options[:display_time]
+            when 'display'
+              "#{self.dtstart.strftime('%H:%M')}-#{self.dtend.strftime('%H:%M')}"
+            end
+
+    return name.compact.join ' ,'
+  end
+
   def rical_occurrences options={}
     until_date = options[:before] || Date.today + 5.years
     after_date = options[:after] || Date.new

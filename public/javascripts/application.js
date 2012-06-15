@@ -2,6 +2,8 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 
+
+
 // Autocomplete in search responsable
 $(document).ready(function(){
     $('#search_responsible').focus(function(){
@@ -36,6 +38,16 @@ $(document).ready(function(){
     $('form[data-remote]').bind('ajax:success', function(){
         $('#search_submit')[0].disabled = false
         $('.search-loading').hide()
+        $('input.ui-date-picker').datepicker();
+        // Select all check for search events
+        $('#select_all').click(function(){
+            if($('#select_all').is(':checked')){
+                $('.selectable').attr('checked', true)
+            }
+            else{
+                $('.selectable').attr('checked', false)
+            };
+        });
         // this doesn't work $("div#search_result").html("escape_javascript(render :partial => 'search_result', :locals => {:events => @events}) ")
     });
 });

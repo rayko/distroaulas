@@ -68,8 +68,29 @@ class EventsController < ApplicationController
 
   def calendar_preview
     # show events in weekly view with criteria
+    if params[:display_options][:display_title] == '1'
+      @title = params[:display_options][:title]
+    end
+    if params[:display_options][:date]
+      @date = Date.parse params[:display_options][:date]
+    else
+      @date = Date.today
+      until @date.monday?
+        @date -= 1.days
+      end
+    end
+=begin
+    @hours = [params[:display_options][:start_hour].to_i, params[:display_options][:end_hour].to_i].uniq
+    if !@hours.empty?
+      @width = 145 + (@hours[1] - @hours[0]) * 75 + 75
+      if @width > 972
+        @with = 972
+      end
+    end
+=end
+    @display_options = clean_params(params[:display_options])
     @events = Event.find :all, :conditions => { :id => params[:events_ids]}
-    @events.collect{ |event| event.rical_occurrences(:after => Date.today, :before => (Date.today + 7.days)) }
+    @events.collect{ |event| event.rical_occurrences(:after => @date, :before => (@date + 7.days)) }
   end
 
 

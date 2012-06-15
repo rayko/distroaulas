@@ -1,9 +1,9 @@
 class WeeklyCalendar::Builder
   include ::ActionView::Helpers::TagHelper
 
-  def initialize(objects, template, options, start_date, end_date, row_title, disable_day_name, main_title)
+  def initialize(objects, template, options, start_date, end_date, row_title, disable_day_name, main_title, hours)
     raise ArgumentError, "WeeklyBuilder expects an Array but found a #{objects.inspect}" unless objects.is_a? Array
-    @objects, @template, @options, @start_date, @end_date, @row_title, @disable_day_name, @main_title = objects, template, options, start_date, end_date, row_title, disable_day_name, main_title
+    @objects, @template, @options, @start_date, @end_date, @row_title, @disable_day_name, @main_title, @hours = objects, template, options, start_date, end_date, row_title, disable_day_name, main_title, hours
   end
 
   def days
@@ -29,7 +29,24 @@ class WeeklyCalendar::Builder
 
   def week(options = {})
     days
-    if options[:business_hours] == "true" or options[:business_hours].blank?
+    if @hours
+      hstart = Time.parse "#{@hours[0]}:00"
+      if @hours.size == 2
+        hend = Time.parse "#{@hours[1]}:00"
+      else
+        hend = Time.parse "23:00"
+      end
+      hours = []
+      start_hour = hstart.strftime('%k').to_i
+      end_hour = hend.strftime('%k').to_i
+      while hstart <= hend
+        hours << hstart.strftime('%l%P')
+        hstart += 1.hours
+      end
+      header_row = "header_row"
+      day_row = "day_row"
+      grid = "grid"
+    elsif options[:business_hours] == "true" or options[:business_hours].blank?
       hours = ["1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm"]
       header_row = "header_row"
       day_row = "day_row"
@@ -80,7 +97,10 @@ class WeeklyCalendar::Builder
   end
 
   def left(starts_at,business_hours)
-    if business_hours == "true" or business_hours.blank?
+    if @hours
+      minutes = starts_at.strftime('%M').to_f * 1.25
+      hour = starts_at.strftime('%H').to_f - @hours[0]
+    elsif business_hours == "true" or business_hours.blank?
       minutes = starts_at.strftime('%M').to_f * 1.25
       hour = starts_at.strftime('%H').to_f - 13
     else

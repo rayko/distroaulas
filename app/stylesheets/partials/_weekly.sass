@@ -166,15 +166,30 @@
         height: 35px
         display: block
 
-#weekly-view-grey
-  overflow: hidden
-  .header_row
-    background-color: #DDD
-    .header_box
-      border-right: 1px solid #111
-  .grid
-    background-color: white
-  .week_event
-    background-color: #AAA
-    border-left: 4px solid #333
+#weekly-view-print
+  .week
+    .days
+      width: 145px
 
+  overflow: hidden
+  .weekly-header
+    .grid
+      display: none
+    .day
+      display: none
+
+  .weekly-clean
+    .hours
+      overflow: hide
+    .header_row
+      display: none
+    .placeholder
+      display: none
+      height: 40px
+    .day
+      padding-top: 10px
+    #event-link
+      overflow: hidden
+      a
+        height: 35px
+        display: block

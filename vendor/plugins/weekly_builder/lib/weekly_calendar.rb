@@ -8,6 +8,7 @@ module WeeklyCalendar
     row_title = options[:row_title]
     disable_day_name = options[:disable_day_name] || false
     main_title = options[:main_title]
+    hours = options[:hours] # must be array like [16, 24] with start and end # 24 hour expected
 
     if row_title.nil?
       end_date = Date.new(date.year, date.month, date.day) + 6
@@ -18,7 +19,7 @@ module WeeklyCalendar
 
     safe_concat(tag("div", :class => "week"))
 
-      yield WeeklyCalendar::Builder.new(objects || [], self, options, start_date, end_date, row_title, disable_day_name, main_title)
+      yield WeeklyCalendar::Builder.new(objects || [], self, options, start_date, end_date, row_title, disable_day_name, main_title, hours)
 
     safe_concat("</div>")
 

@@ -1,8 +1,8 @@
-= form_tag calendar_preview_events_path do
+= semantic_form_for :display_options, :url => calendar_preview_events_path do |form|
 
   %table.index
     %tr
-      %th
+      %th= check_box_tag 'select_all', '', false
       %th Name
       %th Date
       %th Starts
@@ -10,13 +10,27 @@
       %th Calendar
     - for event in events
       %tr
-        %td= check_box_tag 'event_ids', event.id, false, :name => "events_ids[]"
+        %td= check_box_tag 'event_ids', event.id, false, :name => "events_ids[]", :class => 'selectable'
         %td= event.name
         %td= event.dtstart.strftime '%d-%m-%Y'
         %td= event.dtstart.strftime '%H:%M'
         %td= event.dtend.strftime '%H:%M'
         %td= event.calendar.name
-  = submit_tag 'Generate'
+
+  = field_set_tag 'Display options', :class => 'separated' do
+    = form.inputs do
+      = form.input :display_title, :as => :boolean, :required => false
+      = form.input :title, :as => :string, :required => false
+      = form.input :date, :as => :string, :hint => 'Weekle view will display seven days starting from this date, it\'s recommended to pick a monday', :input_html => {:class => "ui-date-picker", :size => 20}, :required => false
+      = form.input :display_event_name, :as => :radio, :collection => [['No', ''], ['Yes', 'display']], :required => false
+      = form.input :display_matter_name, :as => :radio, :collection => [['No', ''], ['Full', 'full'], ['Short', 'short']], :required => false
+      = form.input :display_space_name, :as => :radio, :collection => [['No', ''], ['Full', 'full'], ['Short', 'short']], :required => false
+      = form.input :display_time, :as => :radio, :collection => [['No', ''], ['Yes', 'display']], :required => false
+      //= form.input :start_hour, :as => :select, :collection => [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24]], :required => false
+      //= form.input :end_hour, :as => :select, :collection => [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24]], :required => false
+
+    = form.buttons do
+      = form.commit_button 'Generate'
 
 
 - if events.empty?

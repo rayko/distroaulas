@@ -6,9 +6,13 @@
   the content between the links will be printed.
 
 = link_to 'Print this page', 'javascript:window.print()', :class => 'print-link'
-%div#weekly-view
-  = weekly_calendar(@events, :date => Date.today, :include_24_hours => false) do |w|
+
+- if @title
+  %h1= @title
+
+%div#weekly-view-print
+  = weekly_calendar(@events, :date => @date, :include_24_hours => false, :main_title => '') do |w|
     = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
-      =  link_to event.name, event_path(event.id)
+      = event.name_with_options(@display_options)
 
 = link_to 'Print this page', 'javascript:window.print()', :class => 'print-link'
