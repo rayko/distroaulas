@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 15) do
+ActiveRecord::Schema.define(:version => 16) do
 
   create_table "calendars", :force => true do |t|
     t.string   "name"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 15) do
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "responsable"
+    t.string   "responsible"
   end
 
   create_table "plans", :force => true do |t|

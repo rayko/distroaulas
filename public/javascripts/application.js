@@ -174,19 +174,19 @@ $(document).ready(function()
 // Auto fill responsable field on event from matter field
 jQuery(function($) {
     $("#event_matter_id").change(function() {
-        responsable_field = document.getElementById("event_responsable")
+        responsible_field = document.getElementById("event_responsible")
         $.ajax({
             url: "/matters/" + document.getElementById("event_matter_id").value,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             beforeSend: function(xhr) {
-                $('.responsable-loading').show();
-                responsable_field.disabled = true;
+                $('.responsible-loading').show();
+                responsible_field.disabled = true;
             },
             success: function(data) {
-                $('.responsable-loading').hide();
-                responsable_field.disabled = false;
-                document.getElementById("event_responsable").value = data["matter"]["responsable"]
+                $('.responsible-loading').hide();
+                responsible_field.disabled = false;
+                document.getElementById("event_responsible").value = data["matter"]["responsible"]
             },
         });
     });

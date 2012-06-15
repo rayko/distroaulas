@@ -1,6 +1,6 @@
 class Matter < ActiveRecord::Base
   attr_accessible :name, :short_name, :career_id, :year, :career, :events,
-                  :event_ids, :responsable
+                  :event_ids, :responsible
 
   belongs_to :career
 
