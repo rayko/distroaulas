@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
 
   def new_event
     session[:new_event_space_id] = params[:space]
+    session[:new_event_date] = params[:date]
     redirect_to new_event_path
   end
 

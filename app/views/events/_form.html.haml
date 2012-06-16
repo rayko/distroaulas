@@ -9,7 +9,10 @@
     = f.input :name
     = image_tag 'loading.gif', :class => "loading-icon-small responsible-loading"
     = f.input :responsible
-    = f.input :start_date, :as => :date_picker
+    - if session[:new_event_date]
+      = f.input :start_date, :as => :date_picker, :input_html => {:value => Date.parse(session[:new_event_date]).strftime("%d/%m/%Y")}
+    - else
+      = f.input :start_date, :as => :date_picker
     = f.input :start_time, :as => :time
     = f.input :end_time, :as => :time
 
@@ -17,7 +20,10 @@
     = link_to 'Check free spaces', '#none', :class => 'check_free_spaces', :id => 'check_free_spaces'
     %br
     = image_tag 'loading.gif', :class => "loading-icon-small spaces-loading"
-    = f.input :space, :as => :select, :collection => []
+    - if session[:new_event_space_id]
+      = f.input :space, :as => :select, :collection => [Space.find_by_id(session[:new_event_space_id])]
+    - else
+      = f.input :space, :as => :select, :collection => []
 
 
     = text_field_tag :rdate_picker, '', :class => 'ui-date-picker', :style => "margin-left: 25%"

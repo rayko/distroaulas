@@ -2,4 +2,5 @@
   - form_tag new_event_from_free_space_path do
     = label_tag 'Current Free Spaces'
     = select_tag :space, options_from_collection_for_select(spaces, :id, :name), :include_blank => true
+    = hidden_field_tag :date, @datetime || Date.today
     = submit_tag 'Create event for this space'

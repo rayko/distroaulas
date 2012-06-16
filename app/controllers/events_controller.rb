@@ -15,6 +15,9 @@ class EventsController < ApplicationController
     if session[:new_event_space_id]
       @event.space_id = session[:new_event_space_id]
     end
+    if session[:new_event_date]
+      @event.
+    end
   end
 
   def create
@@ -25,6 +28,9 @@ class EventsController < ApplicationController
     if @event.save
       if session[:new_event_space_id]
         session.delete :new_event_space_id
+      end
+      if session[:new_event_date]
+        session.delete :new_event_date
       end
       redirect_to @event, :notice => "Successfully created event."
     else
