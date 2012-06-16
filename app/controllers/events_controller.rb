@@ -15,9 +15,6 @@ class EventsController < ApplicationController
     if session[:new_event_space_id]
       @event.space_id = session[:new_event_space_id]
     end
-    if session[:new_event_date]
-      @event.
-    end
   end
 
   def create
