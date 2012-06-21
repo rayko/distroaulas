@@ -1,11 +1,10 @@
 es:
   controllers:
-    band_applies:
+    events:
       notices:
-        apply_accepted: "Ahora eres miembro de %{band_name}!"
-        apply_rejected: "Haz rechazado la invitacion de %{band_name}!"
-        create_success: "La invitacion fue creada satisfactoriamente."
+        create_success: "El evento fue creado correctamente."
+        update_success: "El evento se actualizo correctamente."
+        destroy_success: "El evento se elimino correctamente."
       alerts:
-        invalid_apply: "Invitacion invalida."
         permission_denied: "No tienes autorizacion a acceder a esta pagina."
 

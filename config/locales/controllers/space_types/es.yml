@@ -1,9 +1,10 @@
 es:
   controllers:
-    pre_users:
+    space_types:
       notices:
-        create_success: "El pre-usuario fue creado satisfactoriamente."
-        update_success: ""
+        create_success: "El tipo de espacio se ha creado correctamente."
+        update_success: "El tipo de espacio se ha actualizado correctamente."
+        destroy_success: "El tipo de espacio se ha eliminado correctamente."
       alerts:
         permission_denied: "No estas autorizado para acceder a esta pagina"
         invalid_invitation: "ID invalido."

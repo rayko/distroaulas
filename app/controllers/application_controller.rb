@@ -30,4 +30,25 @@ class ApplicationController < ActionController::Base
     redirect_to new_event_path
   end
 
+  private
+  def get_controller_name
+    if params[:controller].include? '/'
+      params[:controller].gsub '/', '.'
+    else
+      params[:controller]
+    end
+  end
+
+
+  # Gets notice texts from I18n library
+  def show_notice n, attrs={}
+    return t ['controllers', get_controller_name, 'notices', n.to_s].join('.'), attrs
+  end
+
+  # Gets alert texts from I18n library
+  def show_alert a, attrs={}
+    return t ['controllers', get_controller_name, 'alerts', a.to_s].join('.'), attrs
+  end
+
+
 end

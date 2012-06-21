@@ -1,9 +1,10 @@
 es:
   controllers:
-    albums:
+    careers:
       notices:
-        create_success: "El album se creo satisfactoriamente."
-        update_success: "El album se actualizo satisfactoriamente."
+        create_success: "La carrera se ha creado correctamente."
+        update_success: "La carrera se ha actualizado correctamente."
+        destroy_success: "La carrera se ha eliminado correctamente."
       alerts:
         permission_denied: "No tienes permiso de acceder a esta pagina."
 

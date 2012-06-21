@@ -22,7 +22,7 @@ class MattersController < ApplicationController
   def create
     @matter = Matter.new(params[:matter])
     if @matter.save
-      redirect_to @matter, :notice => "Successfully created matter."
+      redirect_to @matter, :notice => show_notice(:create_success)
     else
       render :action => 'new'
     end
@@ -35,7 +35,7 @@ class MattersController < ApplicationController
   def update
     @matter = Matter.find(params[:id])
     if @matter.update_attributes(params[:matter])
-      redirect_to @matter, :notice  => "Successfully updated matter."
+      redirect_to @matter, :notice  => show_notice(:update_success)
     else
       render :action => 'edit'
     end
@@ -44,7 +44,7 @@ class MattersController < ApplicationController
   def destroy
     @matter = Matter.find(params[:id])
     @matter.destroy
-    redirect_to matters_url, :notice => "Successfully destroyed matter."
+    redirect_to matters_url, :notice => show_notice(:destroy_success)
   end
 
   def ajax_get_matters_by_career

@@ -25,7 +25,7 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(params[:space])
     if @space.save
-      redirect_to @space, :notice => "Successfully created space."
+      redirect_to @space, :notice => show_notice(:create_success)
     else
       render :action => 'new'
     end
@@ -38,7 +38,7 @@ class SpacesController < ApplicationController
   def update
     @space = Space.find(params[:id])
     if @space.update_attributes(params[:space])
-      redirect_to @space, :notice  => "Successfully updated space."
+      redirect_to @space, :notice  => show_notice(:update_success)
     else
       render :action => 'edit'
     end
@@ -47,7 +47,7 @@ class SpacesController < ApplicationController
   def destroy
     @space = Space.find(params[:id])
     @space.destroy
-    redirect_to spaces_url, :notice => "Successfully destroyed space."
+    redirect_to spaces_url, :notice => show_notice(:destroy_success)
   end
 
   def ajax_free_spaces

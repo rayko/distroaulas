@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update_pass
     @user = User.find(params[:user_id])
     if @user.update_attributes(params[:user])
-      redirect_to users_path, :notice  => "Successfully updated user."
+      redirect_to users_path, :notice  => show_notice(:reset_pass_success)
     else
       render :action => 'reset_pass'
     end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to @user, :notice => "Successfully created user."
+      redirect_to @user, :notice => show_notice(:create_success)
     else
       render :action => 'new'
     end
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to @user, :notice  => "Successfully updated user."
+      redirect_to @user, :notice  => show_notice(:update_success)
     else
       render :action => 'edit'
     end
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_url, :notice => "Successfully destroyed user."
+    redirect_to users_url, :notice => show_notice(:destroy_success)
   end
 
 end

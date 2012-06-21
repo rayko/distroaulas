@@ -17,7 +17,7 @@ class CareersController < ApplicationController
   def create
     @career = Career.new(params[:career])
     if @career.save
-      redirect_to @career, :notice => "Successfully created career."
+      redirect_to @career, :notice => show_notice(:create_success)
     else
       render :action => 'new'
     end
@@ -30,7 +30,7 @@ class CareersController < ApplicationController
   def update
     @career = Career.find(params[:id])
     if @career.update_attributes(params[:career])
-      redirect_to @career, :notice  => "Successfully updated career."
+      redirect_to @career, :notice  => show_notice(:update_success)
     else
       render :action => 'edit'
     end
@@ -39,7 +39,7 @@ class CareersController < ApplicationController
   def destroy
     @career = Career.find(params[:id])
     @career.destroy
-    redirect_to careers_url, :notice => "Successfully destroyed career."
+    redirect_to careers_url, :notice => show_notice(:destroy_success)
   end
 
   def ajax_careers_by_plan

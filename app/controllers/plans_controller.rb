@@ -17,7 +17,7 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(params[:plan])
     if @plan.save
-      redirect_to @plan, :notice => "Successfully created plan."
+      redirect_to @plan, :notice => show_notice(:create_success)
     else
       render :action => 'new'
     end
@@ -30,7 +30,7 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     if @plan.update_attributes(params[:plan])
-      redirect_to @plan, :notice  => "Successfully updated plan."
+      redirect_to @plan, :notice  => show_notice(:update_success)
     else
       render :action => 'edit'
     end
@@ -39,6 +39,6 @@ class PlansController < ApplicationController
   def destroy
     @plan = Plan.find(params[:id])
     @plan.destroy
-    redirect_to plans_url, :notice => "Successfully destroyed plan."
+    redirect_to plans_url, :notice => show_notice(:destroy_success)
   end
 end

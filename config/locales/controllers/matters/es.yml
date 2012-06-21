@@ -1,8 +1,9 @@
 es:
   controllers:
-    bands:
+    matters:
       notices:
-        member_update_success: "El miembro fue actualizado correctamente."
+        create_success: "La materia se ha creado correctamente."
+        destroy_success: "La materia se elimino correctamente."
         update_success: "La banda fue actualizada correctamente."
       alerts:
         permission_denied: "No tienes autorizacion para acceder a esta pagina."

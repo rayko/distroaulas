@@ -1,9 +1,10 @@
 es:
   controllers:
-    garages:
+    spaces:
       notices:
-        create_success: "El garage fue creado satisfactoriamente."
-        update_success: "El garage fue actualizado satisfactoriamente."
+        create_success: "El espacio se ha creado correctamente."
+        update_success: "El espacio se ha actualizado correctamente."
+        destroy_success: "El espacio se ha eliminado correctamente."
       alerts:
         permission_denied: "No tienes autorizacion para acceder a esta pagina."
 

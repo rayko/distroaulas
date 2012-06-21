@@ -13,7 +13,7 @@ class SpaceTypesController < ApplicationController
   def create
     @space_type = SpaceType.new(params[:space_type])
     if @space_type.save
-      redirect_to @space_type, :notice => "Successfully created space type."
+      redirect_to @space_type, :notice => show_notice(:create_success)
     else
       render :action => 'new'
     end
@@ -26,7 +26,7 @@ class SpaceTypesController < ApplicationController
   def update
     @space_type = SpaceType.find(params[:id])
     if @space_type.update_attributes(params[:space_type])
-      redirect_to @space_type, :notice  => "Successfully updated space type."
+      redirect_to @space_type, :notice  => show_notice(:update_success)
     else
       render :action => 'edit'
     end
@@ -35,6 +35,6 @@ class SpaceTypesController < ApplicationController
   def destroy
     @space_type = SpaceType.find(params[:id])
     @space_type.destroy
-    redirect_to space_types_url, :notice => "Successfully destroyed space type."
+    redirect_to space_types_url, :notice => show_notice(:destroy_success)
   end
 end

@@ -1,6 +1,10 @@
 en:
   controllers:
     users:
-      flashes:
+      notices:
+        create_success: "El usuario fue credao correctamente."
+        update_success: "El usuario fue actualizado correctamente."
+        destroy_success: "El usuario fue eliminado correctamente."
+        reset_pass_success: "Se ha restablecido la contraseña correctamente."
       alerts:
 

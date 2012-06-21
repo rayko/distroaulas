@@ -25,7 +25,7 @@ class CalendarsController < ApplicationController
   def create
     @calendar = Calendar.new(params[:calendar])
     if @calendar.save
-      redirect_to @calendar, :notice => "Successfully created calendar."
+      redirect_to @calendar, :notice => show_notice(:create_success)
     else
       render :action => 'new'
     end
@@ -38,7 +38,7 @@ class CalendarsController < ApplicationController
   def update
     @calendar = Calendar.find(params[:id])
     if @calendar.update_attributes(params[:calendar])
-      redirect_to @calendar, :notice  => "Successfully updated calendar."
+      redirect_to @calendar, :notice  => show_notice(:update_success)
     else
       render :action => 'edit'
     end
@@ -47,6 +47,6 @@ class CalendarsController < ApplicationController
   def destroy
     @calendar = Calendar.find(params[:id])
     @calendar.destroy
-    redirect_to calendars_url, :notice => "Successfully destroyed calendar."
+    redirect_to calendars_url, :notice => show_notice(:destroy_success)
   end
 end

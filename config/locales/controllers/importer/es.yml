@@ -1,10 +1,12 @@
 es:
   controllers:
-    songs:
+    importer:
       notices:
-        create_success: "La cancion fue creada satisfactoriamente."
-        update_success: "La cancion fue actualizada satisfactoriamente."
-        batch_success: "%{count} canciones fueron creadas."
+        upload_space_types_success: "El archivo de tipos de espacio se subio correctamente."
+        upload_spaces_success: "El archivo de espacios se subio correctamente."
+        upload_plans_success: "El archivo de planes se subio correctamente."
+        upload_careers_success: "El archivo de carreras se subio correctamente."
+        upload_matters_success: "El archivo de materias se subio correctamente."
       alerts:
         permission_denied: "No tienes autorizacion para acceder a esta pagina."
         invalid_amount: "Cantidad invalida de canciones."

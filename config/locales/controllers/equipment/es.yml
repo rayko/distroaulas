@@ -1,8 +1,9 @@
 es:
   controllers:
-    roles:
+    equipment:
       notices:
-        create_success: "El rol fue creado satisfactoriamente."
-        update_success: "El rol fue actualizado satisfactoriamente."
+        create_success: "El equipo fue creado correctamente."
+        update_success: "El equipo fue actualizado correctamente."
+        destroy_success: "El equipo fue eliminado correctamente."
       alerts:
         permission_denied: "No tienes autorizacion para acceder a esta pagina."

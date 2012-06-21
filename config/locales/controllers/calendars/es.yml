@@ -1,8 +1,9 @@
 es:
   controllers:
-    quotes:
+    calendars:
       notices:
-        create_success: "La cita fue creada satisfactoriamente."
-        update_success: "La cita fue actualizada satisfactoriamente."
+        create_success: "El calendario se creo correctamente."
+        update_success: "El calendario se actualizo correctamente."
+        destroy_success: "El calendario se ha eliminado correctamente."
       alerts:
         permission_denied: "No tienes autorizacion para acceder a esta pagina."
