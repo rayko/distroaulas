@@ -1,7 +1,6 @@
-- title 'Import Results'
+- title t('.title')
 
-%p
-  These are the import results:
+%p= t('.text')
 
 %ul
   - @import_results.each do |line|

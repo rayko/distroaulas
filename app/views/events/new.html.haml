@@ -1,5 +1,5 @@
-- title "New Event"
+- title t('.title')
 
 = render 'form'
 
-%p= link_to "Back to List", events_path, :class => "ui-corner-all button" if can? :read, Event
+%p= link_to t('.links.back'), events_path, :class => "ui-corner-all button" if can? :read, Event

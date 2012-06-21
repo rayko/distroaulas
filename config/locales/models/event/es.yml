@@ -1,0 +1,33 @@
+es:
+  activerecord:
+    models:
+      event: Evento
+    attributes:
+      event:
+        name: "Nombre"
+        matter_id: "ID de Materia"
+        space_id: "ID de Espacio"
+        dtstart: "Fecha y Hora de Inicio"
+        dtend: "Fecha y Hora de Fin"
+        exdate: "Ocurrencias Omitidas"
+        rdate: "Ocurrencias adicionales"
+        recurrent: "Recurrente"
+        freq: "Frecuencia"
+        calendar_id: "ID de Calendario"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"
+        interval: "Intervalo"
+        until_date: "Fecha y Hora de fin de Recurrencia"
+        byday: "Dias de recurrencia"
+        start_date: "Fecha de Inicio"
+        start_time: "Hora de Inicio"
+        end_time: "Hora de Fin"
+        responsible: "Responsable a Cargo"
+        date: "Fecha"
+        starts: "Inicio"
+        ends: "Fin"
+        calendar: "Calendario"
+        career: "Carrera"
+        matter: "Materia"
+        space: "Espacio"
+        count: "Cantidad de Ocurrencias"

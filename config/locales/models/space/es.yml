@@ -1,0 +1,14 @@
+es:
+  activerecord:
+    models:
+      space: Espacio
+    attributes:
+      space:
+        created_at: "Fecha de Creacion"
+        updated_at: "Fecha de Actualizacion"
+        name: "Nombre"
+        short_name: "Nombre corto"
+        description: "Descripcion"
+        capacity: "Capacidad"
+        space_type_id: "ID Tipo de Espacio"
+        space_type: "Tipo de Espacio"

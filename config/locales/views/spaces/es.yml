@@ -1,0 +1,31 @@
+es:
+  spaces:
+    form:
+      commit: "Guardar"
+    edit:
+      title: "Editar Espacio"
+      links:
+        show: "Ver"
+        back: "Volver a la lista"
+    index:
+      title: "Espacios"
+      links:
+        show: "Ver"
+        edit: "Editar"
+        destroy: "Eliminar"
+        new: "Nuevo Espacio"
+    new:
+      title: "Nuevo Espacio"
+      links:
+        back: "Volver a la lista"
+    show:
+      title: "Espacio"
+      events_count: "Eventos registrados para este espacio"
+      weekly_view: "Vista semanal"
+      links:
+        previous_week: "< Semana anterior"
+        next_week: "Semana siguiente >"
+        current_week: "Semana actual"
+        edit: "Editar"
+        destroy: "Eliminar"
+        back: "Volver a la lista"

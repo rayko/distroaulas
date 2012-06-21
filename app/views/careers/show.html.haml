@@ -1,23 +1,23 @@
-- title "Career"
+- title t('.title')
 
 %ul
   %li
-    %strong Name:
+    %strong= Career.human_attribute_name(:name) + ':'
     = @career.name
   %li
-    %strong Short Name:
+    %strong= Career.human_attribute_name(:short_name) + ':'
     = @career.short_name
   %li
-    %strong Matters:
+    %strong= Career.human_attribute_name(:matters) + ':'
     = @career.matters.size
 
 %hr
 
 %p
-  %strong Matters in this career
+  %strong= t('.matters_list')
   = render :partial => 'matters/list', :locals => {:matters => @career.matters}
 
 %p
-  = link_to "Edit", edit_career_path(@career), :class => "ui-corner-all button" if can? :edit, @career
-  = link_to "Destroy", @career, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @career
-  = link_to "View All", careers_path, :class => "ui-corner-all button" if can? :read, Career
+  = link_to t('.links.edit'), edit_career_path(@career), :class => "ui-corner-all button" if can? :edit, @career
+  = link_to t('.links.destroy'), @career, :confirm => t('shared.destroy_confirmation'), :method => :delete, :class => "ui-corner-all button" if can? :destroy, @career
+  = link_to t('.links.back'), careers_path, :class => "ui-corner-all button" if can? :read, Career

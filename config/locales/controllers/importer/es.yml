@@ -1,0 +1,10 @@
+es:
+  controllers:
+    songs:
+      notices:
+        create_success: "La cancion fue creada satisfactoriamente."
+        update_success: "La cancion fue actualizada satisfactoriamente."
+        batch_success: "%{count} canciones fueron creadas."
+      alerts:
+        permission_denied: "No tienes autorizacion para acceder a esta pagina."
+        invalid_amount: "Cantidad invalida de canciones."

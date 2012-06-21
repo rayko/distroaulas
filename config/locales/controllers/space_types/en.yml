@@ -1,0 +1,9 @@
+en:
+  controllers:
+    pre_users:
+      notices:
+        create_success: "Pre user was successfully created."
+        update_success: ""
+      alerts:
+        permission_denied: "You are not authorized to access this page."
+        invalid_invitation: "Invalid ID"

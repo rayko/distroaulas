@@ -1,5 +1,5 @@
-- title "New Space Type"
+- title t('.title')
 
 = render 'form'
 
-%p= link_to "Back to List", space_types_path, :class => "ui-corner-all button" if can? :read, SpaceType
+%p= link_to t('.links.back'), space_types_path, :class => "ui-corner-all button" if can? :read, SpaceType

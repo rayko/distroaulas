@@ -3,11 +3,11 @@
   %table.index
     %tr
       %th= check_box_tag 'select_all', '', false
-      %th Name
-      %th Date
-      %th Starts
-      %th Ends
-      %th Calendar
+      %th= t('.headers.name')
+      %th= t('.headers.date') 
+      %th= t('.headers.starts')
+      %th= t('.headers.ends') 
+      %th= t('.headers.calendar')
     - for event in events
       %tr
         %td= check_box_tag 'event_ids', event.id, false, :name => "events_ids[]", :class => 'selectable'
@@ -17,21 +17,21 @@
         %td= event.dtend.strftime '%H:%M'
         %td= event.calendar.name
 
-  = field_set_tag 'Display options', :class => 'separated' do
+  = field_set_tag t('.display_options'), :class => 'separated' do
     = form.inputs do
-      = form.input :display_title, :as => :boolean, :required => false
-      = form.input :title, :as => :string, :required => false
-      = form.input :date, :as => :string, :hint => 'Weekle view will display seven days starting from this date, it\'s recommended to pick a monday', :input_html => {:class => "ui-date-picker", :size => 20}, :required => false
-      = form.input :display_event_name, :as => :radio, :collection => [['No', ''], ['Yes', 'display']], :required => false
-      = form.input :display_matter_name, :as => :radio, :collection => [['No', ''], ['Full', 'full'], ['Short', 'short']], :required => false
-      = form.input :display_space_name, :as => :radio, :collection => [['No', ''], ['Full', 'full'], ['Short', 'short']], :required => false
-      = form.input :display_time, :as => :radio, :collection => [['No', ''], ['Yes', 'display']], :required => false
-      //= form.input :start_hour, :as => :select, :collection => [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24]], :required => false
-      //= form.input :end_hour, :as => :select, :collection => [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24]], :required => false
+      = form.input :display_title, :label => t('.labels.display_title'), :as => :boolean, :required => false
+      = form.input :title, :label => t('.labels.title'), :as => :string, :required => false
+      = form.input :date, :label => t('.labels.date'), :as => :string, :hint => t('.hints.weekly_view'), :input_html => {:class => "ui-date-picker", :size => 20}, :required => false
+      = form.input :display_event_name, :label => t('.labels.display_event_name'), :as => :radio, :collection => [[t('.radio_labels.no_display'), ''], [t('.radio_labels.display'), 'display']], :required => false
+      = form.input :display_matter_name, :label => t('.labels.display_matter_name'), :as => :radio, :collection => [[t('.radio_labels.no_display'), ''], [t('.radio_labels.full'), 'full'], [t('.radio_labels.short'), 'short']], :required => false
+      = form.input :display_space_name, :label => t('.labels.display_space_name'), :as => :radio, :collection => [[t('.radio_labels.no_display'), ''], [t('.radio_labels.full'), 'full'], [t('.radio_labels.short'), 'short']], :required => false
+      = form.input :display_time, :label => t('.labels.display_time'), :as => :radio, :collection => [[t('.radio_labels.no'), ''], [t('.radio_labels.display'), 'display']], :required => false
+      //= form.input :start_hour, :label => t('.labels.start_hour'), :as => :select, :collection => [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24]], :required => false
+      //= form.input :end_hour, :label => t('.labels.end_hour'), :as => :select, :collection => [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24]], :required => false
 
     = form.buttons do
-      = form.commit_button 'Generate'
+      = form.commit_button t('.buttons.generate')
 
 
 - if events.empty?
-  No events found
+  %i= t('.no_result')

@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      space_type: Tipo de Espacio
+    attributes:
+      space_type:
+        created_at: "Fecha de Creacion"
+        updated_at: "Fecha de Actualizacion"
+        name: "Nombre"
+        spaces: "Espacios"

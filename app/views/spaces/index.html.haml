@@ -1,13 +1,13 @@
-- title "Spaces"
+- title t('.title')
 
 %table.index
   %tr
-    %th Name
-    %th Short name
-    %th Description
-    %th Capacity
-    %th Spacetype
-    %th Actions
+    %th= Space.human_attribute_name :name
+    %th= Space.human_attribute_name :short_name
+    %th= Space.human_attribute_name :description
+    %th= Space.human_attribute_name :capacity
+    %th= Space.human_attribute_name :space_type
+    %th= t('shared.actions')
   - for space in @spaces
     %tr
       %td= space.name
@@ -16,9 +16,9 @@
       %td= space.capacity
       %td= space.space_type.name
       %td
-        = link_to 'Show', space if can? :read, space
-        = link_to 'Edit', edit_space_path(space) if can? :edit, space
-        = link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete if can? :destroy, space
+        = link_to t('.links.show'), space if can? :read, space
+        = link_to t('.links.edit'), edit_space_path(space) if can? :edit, space
+        = link_to t('.links.destroy'), space, :confirm => t('shared.destroy_confirmation'), :method => :delete if can? :destroy, space
 
 = will_paginate @spaces
-%p= link_to "New Space", new_space_path, :class => "ui-corner-all button" if can? :create, Space
+%p= link_to t('.links.new'), new_space_path, :class => "ui-corner-all button" if can? :create, Space

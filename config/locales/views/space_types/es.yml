@@ -1,0 +1,19 @@
+es:
+  space_types:
+    form:
+      commit: "Guardar"
+    edit:
+      title: "Editar Tipo de Espacio"
+      links:
+        show: "Ver"
+        back: "Volver a la lista"
+    index:
+      title: "Tipo de Espacios"
+      links:
+        edit: "Editar"
+        destroy: "Eliminar"
+        new: "Nuevo Tipo de Espacio"
+    new:
+      title: "Nuevo Tipo de Espacio"
+      links:
+        back: "Volver a la lista"

@@ -1,0 +1,129 @@
+es:
+  importer:
+    careers:
+      title: "Importar Carreras"
+      text: "En esta seccion podra importar carreras en el sistema. Para ayudarlo a completar
+            esta tarea, puede descargarse la plantilla de importacion. A continuacion completela
+            con los datos necesarios y luego suba el archivo con los datos en el formulario
+            mas abajo."
+      text2: "Distroaulas utiliza el formato XLS de Miscrosoft Excel para leer los datos del
+             archivo. Puede utilizar cualquier programa que trabaje con hojas de calculo de
+             Microsoft Excel (Microsoft Office, Open Office, etc) para completar la platilla."
+      text3: "Procure verificar su gramatica al completar la plantilla, Distroaulas ignora
+             nombres duplicados. Adicionalmente, las carreras dependen de planes, en la
+             plantilla podra observar que hay un campo llamado Plan. Este es un campo
+             alfanumerico que representa el nombre del plan asociado a la carrera. Si aun no ha creado
+             planes, antes de importar carreras, por favor cree al menos un plan para
+             asociar las carreras importadas a dicho plan"
+      text4: "Finalmente, no altere el orden de las columnas, solo agregue filas a la plantilla.
+             Las hojas adicionales que puedan haber se ignoraran, solo la primera sera leida."
+      links:
+        download_template: "Descargar Plantilla"
+      labels:
+        file: "Archivo de Carreras"
+      upload: "Importar"
+    index:
+      title: "Importacion de Datos"
+      text: "En esta seccion podra importar datos al sistema por medio de hojas de calculo
+            XLS de Microsoft Excel. Para ayudarlo en esta tarea, hay disponibles diferentes
+            plantillas que puede descargar y completar."
+      text2: "Todos los campos marcados con asterisco (*) son obligatorios, las filas sin
+             datos en estos campos seran ignoradas. Si lo desea puede abrir otra ventana
+             en su navegador para ver los datos disponibles en el sistema a fin de ingresar
+             los correctos en la plantilla de importacion."
+      text3: "Para aquellas entradas que dependen de otro objeto (por ejemplo, una materia
+             depende de una carrera), si el nombre del objeto padre (carrera), no se encuentra,
+             la materia no sera importada. Verifique su gramatica y asegurse de que los nombres
+             que ingrese sean correctos. Las entradas importadas que ya existan en la base
+             de datos seran ignoradas tambien."
+      text4: "No altere el orden de las columnas en la plantilla, solo agregue filas con
+             los datos. Las hojas adicionales que el archivo pueda contener seran ignoradas,
+             solo la primera sera leida."
+      text5: "Una vez ue haya finalizado la carga de datos en la plantilla, haga click en la seccion
+             correspondiente y suba el archivo por medio del formulario. Al terminar la importacion
+             Distroaulas le informara el resultado. Tenga en cuenta que si el volumen de
+             datos es grande, la importacion puede demorar unos minutos."
+      import: "Importar..."
+    matters:
+      title: "Importar Materias"
+      text: "En esta seccion podra importar materias en el sistema. Para ayudarlo a completar
+            esta tarea, puede descargarse la plantilla de importacion. A continuacion completela
+            con los datos necesarios y luego suba el archivo con los datos en el formulario
+            mas abajo."
+      text2: "Distroaulas utiliza el formato XLS de Miscrosoft Excel para leer los datos del
+             archivo. Puede utilizar cualquier programa que trabaje con hojas de calculo de
+             Microsoft Excel (Microsoft Office, Open Office, etc) para completar la platilla."
+      text3: "Procure verificar su gramatica al completar la plantilla, Distroaulas ignora
+             nombres duplicados. Adicionalmente, las materias dependen de carreras, en la
+             plantilla podra observar que hay un campo llamado Carrera. Este es un campo
+             alfanumerico que representa el nombre de la materia asociado a la carrera. Si aun no ha creado
+             carreras, antes de importar materias, por favor cree al menos una carrera para
+             asociar las materias importadas a dicha carrera"
+      text4: "Finalmente, no altere el orden de las columnas, solo agregue filas a la plantilla.
+             Las hojas adicionales que puedan haber se ignoraran, solo la primera sera leida."
+      links:
+        download_template: "Descargar Plantilla"
+      labels:
+        file: "Archivo de Materias"
+      upload: "Importar"
+    plans:
+      title: "Importar Planes"
+      text: "En esta seccion podra importar planes en el sistema. Para ayudarlo a completar
+            esta tarea, puede descargarse la plantilla de importacion. A continuacion completela
+            con los datos necesarios y luego suba el archivo con los datos en el formulario
+            mas abajo."
+      text2: "Distroaulas utiliza el formato XLS de Miscrosoft Excel para leer los datos del
+             archivo. Puede utilizar cualquier programa que trabaje con hojas de calculo de
+             Microsoft Excel (Microsoft Office, Open Office, etc) para completar la platilla."
+      text3: "Procure verificar su gramatica al completar la plantilla, Distroaulas ignora
+             nombres duplicados."
+      text4: "Finalmente, no altere el orden de las columnas, solo agregue filas a la plantilla.
+             Las hojas adicionales que puedan haber se ignoraran, solo la primera sera leida."
+      links:
+        download_template: "Descargar Plantilla"
+      labels:
+        file: "Archivo de Planes"
+      upload: "Importar"
+    result:
+      title: "Resultados de la Importacion"
+      text: "A continuacion puede verificar el resultado de la importacion: "
+    space_types:
+      title: "Importar Tipos de Espacios"
+      text: "En esta seccion podra importar tipos de espacios en el sistema. Para ayudarlo a completar
+            esta tarea, puede descargarse la plantilla de importacion. A continuacion completela
+            con los datos necesarios y luego suba el archivo con los datos en el formulario
+            mas abajo."
+      text2: "Distroaulas utiliza el formato XLS de Miscrosoft Excel para leer los datos del
+             archivo. Puede utilizar cualquier programa que trabaje con hojas de calculo de
+             Microsoft Excel (Microsoft Office, Open Office, etc) para completar la platilla."
+      text3: "Procure verificar su gramatica al completar la plantilla, Distroaulas ignora
+             nombres duplicados."
+      text4: "Finalmente, no altere el orden de las columnas, solo agregue filas a la plantilla.
+             Las hojas adicionales que puedan haber se ignoraran, solo la primera sera leida."
+      links:
+        download_template: "Descargar Plantilla"
+      labels:
+        file: "Archivo de Tipos de Espacio"
+      upload: "Importar"
+    spaces:
+      title: "Importar Espacios"
+      text: "En esta seccion podra importar espacios en el sistema. Para ayudarlo a completar
+            esta tarea, puede descargarse la plantilla de importacion. A continuacion completela
+            con los datos necesarios y luego suba el archivo con los datos en el formulario
+            mas abajo."
+      text2: "Distroaulas utiliza el formato XLS de Miscrosoft Excel para leer los datos del
+             archivo. Puede utilizar cualquier programa que trabaje con hojas de calculo de
+             Microsoft Excel (Microsoft Office, Open Office, etc) para completar la platilla."
+      text3: "Procure verificar su gramatica al completar la plantilla, Distroaulas ignora
+             nombres duplicados. Adicionalmente, los espacios dependen de tipos de espacios, en la
+             plantilla podra observar que hay un campo llamado Tipo de Espacio. Este es un campo
+             alfanumerico que representa el nombre del tipo de espacio asociado al espacios. Si aun no ha creado
+             tipos de espacios, antes de importar espacios, por favor cree al menos un tipo de espacio para
+             asociar los espacios importadas a dicho tipo de espacio."
+      text4: "Finalmente, no altere el orden de las columnas, solo agregue filas a la plantilla.
+             Las hojas adicionales que puedan haber se ignoraran, solo la primera sera leida."
+      links:
+        download_template: "Descargar Plantilla"
+      labels:
+        file: "Archivo de Espacios"
+      upload: "Importar"

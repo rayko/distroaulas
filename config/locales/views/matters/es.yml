@@ -1,0 +1,35 @@
+es:
+  matters:
+    index:
+      title: "Materias"
+      links:
+        new: "Nueva Materia"
+    list:
+      links:
+        show: "Ver"
+        edit: "Editar"
+        destroy: "Eliminar"
+    edit:
+      title: "Editar Materia"
+      links:
+        show: "Ver"
+        back: "Volver a la lista"
+    form:
+      commit: "Guardar"
+    new:
+      title: "Nueva Materia"
+      links:
+        back: "Volver a la lista"
+    occurrences:
+      no_space: "Sin asignar"
+      links:
+        show: "Ver"
+        edit: "Editar"
+    show:
+      title: "Materia"
+      events_list: "Eventos para esta materia"
+      no_events: "No hay eventos aun."
+      links:
+        edit: "Editar"
+        destroy: "Eliminar"
+        back: "Volver a la lista"

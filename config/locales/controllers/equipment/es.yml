@@ -1,0 +1,8 @@
+es:
+  controllers:
+    roles:
+      notices:
+        create_success: "El rol fue creado satisfactoriamente."
+        update_success: "El rol fue actualizado satisfactoriamente."
+      alerts:
+        permission_denied: "No tienes autorizacion para acceder a esta pagina."

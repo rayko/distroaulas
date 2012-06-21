@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    models:
+      band_apply: Band Apply
+    attributes:
+      band_apply:
+        user_id: "User ID"
+        user: "User"
+        band_id: "Band ID"
+        band: "Band"
+        email: "e-Mail"
+        status: "Status"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        pre_users: "Pre Users"

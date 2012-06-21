@@ -1,41 +1,17 @@
-- title "Importer"
+- title t('.title')
+
+%p= t('.text')
+%p= t('.text2')
+%p= t('.text3')
+%p= t('.text4')
+%p= t('.text5')
 
 %p
-  This seccion will let you import data to the application
-  using the available file extensions. To help you with
-  this task, there are several templates you can download
-  and complete in order to assure the proper data to load.
-
-%p
-  All fields marked with (*) are obligatory, those rows with
-  empty data on those fields will not be loaded to the database.
-  All fields are text and case sensitive. To help you you may
-  have on sight the list of available data in the database
-  to fill the template and submit it.
-
-%p
-  For those records that need a previous record (ie matter needs
-  a career), if the name of the needed record is not found in the
-  database the new record will not be loaded as well. Check your
-  spelling and make sure it is the same as the stored one. Also
-  Those records already found in the database will be ignored.
-
-%p
-  Do not alter the order of the columns, only add rows to it
-  with the values needed. Extra sheets in the document will be
-  ignored, only the first one will be used.
-
-%p
-  Once you finished loading the data to the file, go to the
-  specific section to upload the file and see if it was
-  correctly imported.
-
-%p
-  %strong Import...
+  %strong= t('.import')
   %ul
-    %li= link_to 'Space Types', import_space_types_path
-    %li= link_to 'Spaces', import_spaces_path
-    %li= link_to 'Plans', import_plans_path
-    %li= link_to 'Careers', import_careers_path
-    %li= link_to 'Matters', import_matters_path
+    %li= link_to SpaceType.human_name, import_space_types_path
+    %li= link_to Space.human_name, import_spaces_path
+    %li= link_to Plan.human_name, import_plans_path
+    %li= link_to Career.human_name, import_careers_path
+    %li= link_to Matter.human_name, import_matters_path
 

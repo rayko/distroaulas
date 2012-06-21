@@ -1,21 +1,21 @@
-- title "Plan"
+- title t('.title')
 
 %ul
   %li
-    %strong Name:
+    %strong= Plan.human_attribute_name(:name) + ':'
     = @plan.name
   %li
-    %strong Careers:
+    %strong= Plan.human_attribute_name(:careers) + ':'
     = @plan.careers.size
 
 %hr
 
 %p
-  %strong Careers on this plan
+  %strong= t('.careers_list')
 
 = render :partial => 'careers/list', :locals => {:careers => @plan.careers}
 
 %p
-  = link_to "Edit", edit_plan_path(@plan), :class => "ui-corner-all button" if can? :edit, @plan
-  = link_to "Destroy", @plan, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @plan
-  = link_to "View All", plans_path, :class => "ui-corner-all button" if can? :read, Plan
+  = link_to t('.links.edit'), edit_plan_path(@plan), :class => "ui-corner-all button" if can? :edit, @plan
+  = link_to t('.links.destroy'), @plan, :confirm => t('shared.destroy_confirmation'), :method => :delete, :class => "ui-corner-all button" if can? :destroy, @plan
+  = link_to t('.links.back'), plans_path, :class => "ui-corner-all button" if can? :read, Plan

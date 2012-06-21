@@ -1,69 +1,69 @@
-- title "Event"
+- title t('.title')
 
 %div#event-data
 
   %ul
     %li
-      Name:
+      = t('.name')
       = @event.name
     %li
-      Time:
-      = "#{@event.dtstart.strftime "%H:%M"} to #{@event.dtend.strftime "%H:%M"}"
+      = t('.time')
+      = "#{l(@event.dtstart, :format => :short_time)} #{t('.to')} #{l(@event.dtend, :format => :short_time)}"
 
     %li
-      Date:
-      = @event.dtstart.strftime "%A %e, %B, %Y"
+      = t('.date')
+      = l(@event.dtstart, :format => :long)
 
     %li
-      Matter:
-      = @event.matter.nil? ? 'none (free event)' : @event.matter.name
+      = t('.matter')
+      = @event.matter.nil? ? t('.free_event') : @event.matter.name
 
     %li
-      Space:
-      = @event.space.nil? ? 'Not Assigned' : @event.space.name
+      = t('.space')
+      = @event.space.nil? ? t('.not_assigned') : @event.space.name
 
     - if @event.recurrent
       %li
-        Recurrent?
-        = @event.recurrent ? 'Yes' : 'No'
+        = t('.recurrent')
+        = @event.recurrent ? t('.yes') : t('.no')
 
       %li
-        Frecuency:
-        = "#{@event.freq.capitalize}, skipping #{@event.interval || 0} on each ocurrence"
+        = t('.freq')
+        = t(".#{@event.freq.downcase}", :count => @event.interval || 0)
 
       %li
-        Days of recurrence:
+        = t('.byday')
         = @event.byday.blank? ? @event.dtstart.strftime("%A") : @event.byday
 
       %li
-        Recurrences ends at:
-        = @event.until_date.strftime "%A %e, %B, %Y"
+        = t('.until_date')
+        = l(@event.until_date, :format => :long)
 
       %li
-        Number of ocurrences:
+        = t('.occurrence_amount')
         = @event.to_rical.occurrences.size
 
       %li
-        Next ocurrence:
-        = @event.to_rical.occurrences(:starting => DateTime.now, :count => 1)[0].dtstart.strftime("%d-%m-%Y %H:%M")
+        = t('.next_occurrence')
+        = l(@event.to_rical.occurrences(:starting => DateTime.now, :count => 1)[0].dtstart, :format => :long)
 
 %p
-  %strong Calendar
+  %strong= t('.calendar')
   %div.calendar
     %div.calendar_title
       %p
         = link_to '<', {:month => (@date.beginning_of_month - 1).strftime("01-%m-%Y")}, :class => "ui-corner-all button"
-        = @date.strftime "%B %Y"
+        = l(@date, :format => :short)
         = link_to '>', {:month => (@date.end_of_month + 1).strftime("01-%m-%Y")}, :class => "ui-corner-all button"
-      %p= link_to 'Current Month', {}, :class => "ui-corner-all button"
+      %p= link_to t('.links.current_month'), {}, :class => "ui-corner-all button"
     - calendar_for @event.to_rical.occurrences, :year => @date.year, :month => @date.month do |occurrence|
-      = occurrence.head 'sun', 'mon', 'tus', 'wen', 'thu', 'fry', 'sat'
+      = occurrence.head t('date.abbr_day_names')[0], t('date.abbr_day_names')[1], t('date.abbr_day_names')[2], t('date.abbr_day_names')[3], t('date.abbr_day_names')[4], t('date.abbr_day_names')[5], t('date.abbr_day_names')[6]
       - occurrence.day(:day_method => :dtstart) do |day, occurrences|
         = day.day
         - occurrences.each do |o|
-          = image_tag "CheckMark.png", :class => 'qtip-able', :qtip_text => "Ocurrence at: #{o.dtstart.strftime('%H:%M')} - #{o.dtend.strftime('%H:%M')}"
+          = image_tag "CheckMark.png", :class => 'qtip-able', :qtip_text => t('.qtip', :date => l(o.dtstart, :format => :short_date), :start => l(o.dtend, :format => :short_time), :end => l(o.dtend, :format => :short_time))
 
 %p
-  = link_to "Edit", edit_event_path(@event), :class => "ui-corner-all button" if can? :edit, @event
-  = link_to "Destroy", @event, :confirm => 'Are you sure?', :method => :delet, :class => "ui-corner-all button" if can? :destroy, @event
-  = link_to "View All", events_path, :class => "ui-corner-all button" if can? :read, Event
+  = link_to t(".links.edit"), edit_event_path(@event), :class => "ui-corner-all button" if can? :edit, @event
+  = link_to t('.links.destroy'), @event, :confirm => t('shared.destroy_confirmation'), :method => :delet, :class => "ui-corner-all button" if can? :destroy, @event
+  = link_to t('.links.back'), events_path, :class => "ui-corner-all button" if can? :read, Event

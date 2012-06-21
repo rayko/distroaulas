@@ -2,10 +2,10 @@
 
 %div#user_info
   - if user_signed_in?
-    Current user:
+    = "#{t('.current_user')}:"
     = current_user.email
   - else
-    Login
+    = t('.login')
 
 %div#clock
 

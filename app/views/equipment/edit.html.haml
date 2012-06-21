@@ -1,7 +1,7 @@
-- title "Edit Equipment"
+- title t('.title')
 
 = render 'form'
 
 %p
-  = link_to "Show", @equipment, :class => "ui-corner-all button" if can? :read, @equipment
-  = link_to "View All", equipment_index_path, :class => "ui-corner-all button" if can? :read, Equipment
+  = link_to t('.links.show'), @equipment, :class => "ui-corner-all button" if can? :read, @equipment
+  = link_to t('.links.back'), equipment_index_path, :class => "ui-corner-all button" if can? :read, Equipment

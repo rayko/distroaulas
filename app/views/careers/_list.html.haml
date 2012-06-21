@@ -1,15 +1,15 @@
 %table.index
   %tr
-    %th Name
-    %th Short name
-    %th Plan
-    %th Actions
+    %th= Career.human_attribute_name :name
+    %th= Career.human_attribute_name :short_name
+    %th= Career.human_attribute_name :plan
+    %th= t('shared.actions')
   - for career in careers
     %tr
       %td= career.name
       %td= career.short_name
       %td= career.plan.name
       %td
-        = link_to 'Show', career if can? :read, career
-        = link_to 'Edit', edit_career_path(career) if can? :edit, career
-        = link_to 'Destroy', career, :confirm => 'Are you sure?', :method => :delete if can? :destroy, career
+        = link_to t('.links.show'), career if can? :read, career
+        = link_to t('.links.edit'), edit_career_path(career) if can? :edit, career
+        = link_to t('.links.destroy'), career, :confirm => t('shared.destroy_confirmation'), :method => :delete if can? :destroy, career

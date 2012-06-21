@@ -1,0 +1,10 @@
+en:
+  controllers:
+    songs:
+      notices:
+        create_success: "Song was successfully created."
+        update_success: "Song was successfully updated."
+        batch_success: "%{count} songs were created."
+      alerts:
+        permission_denied: "You are not authorized to access this page."
+        invalid_amount: "Invalid amount of songs."

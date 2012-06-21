@@ -1,0 +1,53 @@
+en:
+  songs:
+    edit:
+      title: "Editing song"
+      links:
+        show: "Show"
+        back: "Back"
+    form:
+      commit_button: "Save"
+    index:
+      title: "Listing songs"
+      free: "Free"
+      links:
+        show: "Show"
+        edit: "Edit"
+        destroy: "Destroy"
+        new: "New Song"
+        back: "Back to Album"
+      destroy_confirmation: "Are you sure?"
+    new:
+      title: "New song"
+      links:
+        back: "Back"
+    show:
+      links:
+        edit: "Edit"
+        back: "Back"
+    upload_songs:
+      title: "Upload songs"
+      text: "We recommend you to check the data on your MP3 files, providing the most information
+             you can so you can uploading one time all your files for the album and save time.
+             However you can edit that information later."
+      labels:
+        file: "File"
+      commit_button: "Upload"
+      links:
+        back: "Back to Songs"
+    batch_form:
+      labels:
+        form_name: "Upload Songs"
+        amount: "Amount"
+      commit_button: "Upload"
+    batch_errors_summary:
+      title: "Errors"
+      text: "There were errors on the files you tried to upload. Please check the files
+            and try to upload them again.
+            We advice you to full all the information you can on the file in order
+            to provide a good file to your clients."
+      error_title:
+        one: "1 error prohibited %{file_name} from being saved"
+        other: "%{count} errors prohibited %{file_name} from being saved"
+      links:
+        back: "Back to Songs"

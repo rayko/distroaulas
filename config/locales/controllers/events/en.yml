@@ -1,0 +1,11 @@
+en:
+  controllers:
+    band_applies:
+      notices:
+        apply_accepted: "You are now member of %{band_name}!"
+        apply_rejected: "You rejected the invitation of %{band_name}!"
+        create_success: "Band invitation was successfully created."
+      alerts:
+        invalid_apply: "Invalid apply"
+        permission_denied: "You don't have permitions to access this page."
+

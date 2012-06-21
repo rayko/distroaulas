@@ -1,5 +1,5 @@
-- title "New Matter"
+- title t('.title')
 
 = render 'form'
 
-%p= link_to "Back to List", matters_path, :class => "ui-corner-all button" if can? :read, Matter
+%p= link_to t('.links.back'), matters_path, :class => "ui-corner-all button" if can? :read, Matter

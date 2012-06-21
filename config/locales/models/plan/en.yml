@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    models:
+      garage: Garage
+    attributes:
+      garage:
+        page_header: "Page Header"
+        page_content: "Page Content"
+        page_footer: "Page Footer"
+        band_id: "Band ID"
+        band: "Band"
+        visits: "Visits"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        banner_img_file_name: "Banner Image Filename"
+        banner_img_content_type: "Banner Image Content Type"
+        banner_img_file_size: "Banner Image File Size"
+        banner_img_updated_at: "Banner Image Updated at"
+        banner: "Banner"
+

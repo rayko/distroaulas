@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    models:
+      role: Role
+    attributes:
+      role:
+        name: "Name"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        users: "Users"
+        band_roles: "Band Roles"

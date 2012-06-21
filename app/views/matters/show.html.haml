@@ -1,34 +1,34 @@
-- title "Matter"
+- title t('.title')
 
 %ul
   %li
-    %strong Name:
+    %strong= Matter.human_attribute_name(:name) + ':'
     = @matter.name
   %li
-    %strong Short Name:
+    %strong= Matter.human_attribute_name(:short_name) + ':'
     = @matter.short_name
   %li
-    %strong Career:
+    %strong= Matter.human_attribute_name(:career) + ':'
     = @matter.career.name
   %li
-    %strong Plan:
+    %strong= Matter.human_attribute_name(:plan) + ':'
     = @matter.career.plan.name
   %li
-    %strong Year:
+    %strong= Matter.human_attribute_name(:year) + ':'
     = @matter.year
 
 %hr
 
 %p
-  %strong Occurrences for this matter
+  %strong= t('.events_list')
   - if @matter.occurrences.empty?
     %br
-    %i No occurrences for this matter yet
+    %i= t('.no_events')
   - else
     = render :partial => 'occurrences', :locals => {:occurrences => @matter.occurrences}
 
 
 %p
-  = link_to "Edit", edit_matter_path(@matter), :class => "ui-corner-all button" if can? :edit, @matter
-  = link_to "Destroy", @matter, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @matter
-  = link_to "View All", matters_path, :class => "ui-corner-all button" if can? :read, Matter
+  = link_to t('.links.edit'), edit_matter_path(@matter), :class => "ui-corner-all button" if can? :edit, @matter
+  = link_to t('.links.destroy'), @matter, :confirm => t('shared.destroy_confirmation'), :method => :delete, :class => "ui-corner-all button" if can? :destroy, @matter
+  = link_to t('.links.back'), matters_path, :class => "ui-corner-all button" if can? :read, Matter

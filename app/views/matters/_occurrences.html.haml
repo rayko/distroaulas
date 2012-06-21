@@ -1,22 +1,22 @@
 %table.index
   %tr
-    %th Name
-    %th Date
-    %th Starts
-    %th Ends
-    %th Space
-    %th Actions
+    %th= Event.human_attribute_name :name
+    %th= Event.human_attribute_name :date
+    %th= Event.human_attribute_name :starts
+    %th= Event.human_attribute_name :ends
+    %th= Event.human_attribute_name :space
+    %th= t('shared.actions')
   - for event in occurrences
     %tr
       %td= event.name
-      %td= event.dtstart.strftime '%d-%m-%Y'
-      %td= event.dtstart.strftime '%H:%M'
-      %td= event.dtend.strftime '%H:%M'
+      %td= l(event.dtstart, :format => :short_date)
+      %td= l(event.dtstart, :format => :short_time)
+      %td= l(event.dtend, :format => :short_time)
       %td
         - if event.related_object.space
           = event.related_object.space.name
         - else
-          Not assigned
+          = t('.no_space')
       %td
-        = link_to 'Show', event_path(event.related_object.id) if can? :read, event.related_object
-        = link_to 'Edit', edit_event_path(event.related_object.id) if can? :edit, event.related_object
+        = link_to t('.links.show'), event_path(event.related_object.id) if can? :read, event.related_object
+        = link_to t('.links.edit'), edit_event_path(event.related_object.id) if can? :edit, event.related_object

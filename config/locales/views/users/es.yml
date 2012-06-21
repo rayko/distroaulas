@@ -1,0 +1,97 @@
+es:
+  users:
+    show:
+      title: "Perfil"
+      bands_title: "Mis Bandas"
+      band_invitations_title: "Invitaciones de Bandas"
+      links:
+        garages: "Garages"
+        new_garage: "Crear Garage"
+        members: "Miembros"
+        albums: "Albunes"
+        edit_band: "Editar banda"
+
+    user_data:
+      links:
+        edit: "Editar datos"
+      not_specefied: "No especificado"
+
+    user_menu:
+      title: "Menu"
+      links:
+        create_band: "Crear Banda"
+
+    invitation:
+      text: "La banda %{band_name} te ha invitado"
+      links:
+        accept: "Aceptar"
+        reject: "Rechazar"
+
+    confirmations:
+      new:
+        title: "Reenviar Instrucciones de Confirmacion"
+        commit_button: "Reenviar instrucciones"
+
+    mailer:
+      confirmation_instructions:
+        header: "Bienvenido %{email}!"
+        body: "Para confirmar tu cuenta sigue el enlace a continuacion:"
+        links:
+          confirm: "Confirmar mi cuenta"
+      reset_password_instructions:
+        header: "Hola %{email}!"
+        body: "Tu cuenta ha sido bloqueada debio a demaciados intentos de acceso.
+               Haz click en el siguiente enlace para desbloquear tu cuenta:"
+        links:
+          unlock: "Desbloquar mi Cuenta"
+      unlock_instructions:
+        header: "Hola %{email}!"
+        body: "Una persona ha solicitado un enlace para cambiar tu contraseña, y puedes hacerlo haciendo click
+               en el siguiente enlace."
+        links:
+          reset_pass: "Cambiar mi contraseña"
+        ending: "Si no has sido tu el que solicito este enlace, por favor ignora este e-Mail.
+                 Tu contraseña no cambiara hasta que hagas click en el link de arriba."
+
+    passwords:
+      edit:
+        title: "Cambio de Contraseña"
+        commit_button: "Cambiar mi contraseña"
+      new:
+        title: "¿Olvidaste tu contraseña?"
+        commit_button: "Enviarme instrucciones para cambiar mi contrasñea"
+
+    registrations:
+      edit:
+        title: "Editar Datos"
+        cancel_title: "Cerrar mi cuenta"
+        cancel_text: "¿Deseas cerrar tu cuenta?"
+        hints:
+          password: "(dejalo en blanco si no quieres cambiarlo)"
+          current_password: "(necesitamos tu contraseña actual para confirmar tus cambios)"
+        links:
+          back: "Volver"
+          destroy: "Cerrar mi cuenta."
+        destroy_confirmation: "¿Estas seguro?"
+      new:
+        title: "Registrar Nueva Cuenta"
+        commit_button: "Registrar"
+        labels:
+          email: "e-Mail"
+
+    sessions:
+      new:
+        title: "Ingresar"
+        commit_button: "Ingresar"
+        remember_text: "Recordarme"
+
+    shared:
+      links:
+        signin: "Ingresar"
+        signup: "Registrarse"
+        forgot_pass: "¿Olvidaste tu contraseña?"
+        resend_confirmation: "¿No recibiste las instrucciones de confirmacion?"
+        resend_unlock: "¿No recibiste las instrucciones de desbloqueo?"
+
+    unlocks:
+      new:

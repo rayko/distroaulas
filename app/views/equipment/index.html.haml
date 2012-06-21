@@ -1,17 +1,17 @@
-- title "Equipment"
+- title t('.title')
 
 %table.index
   %tr
-    %th Name
-    %th Description
-    %th Actions
+    %th= Equipment.human_attribute_name :name
+    %th= Equipment.human_attribute_name :description
+    %th= t('shared.actions')
   - for equipment in @equipment
     %tr
       %td= equipment.name
       %td= equipment.description
       %td
-        = link_to 'Edit', edit_equipment_path(equipment) if can? :edit, equipment
-        = link_to 'Destroy', equipment, :confirm => 'Are you sure?', :method => :delete if can? :destroy, equipment
+        = link_to t('.links.edit'), edit_equipment_path(equipment) if can? :edit, equipment
+        = link_to t('.links.destroy'), equipment, :confirm => t('shared.destroy_confirmation'), :method => :delete if can? :destroy, equipment
 
 = will_paginate @equipment
-%p= link_to "New Equipment", new_equipment_path, :class => "ui-corner-all button" if can? :create, Equipment
+%p= link_to t('.links.new'), new_equipment_path, :class => "ui-corner-all button" if can? :create, Equipment

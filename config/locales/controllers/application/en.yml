@@ -1,0 +1,7 @@
+en:
+  controllers:
+    application:
+      flashes:
+      alerts:
+        permission_denied: "You are not authorized to access this page."
+

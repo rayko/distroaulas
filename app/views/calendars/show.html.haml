@@ -1,27 +1,22 @@
-- title "Calendar"
+- title @calendar.name
 
-%p
-  %strong Name:
-  = @calendar.name
-
-= link_to '< Previous Week', :date => (@date - 7.days).strftime("%d-%m-%Y")
+= link_to t('.links.previous_week'), :date => (@date - 7.days).strftime("%d-%m-%Y")
 \|
-= link_to 'Current Week', :date => Date.today
+= link_to t('.links.current_week'), :date => Date.today
 \|
-= link_to 'Next Week >', :date => (@date + 7.days).strftime("%d-%m-%Y")
+= link_to t('.links.next_week'), :date => (@date + 7.days).strftime("%d-%m-%Y")
 %div#weekly-view
   = weekly_calendar(@calendar.occurrences(:after => @date, :before => (@date + 7.days)), :date => @date, :include_24_hours => false) do |w|
     = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
       =  link_to event.name, event_path(event.id)
-= link_to '< Previous Week', :date => (@date - 7.days).strftime("%d-%m-%Y")
+= link_to t('.links.previous_week'), :date => (@date - 7.days).strftime("%d-%m-%Y")
 \|
-= link_to 'Current Week', :date => Date.today
+= link_to t('.links.current_week'), :date => Date.today
 \|
-= link_to 'Next Week >', :date => (@date + 7.days).strftime("%d-%m-%Y")
-
+= link_to t('.links.next_week'), :date => (@date + 7.days).strftime("%d-%m-%Y")
 
 %p
-  = link_to "Edit", edit_calendar_path(@calendar), :class => "ui-corner-all button" if can? :edit, @calendar
-  = link_to "Destroy", @calendar, :confirm => 'Are you sure?', :method => :delete, :class => "ui-corner-all button" if can? :destroy, @calendar
-  = link_to "View All", calendars_path, :class => "ui-corner-all button" if can? :read, Calendar
+  = link_to t('.links.edit'), edit_calendar_path(@calendar), :class => "ui-corner-all button" if can? :edit, @calendar
+  = link_to t('.links.destroy'), @calendar, :confirm => t('shared.destroy_confirmation'), :method => :delete, :class => "ui-corner-all button" if can? :destroy, @calendar
+  = link_to t('.links.back'), calendars_path, :class => "ui-corner-all button" if can? :read, Calendar
 

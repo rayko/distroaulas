@@ -1,0 +1,8 @@
+en:
+  controllers:
+    quotes:
+      notices:
+        create_success: "Quote was successfully created."
+        update_success: "Quote was successfully updated."
+      alerts:
+        permission_denied: "You are not authorized to access this page."

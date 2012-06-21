@@ -1,7 +1,7 @@
-- title "Edit Event"
+- title t('.title')
 
 = render 'form'
 
 %p
-  = link_to "Show", @event, :class => "ui-corner-all button" if can? :read, @event
-  = link_to "View All", events_path, :class => "ui-corner-all button" if can? :read, Event
+  = link_to t('.links.show'), @event, :class => "ui-corner-all button" if can? :read, @event
+  = link_to t('.links.back'), events_path, :class => "ui-corner-all button" if can? :read, Event

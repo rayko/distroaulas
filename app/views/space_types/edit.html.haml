@@ -1,7 +1,7 @@
-- title "Edit Space Type"
+- title t('.title')
 
 = render 'form'
 
 %p
-  = link_to "Show", @space_type, :class => "ui-corner-all button" if can? :read, @space_type
-  = link_to "View All", space_types_path, :class => "ui-corner-all button" if can? :read, SpaceType
+  = link_to t('.links.show'), @space_type, :class => "ui-corner-all button" if can? :read, @space_type
+  = link_to t('.links.back'), space_types_path, :class => "ui-corner-all button" if can? :read, SpaceType

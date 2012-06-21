@@ -1,0 +1,9 @@
+es:
+  controllers:
+    albums:
+      notices:
+        create_success: "El album se creo satisfactoriamente."
+        update_success: "El album se actualizo satisfactoriamente."
+      alerts:
+        permission_denied: "No tienes permiso de acceder a esta pagina."
+

@@ -1,0 +1,28 @@
+en:
+  activerecord:
+    models:
+      band: Band
+    attributes:
+      band:
+        name: "Name"
+        foundation_date: "Foundation date"
+        genre: "Genre"
+        description: "Description"
+        country: "Country"
+        province: "Province"
+        city: "City"
+        logo: "Logo"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        logo_file_name: "Logo Filename"
+        logo_content_type: "Logo Content Type"
+        logo_file_size: "Logo File Size"
+        logo_updated_at: "Logo Updated at"
+        logo: "Logo"
+        owner_id: "Owner ID"
+        owner: "Owner"
+        users: "Users"
+        applies: "Applies"
+        garage: "Garage"
+        band_roles: "Band Roles"
+        albums: "Albums"

@@ -1,0 +1,91 @@
+en:
+  users:
+    show:
+      title: "Profile"
+      bands_title: "My Bands"
+      band_invitations_title: "Band Invitations"
+      links:
+        garages: "Garages"
+        new_garage: "Create Garage"
+        members: "Members"
+        albums: "Albums"
+
+    user_data:
+      not_specefied: "No especificado"
+
+    user_menu:
+      title: "Menu"
+      links:
+        create_band: "Create Band"
+
+    invitation:
+      text: "The band %{band_name} has invited you"
+      links:
+        accept: "Accept"
+        reject: "Reject"
+
+    confirmations:
+      new:
+        title: "Resend confirmation instructions"
+        commit_button: "Resend confirmation instruction"
+
+    mailer:
+      confirmation_instructions:
+        header: "Welcome %{email}!"
+        body: "You can confirm your account through the link below:"
+        links:
+          confirm: "Confirm my account"
+      reset_password_instructions:
+        header: "Hello %{email}!"
+        body: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+               Click the link below to unlock your account:"
+        links:
+          unlock: "Unlock my account"
+      unlock_instructions:
+        header: "Hello %{email}!"
+        body: "Someone has requested a link to change your password, and you can do this through the link below."
+        links:
+          reset_pass: "Change my password"
+        ending: "If you didn't request this, please ignore this email.
+                Your password won't change until you access the link above and create a new one."
+
+    passwords:
+      edit:
+        title: "Change your password"
+        commit_button: "Change my password"
+      new:
+        title: "Forgot your password?"
+        commit_button: "Send me reset password instructions"
+
+    registrations:
+      edit:
+        title: "Edit %{name}"
+        cancel_title: "Cancel my account"
+        cancel_text: "Unhappy?"
+        hints:
+          password: "(leave blank if you don't want to change it)"
+          current_password: "(we need your current password to confirm your changes)"
+        links:
+          back: "Back"
+          destroy: "Cancel my account."
+        destroy_confirmation: "Are you sure?"
+      new:
+        title: "Sign up"
+        commit_button: "Sign up"
+
+    sessions:
+      new:
+        title: "Sign in"
+        commit_button: "Sign in"
+        remember_text: "Remember me"
+
+    shared:
+      links:
+        signin: "Sign in"
+        signup: "Sign up"
+        forgot_pass: "Forgot your password?"
+        resend_confirmation: "Didn't receive confirmation instructions?"
+        resend_unlock: "Didn't receivee unlock instructions?"
+
+    unlocks:
+      new:

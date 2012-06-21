@@ -1,0 +1,9 @@
+es:
+  controllers:
+    bands:
+      notices:
+        member_update_success: "El miembro fue actualizado correctamente."
+        update_success: "La banda fue actualizada correctamente."
+      alerts:
+        permission_denied: "No tienes autorizacion para acceder a esta pagina."
+

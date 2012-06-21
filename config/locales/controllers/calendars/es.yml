@@ -1,0 +1,8 @@
+es:
+  controllers:
+    quotes:
+      notices:
+        create_success: "La cita fue creada satisfactoriamente."
+        update_success: "La cita fue actualizada satisfactoriamente."
+      alerts:
+        permission_denied: "No tienes autorizacion para acceder a esta pagina."

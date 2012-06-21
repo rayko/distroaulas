@@ -1,0 +1,9 @@
+en:
+  controllers:
+    albums:
+      notices:
+        create_success: "Album was successfully created."
+        update_success: "Album was successfully updated."
+      alerts:
+        permission_denied: "You don't have permitions to access this page."
+

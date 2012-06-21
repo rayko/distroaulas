@@ -1,7 +1,7 @@
-- title "Edit Career"
+- title t('.title')
 
 = render 'form'
 
 %p
-  = link_to "Show", @career, :class => "ui-corner-all button" if can? :read, @career
-  = link_to "View All", careers_path, :class => "ui-corner-all button" if can? :read, Career
+  = link_to t('.links.show'), @career, :class => "ui-corner-all button" if can? :read, @career
+  = link_to t('.links.back'), careers_path, :class => "ui-corner-all button" if can? :read, Career

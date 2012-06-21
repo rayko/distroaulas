@@ -1,0 +1,25 @@
+en:
+  garages:
+    edit:
+      title: "Editing garage"
+      links:
+        show: "Show"
+        back: "Back"
+    form:
+      commit_button: "Save"
+    index:
+      title: "Listing garages"
+      links:
+        show: "Show"
+        edit: "Edit"
+        destroy: "Destroy"
+        new: "New Garage"
+      destroy_confirmation: "Are you sure?"
+    new:
+      title: "New garage"
+      links:
+        back: "Back"
+    show:
+      links:
+        edit: "Edit"
+        back: "Back"

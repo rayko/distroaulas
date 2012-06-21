@@ -1,6 +1,6 @@
-- title "Careers"
+- title t('.title')
 
 = render :partial => 'list', :locals => {:careers => @careers}
 
 = will_paginate @careers
-%p= link_to "New Career", new_career_path, :class => "button ui-corner-all" if can? :create, Career
+%p= link_to t('.links.new'), new_career_path, :class => "button ui-corner-all" if can? :create, Career

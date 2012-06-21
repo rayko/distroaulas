@@ -1,19 +1,19 @@
-- title "Calendars"
+- title t('.title')
 
 %table.index
   %tr
-    %th Name
-    %th Events
-    %th Actions
+    %th= Calendar.human_attribute_name :name
+    %th= Calendar.human_attribute_name :events
+    %th= t('shared.actions')
   - for calendar in @calendars
     %tr
       %td= calendar.name
       %td= link_to calendar.events.size, events_path
       %td
-        = link_to 'Show', calendar if can? :read, calendar
-        = link_to 'Edit', edit_calendar_path(calendar) if can? :edit, calendar
-        = link_to('Destroy', calendar, :confirm => 'Are you sure?', :method => :delete)
-        = link_to('Export iCal', '')
+        = link_to t('.links.show'), calendar if can? :read, calendar
+        = link_to t('.links.edit'), edit_calendar_path(calendar) if can? :edit, calendar
+        = link_to t('.links.destroy'), calendar, :confirm => t('shared.destroy_confirmation'), :method => :delete
+        = link_to t('.links.ical_export'), ''
 
 = will_paginate @calendars
-%p= link_to "New Calendar", new_calendar_path, :class => "ui-corner-all button" if can? :create, Calendar
+%p= link_to t(".links.new"), new_calendar_path, :class => "ui-corner-all button" if can? :create, Calendar

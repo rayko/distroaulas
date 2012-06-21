@@ -1,0 +1,19 @@
+es:
+  equipment:
+    form:
+      commit: "Guardar"
+    edit:
+      title: "Editar Equipo"
+      links:
+        show: "Ver"
+        back: "Volver a la lista"
+    index:
+      title: "Equipos"
+      links:
+        edit: "Editar"
+        destroy: "Eliminar"
+        new: "Nuevo Equipo"
+    new:
+      title: "Nuevo Equipo"
+      links:
+        back: "Volver a la lista"

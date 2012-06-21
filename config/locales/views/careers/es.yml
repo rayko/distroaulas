@@ -1,0 +1,30 @@
+es:
+  careers:
+    index:
+      title: "Carreras"
+      links:
+        new: "Nueva Carrera"
+    list:
+      links:
+        show: "Ver"
+        edit: "Editar"
+        destroy: "Eliminar"
+    edit:
+      title: "Editar Carrera"
+      links:
+        show: "Ver"
+        back: "Volver a la lista"
+    new:
+      title: "Nueva Carrera"
+      links:
+        back: "Volver a la lista"
+    form:
+      commit: "Guardar"
+    show:
+      title: "Carrera"
+      matters_list: "Materias en esta carrera"
+      links:
+        edit: "Editar"
+        destroy: "Eliminar"
+        back: "Volver a la lista"
+

@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    models:
+      quote: Quote
+    attributes:
+      quote:
+        author: "Author"
+        quote: "Quote"
+        created_at: "Created at"
+        updated_at: "Updated at"

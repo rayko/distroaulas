@@ -1,0 +1,8 @@
+en:
+  app_mailer:
+    band_request:
+      text: "A new band wants to register."
+    pre_user_invitation:
+      text: "A band wants to invite you to a band. Since you have no account on Bandadas, we invite you
+             to register. Hurry, before someone else takse your mail before you."
+

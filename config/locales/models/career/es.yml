@@ -1,0 +1,12 @@
+es:
+  activerecord:
+    models:
+      career: Carrera
+    attributes:
+      career:
+        name: "Nombre"
+        short_name: "Nombre corto"
+        matters: "Materias"
+        plan_id: "ID de Plan"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"

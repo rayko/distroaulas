@@ -1,6 +1,6 @@
-- title "Plans"
+- title t('.title')
 
 = render :partial => 'list', :locals => {:plans => @plans}
 
 = will_paginate @plans
-%p= link_to "New Plan", new_plan_path, :class => "ui-corner-all button" if can? :create, Plan
+%p= link_to t('.links.new'), new_plan_path, :class => "ui-corner-all button" if can? :create, Plan

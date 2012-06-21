@@ -1,0 +1,20 @@
+en:
+  application:
+    home:
+      band_col_title: "Bands"
+      album_col_title: "Albums"
+      news_col_title: "News"
+    index:
+      band_col_title: "Last Bands"
+      album_col_title: "Last Albums"
+      news_col_title: "Last News"
+    session_links:
+      home: "Home"
+      logout: "Logout"
+      login: "Login"
+      signup: "Sign up"
+      create_band: "Create Band"
+      labels:
+        email: "e-Mail"
+        password: "Password"
+      commit_button: "Login"

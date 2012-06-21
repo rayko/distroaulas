@@ -60,31 +60,38 @@ jQuery(function($) {
         start_min = document.getElementById('event_start_time_5i').value
         end_hour = document.getElementById('event_end_time_4i').value
         end_min = document.getElementById('event_end_time_5i').value
-        errors = ''
+        errors = I18n.t('events.form_errors.title') + '\n\n'
+	error = false
 
         if(date == ''){
-            errors += "No date provided\n"
+            errors += I18n.t('events.form_errors.title') + '\n';
+	    error = true;
         }
 
         if(start_hour == ''){
-            errors += "No start hour provided\n"
+	    error = true;
+            errors += I18n.t('events.form_errors.no_start_hour') + '\n';
         }
 
         if(start_min == ''){
-            errors += "No start minute provided\n"
+	    error = true;
+            errors += I18n.t('events.form_errors.no_start_minute') + '\n' ;
         }
 
         if(end_hour == ''){
-            errors += "No end hour provided\n"
+	    error = true;;
+            errors += I18n.t('events.form_errors.no_end_hour') + '\n';
         }
 
         if(end_min == ''){
-            errors += "No end minute provided\n"
+	    error = true;
+            errors += I18n.t('events.form_errors.no_end_minute') + '\n';
         }
         start = date + ' ' + start_hour + ':' + start_min + '-0300'
         end = date + ' ' + end_hour + ':' + end_min + '-0300'
 
-        if(errors != ''){
+        if(error){
+	    errors += '\n' + I18n.t('events.form_errors.error_hint')
             alert(errors)
         }
         else{
@@ -116,7 +123,7 @@ jQuery(function($) {
 
                     //alert(data)
                     if(data.length == 0){
-                        alert('No free spaces found');
+                        alert(I18n.t('events.form_errors.no_free_spaces'))
                     }
                 },
                 error: function(xhr,exception,status) {

@@ -1,0 +1,28 @@
+en:
+  albums:
+    edit:
+      title: "Editing album"
+      links:
+        show: "Show"
+        back: "Back"
+    form:
+      submit_text: "Create"
+    index:
+      title: "Discography of %{band_name}"
+      links:
+        show: "Show"
+        edit: "Edit"
+        destroy: "Destroy"
+        songs: "Songs"
+        new: "New Album"
+        back: "Back to Bands"
+      destroy_confirmation: "Are you sure?"
+    new:
+      title: "New album"
+      links:
+        back: "Back"
+    show:
+      links:
+        edit: "Edit"
+        back: "Back"
+        songs: "Songs"

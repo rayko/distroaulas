@@ -1,11 +1,6 @@
-%p.preview_text
-  This page is ready for printing. Click the link "Print this page" to do it.
-  However, keep in mind that the printable version of this page uses images
-  and colors, see your print options to enable those, otherwise the result
-  may not be correct. Also this text won't appear in the printed page. Only
-  the content between the links will be printed.
+%p.preview_text= t('.text')
 
-= link_to 'Print this page', 'javascript:window.print()', :class => 'print-link'
+= link_to t('.links.print_page'), 'javascript:window.print()', :class => 'print-link'
 
 - if @title
   %h1= @title
@@ -15,4 +10,4 @@
     = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
       = event.name_with_options(@display_options)
 
-= link_to 'Print this page', 'javascript:window.print()', :class => 'print-link'
+= link_to t('.links.print_page'), 'javascript:window.print()', :class => 'print-link'

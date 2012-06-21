@@ -74,7 +74,7 @@ class EventsController < ApplicationController
     if params[:display_options][:display_title] == '1'
       @title = params[:display_options][:title]
     end
-    if params[:display_options][:date]
+    if !params[:display_options][:date].blank?
       @date = Date.parse params[:display_options][:date]
     else
       @date = Date.today

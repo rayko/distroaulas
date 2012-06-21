@@ -2,94 +2,94 @@
   - if user_signed_in?
     - if current_user.role == 'admin'
       %li
-        %a{:href => root_path} Home
+        %a{:href => root_path}= t('.home')
       %li
-        %a{:href => events_path, :onmouseover => "mopen('events_menu')", :onmouseout => "mclosetime()"} Events
+        %a{:href => events_path, :onmouseover => "mopen('events_menu')", :onmouseout => "mclosetime()"}= t('.events')
         %div{:id => "events_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => new_event_path} New Event
+          %a{:href => new_event_path}= t('.new_event')
       %li
-        %a{:href => spaces_path, :onmouseover => "mopen('spaces_menu')"} Spaces
+        %a{:href => spaces_path, :onmouseover => "mopen('spaces_menu')"}= t('.spaces')
         %div{:id => "spaces_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => new_space_path} New Space
-          %a{:href => space_types_path} Space Types
-          %a{:href => new_space_type_path} New Space Type
+          %a{:href => new_space_path}= t('.new_space')
+          %a{:href => space_types_path}= t('.space_types')
+          %a{:href => new_space_type_path}= t('.new_space_type')
       %li
-        %span{:onmouseover => "mopen('edu_menu')"} Educational
+        %span{:onmouseover => "mopen('edu_menu')"}= t('.educational')
         %div{:id => "edu_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => careers_path} Careers
-          %a{:href => plans_path} Plans
-          %a{:href => matters_path} Matters
+          %a{:href => careers_path}= t('.careers')
+          %a{:href => plans_path}= t('.plans')
+          %a{:href => matters_path}= t('.matters')
       %li
-        %a{:href => equipment_index_path, :onmouseover => "mopen('equipment_menu')"} Equipment
+        %a{:href => equipment_index_path, :onmouseover => "mopen('equipment_menu')"}= t('.equipment')
         %div{:id => "equipment_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => new_equipment_path} New Equipment
+          %a{:href => new_equipment_path}= t('.new_equipment')
       %li
-        %a{:href => "#", :onmouseover => "mopen('misc_menu')"} Misc
+        %a{:href => "#", :onmouseover => "mopen('misc_menu')"}= t('.misc')
         %div{:id => "misc_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => calendars_path} Calendars
-          %a{:href => users_path} Users
-          %a{:href => "#"} Statics
-          %a{:href => "#"} Personal Data
-          %a{:href => importer_index_path} Import
-          %a{:href => statics_index_path} Help
+          %a{:href => calendars_path}= t('.calendars')
+          %a{:href => users_path}= t('.users')
+          %a{:href => "#" }= t('.statics')
+          %a{:href => "#"}= t('.personal_data')
+          %a{:href => importer_index_path}= t('.import')
+          %a{:href => statics_index_path}= t('.help')
       %li
-        %a{:href => destroy_user_session_path} Logout
+        %a{:href => destroy_user_session_path}= t('.logout')
     - elsif current_user.role == 'op'
       %li
-        %a{:href => root_path} Home
+        %a{:href => root_path}= t('.home')
       %li
-        %a{:href => events_path, :onmouseover => "mopen('events_menu')", :onmouseout => "mclosetime()"} Events
+        %a{:href => events_path, :onmouseover => "mopen('events_menu')", :onmouseout => "mclosetime()"}= t('.events')
         %div{:id => "events_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => new_event_path} New Event
+          %a{:href => new_event_path}= t('.new_event')
       %li
-        %a{:href => spaces_path, :onmouseover => "mopen('spaces_menu')"} Spaces
+        %a{:href => spaces_path, :onmouseover => "mopen('spaces_menu')"}= t('.spaces')
         %div{:id => "spaces_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => new_space_path} New Space
-          %a{:href => space_types_path} Space Types
-          %a{:href => new_space_type_path} New Space Type
+          %a{:href => new_space_path}= t('.new_space')
+          %a{:href => space_types_path}= t('.space_types')
+          %a{:href => new_space_type_path}= t('.new_space_type')
       %li
-        %span{:onmouseover => "mopen('edu_menu')"} Educational
+        %span{:onmouseover => "mopen('edu_menu')"}= t('.educational')
         %div{:id => "edu_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => careers_path} Careers
-          %a{:href => plans_path} Plans
-          %a{:href => matters_path} Matters
+          %a{:href => careers_path}= t('.careers')
+          %a{:href => plans_path}= t('.plans')
+          %a{:href => matters_path}= t('.matters')
       %li
-        %a{:href => equipment_index_path, :onmouseover => "mopen('equipment_menu')"} Equipment
+        %a{:href => equipment_index_path, :onmouseover => "mopen('equipment_menu')"}= t('.equipment')
         %div{:id => "equipment_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => new_equipment_path} New Equipment
+          %a{:href => new_equipment_path}= t('.new_equipment')
       %li
-        %a{:href => "#", :onmouseover => "mopen('misc_menu')"} Misc
+        %a{:href => "#", :onmouseover => "mopen('misc_menu')"}= t('.misc')
         %div{:id => "misc_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => calendars_path} Calendars
-          %a{:href => users_path} Users
-          %a{:href => "#"} Statics
-          %a{:href => "#"} Personal Data
-          %a{:href => importer_index_path} Import
-          %a{:href => statics_index_path} Help
+          %a{:href => calendars_path}= t('.calendars')
+          %a{:href => users_path}= t('.users')
+          %a{:href => "#"}= t('.statics')
+          %a{:href => "#"}= t('.personal_data')
+          %a{:href => importer_index_path}= t('.import')
+          %a{:href => statics_index_path}= t('.help')
       %li
-        %a{:href => destroy_user_session_path} Logout
+        %a{:href => destroy_user_session_path}= t('.logout')
     - else
       %li
-        %a{:href => root_path} Home
+        %a{:href => root_path}= t('.home')
       %li
-        %a{:href => events_path} Events
+        %a{:href => events_path}= t('.events')
       %li
-        %a{:href => spaces_path, :onmouseover => "mopen('spaces_menu')"} Spaces
+        %a{:href => spaces_path, :onmouseover => "mopen('spaces_menu')"}= t('.spaces')
         %div{:id => "spaces_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => space_types_path} Space Types
+          %a{:href => space_types_path}= t('.space_types')
       %li
-        %span{:onmouseover => "mopen('edu_menu')"} Educational
+        %span{:onmouseover => "mopen('edu_menu')"}= t('.educational')
         %div{:id => "edu_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
-          %a{:href => careers_path} Careers
-          %a{:href => plans_path} Plans
-          %a{:href => matters_path} Matters
+          %a{:href => careers_path}= t('.careers')
+          %a{:href => plans_path}= t('.plans')
+          %a{:href => matters_path}= t('.matters')
       %li
-        %a{:href => equipment_index_path} Equipment
+        %a{:href => equipment_index_path}= t('.equipment')
       %li
-        %a{:href => destroy_user_session_path} Logout
+        %a{:href => destroy_user_session_path}= t('.logout')
   - else
     %li
-      %a{:href => new_user_session_path} Login
+      %a{:href => new_user_session_path}= t('.login')
 
 
 %div{:style => "clear:both"}

@@ -1,0 +1,9 @@
+es:
+  controllers:
+    garages:
+      notices:
+        create_success: "El garage fue creado satisfactoriamente."
+        update_success: "El garage fue actualizado satisfactoriamente."
+      alerts:
+        permission_denied: "No tienes autorizacion para acceder a esta pagina."
+

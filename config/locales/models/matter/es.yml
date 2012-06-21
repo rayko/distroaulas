@@ -1,0 +1,15 @@
+es:
+  activerecord:
+    models:
+      matter: Materia
+    attributes:
+      matter:
+        name: "Nombre"
+        short_name: "Nombre corto"
+        career_id: "ID de Carrera"
+        career: "Carrera"
+        plan: "Plan"
+        year: "Año"
+        responsible: "Responsable a Cargro"
+        created_at: "Fecha de Creacion"
+        updated_at: "Fecha de Actualizacion"

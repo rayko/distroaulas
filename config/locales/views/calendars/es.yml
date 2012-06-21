@@ -1,0 +1,30 @@
+es:
+  calendars:
+    index:
+      title: "Calendarios"
+      links:
+        show: "Ver"
+        edit: "Editar"
+        destroy: "Eliminar"
+        ical_export: "Exportar iCal"
+        new: "Nuevo Calendario"
+    edit:
+      title: "Editar Calendario"
+      links:
+        show: "Ver"
+        back: "Volver a la lista"
+    form:
+      commit: "Guardar"
+    new:
+      title: "Nuevo Calendario"
+      links:
+        back: "Volver a la lista"
+    show:
+      links:
+        previous_week: "< Semana anterior"
+        next_week: "Semana siguiente >"
+        current_week: "Semana actual"
+        edit: "Editar"
+        destroy: "Eliminar"
+        back: "Volver a la lista"
+

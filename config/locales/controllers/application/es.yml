@@ -1,0 +1,7 @@
+es:
+  controllers:
+    application:
+      flashes:
+      alerts:
+        permission_denied: "No estas autorizado a acceder a esta pagina."
+

@@ -1,0 +1,26 @@
+es:
+  activerecord:
+    models:
+      user: Usuario
+    attributes:
+      user:
+        password: "Contraseña"
+        password_confirmation: "Confirmacion de Contraseña"
+        email: "e-Mail"
+        encrypted_password: "Contraseña Encriptada"
+        password_salt: "Clave de Contraseña"
+        reset_password_token: "Llave de restablecimiento de Contraseña"
+        remember_token: "Llave de Recordarme"
+        remember_created_at: "Fecha de Creacion de la Llave de Recordarme"
+        sign_in_count: "Numero de Accesos"
+        current_sign_in_ip: "IP de Acceso Actual"
+        last_sign_in_at: "Fecha Ultimo Acceso"
+        last_sign_in_ip: "Ultima IP de Acceso"
+        confirmation_token: "Llave de Confirmacion"
+        confirmet_at: "Fecha de Confirmacion"
+        confirmation_sent_at: "Fecha de Envio de Confirmacion"
+        created_at: "Fecha de Creacion"
+        updated_at: "Fecha de Actualizacion"
+        username: "Nombre de Usuario"
+        full_name: "Nombre Completo"
+        role: "Rol"

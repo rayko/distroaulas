@@ -1,7 +1,7 @@
-- title "Edit Matter"
+- title t('.title')
 
 = render 'form'
 
 %p
-  = link_to "Show", @matter, :class => "ui-corner-all button" if can? :read, @matter
-  = link_to "View All", matters_path, :class => "ui-corner-all button" if can? :read, Matter
+  = link_to t('.links.show'), @matter, :class => "ui-corner-all button" if can? :read, @matter
+  = link_to t('.links.back'), matters_path, :class => "ui-corner-all button" if can? :read, Matter

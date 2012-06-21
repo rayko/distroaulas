@@ -1,0 +1,37 @@
+en:
+  bands:
+    edit:
+      title: "Editing band"
+      links:
+        show: "Show"
+        back: "Back"
+    edit_member_roles:
+      title: "Editing Roles of %{user}"
+      commit_button: "Save"
+    form:
+      commit_button: "Save"
+    index:
+      title: "Listing bands"
+      links:
+        show: "Show"
+        edit: "Edit"
+        destroy: "Destroy"
+        new: "New band"
+      destroy_confirmation: "Are you sure?"
+    members:
+      title: "List of Band Members"
+      links:
+        remove: "Remove"
+        edit_roles: "Edit roles"
+      remove_confirmation: "Are you sure?"
+    new:
+      title: "New band"
+      links:
+        back: "Back"
+    show:
+      links:
+        edit: "Edit"
+        back: "Back"
+        add_people: "Add People"
+        members: "Members"
+        albums: "Albums"

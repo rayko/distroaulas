@@ -1,0 +1,6 @@
+es:
+  activerecord:
+    models:
+      ability: Permiso
+    attributes:
+      ability:

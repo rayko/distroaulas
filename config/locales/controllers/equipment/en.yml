@@ -1,0 +1,8 @@
+en:
+  controllers:
+    roles:
+      notices:
+        create_success: "Role was successfully created."
+        update_success: "Role was successfully updated."
+      alerts:
+        permission_denied: "You are not authorized to access this page."

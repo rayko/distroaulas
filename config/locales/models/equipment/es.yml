@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      equipment: Equipo
+    attributes:
+      equipment:
+        name: "Nombre"
+        description: "Descripcion"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"

@@ -1,0 +1,29 @@
+es:
+  plans:
+    index:
+      title: "Planes"
+      links:
+        new: "Nuevo Plan"
+    form:
+      commit: "Guardar"
+    list:
+      links:
+        show: "Ver"
+        edit: "Editar"
+        destroy: "Eliminar"
+    edit:
+      title: "Editar Plan"
+      links:
+        show: "Ver"
+        back: "volver a la lista"
+    new:
+      title: "Nuevo Plan"
+      links:
+        back: "Volver a la lista"
+    show:
+      title: "Plan"
+      careers_list: "Carreras en este plan"
+      links:
+        edit: "Editar"
+        destroy: "Eliminar"
+        back: "Volver a la lista"

@@ -1,0 +1,11 @@
+es:
+  activerecord:
+    models:
+      plan: Plan
+    attributes:
+      plan:
+        careers: "Carreras"
+        created_at: "Fecha de Creacion"
+        updated_at: "Fecha de Actualizacion"
+        name: Nombre
+

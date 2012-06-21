@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      ability: Ability
+    attributes:
+      ability:

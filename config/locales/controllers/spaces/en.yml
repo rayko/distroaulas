@@ -1,0 +1,9 @@
+en:
+  controllers:
+    garages:
+      notices:
+        create_success: "Garage was successfully created."
+        update_success: "Garage was successfully updated."
+      alerts:
+        permission_denied: "You don't have permitions to access this page."
+

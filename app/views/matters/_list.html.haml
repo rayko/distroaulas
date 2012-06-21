@@ -1,15 +1,15 @@
 %table.index
   %tr
-    %th Name
-    %th Year
-    %th Short name
-    %th Actions
+    %th= Matter.human_attribute_name(:name)
+    %th= Matter.human_attribute_name(:year)
+    %th= Matter.human_attribute_name(:short_name)
+    %th= t('shared.actions')
   - for matter in matters
     %tr
       %td= matter.name
       %td= matter.year
       %td= matter.short_name
       %td
-        = link_to 'Show', matter if can? :read, matter
-        = link_to 'Edit', edit_matter_path(matter) if can? :edit, matter
-        = link_to 'Destroy', matter, :confirm => 'Are you sure?', :method => :delete if can? :destroy, matter
+        = link_to t('.links.show'), matter if can? :read, matter
+        = link_to t('.links.edit'), edit_matter_path(matter) if can? :edit, matter
+        = link_to t('.links.destroy'), matter, :confirm => t('shared.destroy_confirmation'), :method => :delete if can? :destroy, matter

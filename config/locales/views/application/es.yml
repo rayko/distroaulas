@@ -1,0 +1,39 @@
+es:
+  application:
+    banner:
+      current_user: "Usuario actual"
+    menu:
+      home: "Inicio"
+      events: "Eventos"
+      spaces: "Espacios"
+      educational: "Organizacion"
+      equipment: "Equipo"
+      misc: "Otros"
+      logout: "Salir"
+      login: "Ingresar"
+      new_event: "Nuevo Evento"
+      new_space: "Nuevo Espacio"
+      space_types: "Tipos de Espacio"
+      new_space_type: "Nuevo Tipo"
+      careers: "Carreras"
+      plans: "Planes"
+      matters: "Materias"
+      new_equipment: "Nuevo Equipo"
+      calendars: "Calendarios"
+      users: "Usuarios"
+      statics: "Estadisticas"
+      personal_data: "Datos Personales"
+      import: "Importar..."
+      help: "Ayuda"
+    datetime_event_filter:
+      labels:
+        toggle_filter: "Mostrar/Ocultar Filtro"
+        date: "Fecha"
+        space_type: "Tipo de Espacio"
+      buttons:
+        go: "Filtrar"
+    free_spaces:
+      labels:
+        current_free_spaces: "Espacios libres en este momento"
+      buttons:
+        create_event: "Crear evento para este espacio"

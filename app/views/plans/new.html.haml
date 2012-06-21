@@ -1,5 +1,5 @@
-- title "New Plan"
+- title t('.title')
 
 = render 'form'
 
-%p= link_to "Back to List", plans_path, :class => "ui-corner-all button" if can? :read, Plan
+%p= link_to t('.links.back'), plans_path, :class => "ui-corner-all button" if can? :read, Plan

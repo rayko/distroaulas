@@ -1,0 +1,12 @@
+es:
+  activerecord:
+    models:
+      calendar: Calendario
+    attributes:
+      calendar:
+        name: "Nombre"
+        events: "Eventos"
+        career: "Carrera"
+        career_id: "ID de Carrera"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"

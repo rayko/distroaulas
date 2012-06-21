@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      band_role: Band Role
+    attributes:
+      band_role:
+        user_id: "User ID"
+        user: "User"
+        band_id: "Band ID"
+        band: "Band"
+        role_id: "Role ID"
+        role: "Role"
+        created_at: "Created at"
+        updated_at: "Updated at"
