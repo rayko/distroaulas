@@ -75,9 +75,9 @@ class Space < ActiveRecord::Base
       header = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER, :bg_color => '4b7399', :fg_color => 'FF', :b => true, :alignment => {:horizontal => :center})
 
       wb.add_worksheet(:name => self.model_name.human) do |sheet|
-        sheet.add_row [self.human_attribute_name(:name),
-                       self.human_attribute_name(:space_type),
-                       self.human_attribute_name(:short_name),
+        sheet.add_row [self.human_attribute_name(:name) + ' (*)',
+                       self.human_attribute_name(:space_type) + ' (*)',
+                       self.human_attribute_name(:short_name) + ' (*)',
                        self.human_attribute_name(:capacity),
                        self.human_attribute_name(:description)], :style => header, :widths => [30, 30, 30, 30, 50]
       end

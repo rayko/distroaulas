@@ -32,8 +32,8 @@ class Plan < ActiveRecord::Base
 
       header = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER, :bg_color => '4b7399', :fg_color => 'FF', :b => true, :alignment => {:horizontal => :center})
 
-      wb.add_worksheet(:name => self.mmodel_name.human) do |sheet|
-        sheet.add_row [self.human_attribute_name(:name)], :style => header, :widths => [30]
+      wb.add_worksheet(:name => self.model_name.human) do |sheet|
+        sheet.add_row [self.human_attribute_name(:name) + ' (*)'], :style => header, :widths => [30]
       end
     end
     return xlsx

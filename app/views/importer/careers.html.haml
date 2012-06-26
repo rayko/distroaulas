@@ -6,10 +6,10 @@
 %p= t('.text4')
 
 %p
-  = link_to t('.links.download_template'), '/import_templates/careers.xls', :target => 'blank'
+  = link_to t('.links.download_template'), career_template_path, :target => 'blank'
 
-- semantic_form_for :careers, :url => importer_upload_careers_path, :html => {:multipart => true} do |f|
-  - f.inputs do
+= semantic_form_for :careers, :url => importer_upload_careers_path, :html => {:multipart => true} do |f|
+  = f.inputs do
     = f.input :file, :label => t('.labels.file'), :as => :file, :required => true
-  - f.buttons do
+  = f.buttons do
     = f.commit_button t('.upload')

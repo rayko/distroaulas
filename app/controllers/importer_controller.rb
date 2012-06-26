@@ -19,6 +19,31 @@ class ImporterController < ApplicationController
   def matters
   end
 
+  def career_template
+    Career.generate_import_template.serialize(Rails.root.join('tmp', "#{Career.model_name.human}.xlsx"))
+    send_file Rails.root.join('tmp', "#{Career.model_name.human}.xlsx")
+  end
+
+  def matter_template
+    Matter.generate_import_template.serialize(Rails.root.join('tmp', "#{Matter.model_name.human}.xlsx"))
+    send_file Rails.root.join('tmp', "#{Matter.model_name.human}.xlsx")
+  end
+
+  def space_template
+    Space.generate_import_template.serialize(Rails.root.join('tmp', "#{Space.model_name.human}.xlsx"))
+    send_file Rails.root.join('tmp', "#{Space.model_name.human}.xlsx")
+  end
+
+  def space_type_template
+    SpaceType.generate_import_template.serialize(Rails.root.join('tmp', "#{SpaceType.model_name.human}.xlsx"))
+    send_file Rails.root.join('tmp', "#{SpaceType.model_name.human}.xlsx")
+  end
+
+  def plan_template
+    Plan.generate_import_template.serialize(Rails.root.join('tmp', "#{Plan.model_name.human}.xlsx"))
+    send_file Rails.root.join('tmp', "#{Plan.model_name.human}.xlsx")
+  end
+
   def upload_space_types
     flash[:notice] = show_notice :upload_space_types_success
     @import_results = SpaceType.import_xls params[:space_types][:file]

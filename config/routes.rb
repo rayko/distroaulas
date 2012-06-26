@@ -13,6 +13,12 @@ DistroaulasRails3::Application.routes.draw do
     get '/careers' => 'importer#careers', :as => 'import_careers'
     get '/matters' => 'importer#matters', :as => 'import_matters'
 
+    get 'career_template' => 'importer#career_template', :as => 'career_template'
+    get 'matter_template' => 'importer#matter_template', :as => 'matter_template'
+    get 'space_template' => 'importer#space_template', :as => 'space_template'
+    get 'space_type_template' => 'importer#space_type_template', :as => 'space_type_template'
+    get 'plan_template' => 'importer#plan_template', :as => 'plan_template'
+
     get '/importer/result' => 'importer#result', :as => 'import_result'
 
     post '/space_types' => 'importer#upload_space_types', :as => 'importer_upload_space_types'
