@@ -69,44 +69,62 @@ class Matter < ActiveRecord::Base
   # 0-name 1-short_name 2-year 3-career 4-responsable
   def self.import_xls file=nil
     result = []
+
+    counters = {:all => -1, :saved => 0, :not_saved => 0 }
+
+    matter_list = Matter.all.collect{ |m| m.name }
+
     if file
       matters_file = Spreadsheet.open file.path
       matters = matters_file.worksheet 'Matters'
       1.upto matters.row_count do |row_index|
-        unless matters.row(row_index)[0].blank? || matters.row(row_index)[1].blank? || matters.row(row_index)[3].blank?
-          matter = Matter.find_by_name matters.row(row_index)[0].strip
+        counters[:all] += 1
 
-          unless matter
-            career = Career.find_by_name matters.row(row_index)[3].strip
+        name = matters.row(row_index)[0]
+        short_name = matters.row(row_index)[1]
+        career_name = matters.row(row_index)[3]
+        year = matters.row(row_index)[2]
+        responsible = matters.row(row_index)[4]
+
+        unless name.blank? || short_name.blank? || career_name.blank?
+          name.strip!
+          career_name.strip!
+
+          career = Career.find_by_name career_name
+          save = true
+          if matter_list.include? name
             if career
-
-              matter = Matter.new :name => matters.row(row_index)[0].strip,
-                                  :short_name => matters.row(row_index)[1],
-                                  :career => career,
-                                  :year => matters.row(row_index)[2],
-                                  :responsable => matters.row(row_index)[4]
-
-              if matter.save!
-                result << "#{matters.row(row_index)[0]}... Saved!"
-              else
-                result << "#{matters.row(row_index)[0]}... Failed to save!"
+              if career_name == career.name
+                counters[:not_saved] += 1
+                save = false
+                result << I18n.t('activerecord.matter_import_info.duplicated', :name => name)
               end
-
             else
-              result << "#{matters.row(row_index)[0]}... Missing Career: #{matters.row(row_index)[3]}. Ignored."
+              # missing career
+              counters[:not_saved] += 1
+              result << I18n.t('activerecord.matter_import_info.missing_career', :name => name, :career => career_name)
+              save = false
             end
-
-          else
-            result << "#{matters.row(row_index)[0]}... Already exists. Ignored."
           end
 
+          if save
+            matter = Matter.new :name => name, :short_name => short_name, :career_id => career.id, :year => year, :responsible => responsible
+            if matter.save!
+              counters[:saved] += 1
+              result << I18n.t('activerecord.matter_import_info.saved', :name => name)
+            else
+              counters[:not_saved] += 1
+              result << I18n.t('activerecord.matter_import_info.not_saved', :name => name)
+            end
+          end
         end
       end
     end
     if result.empty?
-      result << "Nothing to import."
+      result << I18n.t('activerecord.matter_import_info.empty')
     end
-    result << "Import finished!"
+    result << I18n.t('activerecord.matter_import_info.finished')
+    result << I18n.t('activerecord.matter_import_info.count', :all => counters[:all], :saved => counters[:saved], :not_saved => counters[:not_saved])
     return result
   end
 end
