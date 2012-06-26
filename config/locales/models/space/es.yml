@@ -12,3 +12,10 @@ es:
         capacity: "Capacidad"
         space_type_id: "ID Tipo de Espacio"
         space_type: "Tipo de Espacio"
+    importer_info:
+      saved: "Registro guardado!"
+      save_failed: "Se produjo un error y no se ha guardado."
+      missing_type: "Falta el Tipo de Espacio: %{space_type}. Registro ignorado."
+      duplicated: "Ya existe un registro igual. Ignorado."
+      empty: "No hay nada para importar."
+      finish: "La importacion ha finalizado."

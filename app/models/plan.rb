@@ -3,6 +3,42 @@ class Plan < ActiveRecord::Base
 
   has_many :careers
 
+  def self.to_xlsx
+    records = self.all
+    xlsx = Axlsx::Package.new
+
+    xlsx.workbook do |wb|
+      styles = wb.styles
+
+      header = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER, :bg_color => '4b7399', :fg_color => 'FF', :b => true, :alignment => {:horizontal => :center})
+      normal = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER)
+
+      wb.add_worksheet(:name => self.model_name.human) do |sheet|
+        sheet.add_row [self.human_attribute_name(:name)], :style => header, :widths => [30]
+        records.each do |record|
+          sheet.add_row [record.name], :style => normal
+        end
+
+      end
+    end
+    return xlsx
+  end
+
+  def self.generate_import_template
+    xlsx = Axlsx::Package.new
+
+    xlsx.workbook do |wb|
+      styles = wb.styles
+
+      header = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER, :bg_color => '4b7399', :fg_color => 'FF', :b => true, :alignment => {:horizontal => :center})
+
+      wb.add_worksheet(:name => self.mmodel_name.human) do |sheet|
+        sheet.add_row [self.human_attribute_name(:name)], :style => header, :widths => [30]
+      end
+    end
+    return xlsx
+  end
+
   def self.import_xls file=nil
 
     result = []

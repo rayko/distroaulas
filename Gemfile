@@ -18,6 +18,8 @@ gem 'jquery-rails', '>= 1.0.12'
 gem 'spreadsheet'
 gem 'will_paginate', '~> 3.0'
 gem 'i18n-js'
+gem 'axlsx'
+gem 'roo'
 
 # Use unicorn as the web server
 gem 'unicorn'

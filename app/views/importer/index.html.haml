@@ -9,9 +9,9 @@
 %p
   %strong= t('.import')
   %ul
-    %li= link_to SpaceType.human_name, import_space_types_path
-    %li= link_to Space.human_name, import_spaces_path
-    %li= link_to Plan.human_name, import_plans_path
-    %li= link_to Career.human_name, import_careers_path
-    %li= link_to Matter.human_name, import_matters_path
+    %li= link_to SpaceType.model_name.human, import_space_types_path
+    %li= link_to Space.model_name.human, import_spaces_path
+    %li= link_to Plan.model_name.human, import_plans_path
+    %li= link_to Career.model_name.human, import_careers_path
+    %li= link_to Matter.model_name.human, import_matters_path
 
