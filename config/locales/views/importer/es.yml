@@ -26,7 +26,10 @@ es:
       title: "Importacion de Datos"
       text: "En esta seccion podra importar datos al sistema por medio de hojas de calculo
             XLS de Microsoft Excel. Para ayudarlo en esta tarea, hay disponibles diferentes
-            plantillas que puede descargar y completar."
+            plantillas que puede descargar y completar. Si hace esto, asegurese de guardar
+            el archivo como doumento de office anterior a 2007. El nuevo formato de Excel
+            aun no esta soportado por Distroaulas y se producira un error si intenta importar
+            archivos XLSX (nuevo formato)."
       text2: "Todos los campos marcados con asterisco (*) son obligatorios, las filas sin
              datos en estos campos seran ignoradas. Si lo desea puede abrir otra ventana
              en su navegador para ver los datos disponibles en el sistema a fin de ingresar
