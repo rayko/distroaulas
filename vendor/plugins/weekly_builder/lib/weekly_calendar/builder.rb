@@ -16,9 +16,9 @@ class WeeklyCalendar::Builder
       for day in @start_date..@end_date
         concat(tag("div", :class => "day"))
         unless @disable_day_name
-          concat(content_tag("b", day.strftime('%A')))
+          concat(content_tag("b", I18n.l(day, :format => :only_day)))
           concat(tag("br"))
-          concat(day.strftime('%B %d'))
+          concat(I18n.l(day, :format => :short))
           concat(tag("br"))
         end
         concat(@row_title) unless @row_title.nil?

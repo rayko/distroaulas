@@ -39,7 +39,8 @@ es:
       # You can provide other formats here if you like!
       default: "%d-%m-%Y"
       short: "%B %d"
-      long: "%A %e, %B, %Y LOL"
+      long: "%A %e, %B, %Y"
+      only_day: "%A"
 
     day_names:
       - Domingo
@@ -49,7 +50,7 @@ es:
       - Jueves
       - Viernes
       - Sabado
-      
+
     abbr_day_names:
       - Dom
       - Lun
@@ -61,7 +62,7 @@ es:
 
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
     month_names:
-      - 
+      -
       - Enero
       - Febrero
       - Marzo
@@ -75,7 +76,7 @@ es:
       - Noviembre
       - Diciembre
     abbr_month_names:
-      - 
+      -
       - Ene
       - Feb
       - Mar
@@ -89,7 +90,7 @@ es:
       - Nov
       - Dic
     # Used in date_select and datime_select.
-    order: 
+    order:
       :day
       :month
       :year
@@ -98,9 +99,11 @@ es:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       short: "%d %b %H:%M"
+      very_short: "%B %d"
       short_time: "%H:%M"
       short_date: "%d/%m/%Y"
       long: "%A %e de %B de %Y"
+      only_day: "%A"
     am: "am"
     pm: "pm"
 
