@@ -59,6 +59,24 @@ class Event < ActiveRecord::Base
     Event.all.collect{ |event| event.responsible }.uniq
   end
 
+  def self.expired_events_count
+    self.where(['dtend < ? AND recurrent IS ?', DateTime.now, false]).size + self.where(['recurrent IS ? AND until_date < ?', true, DateTime.now]).size
+  end
+
+  def self.with_matters_count
+    self.where(['matter_id NOT ?', nil]).size
+  end
+
+  def self.free_events_count
+    self.where(:matter_id => nil).size
+  end
+
+  def self.with_spaces_count
+    self.where(['space_id NOT ?', nil]).size
+  end
+
+
+
   def self.search_events(options={})
     if options[:career_id]
       matter_ids = Matter.find(:all, :conditions => { :career_id => options[:career_id]}).collect{ |matter| matter.id }

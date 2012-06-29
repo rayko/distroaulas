@@ -131,4 +131,12 @@ class Space < ActiveRecord::Base
     return result
   end
 
+  def self.with_no_events_count
+    self.all.select{ |space| space.event_ids.empty? }.size
+  end
+
+  def self.with_events_count
+    self.all.select{ |space| !space.event_ids.empty? }.size
+  end
+
 end

@@ -24,11 +24,12 @@
         %div{:id => "equipment_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
           %a{:href => new_equipment_path}= t('.new_equipment')
       %li
-        %a{:href => "#", :onmouseover => "mopen('misc_menu')"}= t('.misc')
+        %span{:onmouseover => "mopen('misc_menu')"}= t('.misc')
         %div{:id => "misc_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
+          %a{:href => administration_index_path}= t('.admin')
           %a{:href => calendars_path}= t('.calendars')
           %a{:href => users_path}= t('.users')
-          %a{:href => "#" }= t('.statics')
+          %a{:href => statics_path }= t('.statics')
           %a{:href => "#"}= t('.personal_data')
           %a{:href => importer_index_path}= t('.import')
           %a{:href => statics_index_path}= t('.help')
@@ -58,11 +59,11 @@
         %div{:id => "equipment_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
           %a{:href => new_equipment_path}= t('.new_equipment')
       %li
-        %a{:href => "#", :onmouseover => "mopen('misc_menu')"}= t('.misc')
+        %span{:onmouseover => "mopen('misc_menu')"}= t('.misc')
         %div{:id => "misc_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
           %a{:href => calendars_path}= t('.calendars')
           %a{:href => users_path}= t('.users')
-          %a{:href => "#"}= t('.statics')
+          %a{:href => statics_path}= t('.statics')
           %a{:href => "#"}= t('.personal_data')
           %a{:href => importer_index_path}= t('.import')
           %a{:href => statics_index_path}= t('.help')

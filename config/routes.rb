@@ -5,6 +5,11 @@ DistroaulasRails3::Application.routes.draw do
     put 'update_pass'
   end
 
+  match '/administration' => 'administration#index', :as => 'administration_index'
+  scope '/administration' do
+    get '/statics' => 'administration#statics', :as => 'statics'
+  end
+
   scope '/importer' do
     get '/' => 'importer#index', :as => 'importer_index'
     get '/space_types' => 'importer#space_types', :as => 'import_space_types'

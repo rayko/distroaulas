@@ -1,0 +1,30 @@
+es:
+  administration:
+    index:
+      title: "Administracion"
+      text: "Esta seccion muestra informacion sobre los datos guardados en la base de datos en general, y
+             tambien permite ejecutar algunas operaciones sobre estos datos. Tenga en cuenta que algunas
+             operaciones podrian tomar unos momentos en finalizar. Se recomienda ejecutar estas acciones
+             en horarios de poca carga en el sitio."
+      links:
+        statics: "Conteos"
+    statics:
+      title: "Conteos"
+      text: "A continuacion se muestra un conteo general de los datos almacenados:"
+      events_amount: "Cantidad de Eventos:"
+      matters_amount: "Cantidad de Materias:"
+      careers_amount: "Cantidad de Carreras:"
+      plans_amount: "Cantidad de Planes:"
+      equipment_amount: "Cantidad de Equipamiento:"
+      spaces_amount: "Cantidad de Espacios:"
+      events_expired: "Eventos Expirados:"
+      matters_assigned_to_events: "Materias Asignadas a Eventos:"
+      free_events_amount: "Cantidad de Eventos Libres:"
+      spaces_assigned_to_events: "Cantidad de Espacios Asignados a Eventos:"
+      spaces_unassigned: "Cantidad de Espacios sin Asignar:"
+      matters_unassigned: "Cantidad de Materias sin Asignar:"
+      calendars_amount: "Cantidad de Calendarios:"
+      user_count: "Total de Usuarios:"
+      admin_count: "Cantidad de Administradores:"
+      op_count: "Cantidad de Operadores:"
+      normal_users_count: "Cantidad de Usuarios Normales:"

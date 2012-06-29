@@ -127,4 +127,12 @@ class Matter < ActiveRecord::Base
     result << I18n.t('activerecord.matter_import_info.count', :all => counters[:all], :saved => counters[:saved], :not_saved => counters[:not_saved])
     return result
   end
+
+  def self.with_no_events_count
+    self.all.select{ |matter| matter.event_ids.empty? }.size
+  end
+
+  def self.with_events_count
+    self.all.select{ |matter| !matter.event_ids.empty? }.size
+  end
 end

@@ -11,4 +11,16 @@ class User < ActiveRecord::Base
   def self.roles
     [['User', 'user'], ['Administrator', 'admin'], ['Operator', 'op']]
   end
+
+  def self.admin_count
+    self.where(:role => 'admin').size
+  end
+
+  def self.op_count
+    self.where(:role => 'op').size
+  end
+
+  def self.user_count
+    self.where(:role => 'user').size
+  end
 end
