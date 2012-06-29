@@ -1,7 +1,10 @@
 es:
   application:
+    footer:
+      bug_report: "Reportar un bug"
     banner:
       current_user: "Usuario actual"
+      login: "No ha iniciado sesion aun."
     menu:
       home: "Inicio"
       events: "Eventos"
