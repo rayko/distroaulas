@@ -1,23 +1,24 @@
-- title "User"
+- title t('.title')
 
 %ul
   %li
-    %strong e-Mail:
+    %strong= User.human_attribute_name(:email) + ':'
     = @user.email
   %li
-    %strong Created:
-    = @user.created_at
+    %strong= User.human_attribute_name(:created_at) + ':'
+    = l(@user.created_at, :format => :long)
   %li
-    %strong Last seen:
-    = @user.last_sign_in_at
+    %strong= User.human_attribute_name(:last_sign_in_at) + ':'
+    = l(@user.last_sign_in_at, :format => :long)
   %li
-    %strong Username:
+    %strong= User.human_attribute_name(:username) + ':'
     = @user.username
   %li
-    %strong Full name:
+    %strong= User.human_attribute_name(:full_name) + ':'
     = @user.full_name
   %li
-    %strong Role:
-    = @user.role
+    %strong= User.human_attribute_name(:role) + ':'
+    = t("shared.roles.#{@user.role}")
 
-= link_to "View All", users_path, :class => "ui-corner-all button" if can? :read, User
+= link_to t('.links.back'), users_path, :class => "ui-corner-all button" if can? :read, User
+= link_to t('.links.edit'), edit_user_registration_path, :class => "ui-corner-all button"

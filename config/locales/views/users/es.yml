@@ -2,30 +2,10 @@ es:
   users:
     show:
       title: "Perfil"
-      bands_title: "Mis Bandas"
-      band_invitations_title: "Invitaciones de Bandas"
       links:
-        garages: "Garages"
-        new_garage: "Crear Garage"
-        members: "Miembros"
-        albums: "Albunes"
-        edit_band: "Editar banda"
-
-    user_data:
-      links:
-        edit: "Editar datos"
-      not_specefied: "No especificado"
-
-    user_menu:
-      title: "Menu"
-      links:
-        create_band: "Crear Banda"
-
-    invitation:
-      text: "La banda %{band_name} te ha invitado"
-      links:
-        accept: "Aceptar"
-        reject: "Rechazar"
+        back: "Volver"
+        reset_pass: "Cambiar Contraseña"
+        edit: "Editar Datos"
 
     confirmations:
       new:
@@ -35,16 +15,18 @@ es:
     mailer:
       confirmation_instructions:
         header: "Bienvenido %{email}!"
+        text: "Has registrado exitosamente tu cuenta en Distroaulas pero aun debes confirmarla."
         body: "Para confirmar tu cuenta sigue el enlace a continuacion:"
+        footer: "Este correo ha sido generado automaticamente por Distroaulas. Por favor, no responder a esta direccion."
         links:
           confirm: "Confirmar mi cuenta"
-      reset_password_instructions:
+      unlock_instructions:
         header: "Hola %{email}!"
         body: "Tu cuenta ha sido bloqueada debio a demaciados intentos de acceso.
                Haz click en el siguiente enlace para desbloquear tu cuenta:"
         links:
           unlock: "Desbloquar mi Cuenta"
-      unlock_instructions:
+      reset_password_instructions:
         header: "Hola %{email}!"
         body: "Una persona ha solicitado un enlace para cambiar tu contraseña, y puedes hacerlo haciendo click
                en el siguiente enlace."
@@ -64,14 +46,15 @@ es:
     registrations:
       edit:
         title: "Editar Datos"
-        cancel_title: "Cerrar mi cuenta"
+        cancel_title: "Cerrar cuenta"
         cancel_text: "¿Deseas cerrar tu cuenta?"
+        commit_button: "Actualizar"
         hints:
           password: "(dejalo en blanco si no quieres cambiarlo)"
           current_password: "(necesitamos tu contraseña actual para confirmar tus cambios)"
         links:
           back: "Volver"
-          destroy: "Cerrar mi cuenta."
+          destroy: "Cerrar cuenta"
         destroy_confirmation: "¿Estas seguro?"
       new:
         title: "Registrar Nueva Cuenta"
@@ -87,6 +70,7 @@ es:
 
     shared:
       links:
+        signin_with: "Ingresar con"
         signin: "Ingresar"
         signup: "Registrarse"
         forgot_pass: "¿Olvidaste tu contraseña?"
@@ -95,3 +79,5 @@ es:
 
     unlocks:
       new:
+        title: "Reenviar instrucciones para desbloquear"
+        commit_button: "Enviar"

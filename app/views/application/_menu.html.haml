@@ -30,7 +30,7 @@
           %a{:href => calendars_path}= t('.calendars')
           %a{:href => users_path}= t('.users')
           %a{:href => statics_path }= t('.statics')
-          %a{:href => "#"}= t('.personal_data')
+          %a{:href => user_path(current_user)}= t('.personal_data')
           %a{:href => importer_index_path}= t('.import')
           %a{:href => statics_index_path}= t('.help')
       %li
@@ -63,8 +63,7 @@
         %div{:id => "misc_menu", :onmouseover => "mcancelclosetime()", :onmouseout => "mclosetime()"}
           %a{:href => calendars_path}= t('.calendars')
           %a{:href => users_path}= t('.users')
-          %a{:href => statics_path}= t('.statics')
-          %a{:href => "#"}= t('.personal_data')
+          %a{:href => user_path(current_user)}= t('.personal_data')
           %a{:href => importer_index_path}= t('.import')
           %a{:href => statics_index_path}= t('.help')
       %li
@@ -86,6 +85,8 @@
           %a{:href => matters_path}= t('.matters')
       %li
         %a{:href => equipment_index_path}= t('.equipment')
+      %li
+        %a{:href => user_path(current_user)}= t('.profile')
       %li
         %a{:href => destroy_user_session_path}= t('.logout')
   - else

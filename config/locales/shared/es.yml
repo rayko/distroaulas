@@ -2,4 +2,8 @@ es:
   shared:
     actions: "Acciones"
     destroy_confirmation: "¿Esta seguro? No se podran deshacer los cambios una vez efectuados."
+    roles:
+      admin: "Administrador"
+      op: "Operador"
+      user: "Usuario"
 

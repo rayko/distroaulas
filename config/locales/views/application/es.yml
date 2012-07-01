@@ -29,6 +29,7 @@ es:
       personal_data: "Datos Personales"
       import: "Importar..."
       help: "Ayuda"
+      profile: "Perfil"
     datetime_event_filter:
       labels:
         toggle_filter: "Mostrar/Ocultar Filtro"

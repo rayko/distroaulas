@@ -21,6 +21,7 @@ es:
         confirmation_sent_at: "Fecha de Envio de Confirmacion"
         created_at: "Fecha de Creacion"
         updated_at: "Fecha de Actualizacion"
+        current_password: "Contraseña Actual"
         username: "Nombre de Usuario"
         full_name: "Nombre Completo"
         role: "Rol"

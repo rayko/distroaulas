@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource :except => [:generate_calendar, :calendar_preview, :tip_summary, :search, :get_responsibles_list]
 
   def index
     @events = Event.paginate(:page => params[:page])

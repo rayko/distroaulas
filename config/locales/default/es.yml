@@ -252,12 +252,13 @@ es:
 
 
     registrations:
-      signed_up:
-      updated: 'Has actualizado tu cuenta exitosamente.'
-      destroyed: 'Adios! Tu cuenta ha sido cerrada exitosamente. Esperamos volverte a ver pronto.'
-      signed_up_but_unconfirmed: 'Te has registrado exitosamente. Si esta habilidado, a continuacion recibiras un correo.'
-      signed_up_but_inactive: "Felicidades, tu cuenta ha sido creada pero debes confirmarla, en breve recibiras un e-Mail con instrucciones"
-      signed_up_but_locked: 'Te has registrado correctamente. Pero no tu cuenta está bloqueada.'
+      user:
+        signed_up: 'Bienvenido, tu cuenta se ha creado.'
+        updated: 'Has actualizado tu cuenta exitosamente.'
+        destroyed: 'Adios! Tu cuenta ha sido cerrada exitosamente. Esperamos volverte a ver pronto.'
+        signed_up_but_unconfirmed: 'Te has registrado exitosamente. Si esta habilidado, a continuacion recibiras un correo.'
+        signed_up_but_inactive: "Felicidades, tu cuenta ha sido creada pero debes confirmarla, en breve recibiras un e-Mail con instrucciones"
+        signed_up_but_locked: 'Te has registrado correctamente. Pero no tu cuenta está bloqueada.'
 
     unlocks:
       send_instructions: 'Recibiras un e-Mail con instrucciones de como desbloquear tu cuenta en unos minutos.'

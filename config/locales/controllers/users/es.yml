@@ -1,4 +1,4 @@
-en:
+es:
   controllers:
     users:
       notices:
@@ -7,4 +7,5 @@ en:
         destroy_success: "El usuario fue eliminado correctamente."
         reset_pass_success: "Se ha restablecido la contraseña correctamente."
       alerts:
+        permission_denied: "No estas autorizado a acceder a esta pagina."
 
