@@ -13,72 +13,41 @@
   %a.collapse_control{:href => '#none'} Calendarios
   %ul.list_content
     %li= link_to 'Descripcion', '/statics/calendars/calendars', :class => 'remote_link', :remote => true
-    %li= link_to 'Atributos', '/statics/events/event_attributes'
-    %li= link_to 'Ver Eventos', '/statics/events/show_attributes'
-    %li= link_to 'Crear Evento', '/statics/events/new_event'
-    %li= link_to 'Editar Evento', '/statics/events/edit_event'
-    %li= link_to 'Eliminar Evento', '/statics/events/destroy_event'
-    %li= link_to 'Generar Calendario', '/statics/events/generate_calendar'
+    %li= link_to 'Atributos', '/statics/calendars/calendar_attributes', :class => 'remote_link', :remote => true
+    %li= link_to 'Ver Eventos', '/statics/calendars/show', :class => 'remote_link', :remote => true
+    %li= link_to 'Crear Evento', '/statics/calendars/new', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Evento', '/statics/calendars/edit', :class => 'remote_link', :remote => true
+    %li= link_to 'Eliminar Evento', '/statics/calendars/destroy', :class => 'remote_link', :remote => true
 
 
 %div.collapsable
   %a.collapse_control{:href => '#none'} Eventos
   %ul.list_content
     %li= link_to 'Descripcion', '/statics/events/events', :class => 'remote_link', :remote => true
-    %li= link_to 'Atributos', '/statics/event_attributes'
-    %li= link_to 'Ver Eventos', '/statics/show_attributes'
-    %li= link_to 'Crear Evento', '/statics/new_event'
-    %li= link_to 'Editar Evento', '/statics/edit_event'
-    %li= link_to 'Eliminar Evento', '/statics/destroy_event'
-    %li= link_to 'Generar Calendario', '/statics/generate_calendar'
+    %li= link_to 'Atributos', '/statics/events/attributes', :class => 'remote_link', :remote => true
+    %li= link_to 'Ver Eventos', '/statics/events/show', :class => 'remote_link', :remote => true
+    %li= link_to 'Crear Evento', '/statics/events/new', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Evento', '/statics/events/edit', :class => 'remote_link', :remote => true
+    %li= link_to 'Eliminar Evento', '/statics/events/destroy', :class => 'remote_link', :remote => true
+    %li= link_to 'Generar Calendario', '/statics/events/generate_calendar', :class => 'remote_link', :remote => true
 
 %div.collapsable
   %a.collapse_control{:href => '#none'} Carreras
   %ul.list_content
-    %li= link_to 'Descripcion', '/statics/events'
-    %li= link_to 'Atributos', '/statics/event_attributes'
-    %li= link_to 'Ver Carreras', '/statics/show_attributes'
-    %li= link_to 'Crear Carrera', '/statics/new_event'
-    %li= link_to 'Editar Carrera', '/statics/edit_event'
-    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
+    %li= link_to 'Descripcion', '/statics/careers/overview', :class => 'remote_link', :remote => true
+    %li= link_to 'Atributos', '/statics/careers/attributes', :class => 'remote_link', :remote => true
+    %li= link_to 'Ver Carreras', '/statics/careers/show', :class => 'remote_link', :remote => true
+    %li= link_to 'Crear Carrera', '/statics/careers/new', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Carrera', '/statics/careers/edit', :class => 'remote_link', :remote => true
+    %li= link_to 'Eliminar Carrera', '/statics/careers/destroy', :class => 'remote_link', :remote => true
 
 %div.collapsable
   %a.collapse_control{:href => '#none'} Planes
   %ul.list_content
-    %li= link_to 'Descripcion', '/statics/events'
-    %li= link_to 'Atributos', '/statics/event_attributes'
-    %li= link_to 'Ver Carreras', '/statics/show_attributes'
-    %li= link_to 'Crear Carrera', '/statics/new_event'
-    %li= link_to 'Editar Carrera', '/statics/edit_event'
-    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
-
-%div.collapsable
-  %a.collapse_control{:href => '#none'} Materias
-  %ul.list_content
-    %li= link_to 'Descripcion', '/statics/events'
-    %li= link_to 'Atributos', '/statics/event_attributes'
-    %li= link_to 'Ver Carreras', '/statics/show_attributes'
-    %li= link_to 'Crear Carrera', '/statics/new_event'
-    %li= link_to 'Editar Carrera', '/statics/edit_event'
-    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
-
-%div.collapsable
-  %a.collapse_control{:href => '#none'} Espacios
-  %ul.list_content
-    %li= link_to 'Descripcion', '/statics/spaces/spaces', :class => 'remote_link', :remote => true
-    %li= link_to 'Atributos', '/statics/event_attributes'
-    %li= link_to 'Ver Carreras', '/statics/show_attributes'
-    %li= link_to 'Crear Carrera', '/statics/new_event'
-    %li= link_to 'Editar Carrera', '/statics/edit_event'
-    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
-
-%div.collapsable
-  %a.collapse_control{:href => '#none'} Tipos de Espacio
-  %ul.list_content
-    %li= link_to 'Descripcion', '/statics/spaces'
-    %li= link_to 'Atributos', '/statics/event_attributes'
-    %li= link_to 'Ver Carreras', '/statics/show_attributes'
-    %li= link_to 'Crear Carrera', '/statics/new_event'
-    %li= link_to 'Editar Carrera', '/statics/edit_event'
-    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
+    %li= link_to 'Descripcion', '/statics/plans/overview', :class => 'remote_link', :remote => true
+    %li= link_to 'Atributos', '/statics/plans/attributes', :class => 'remote_link', :remote => true
+    %li= link_to 'Ver Carreras', '/statics/plans/show', :class => 'remote_link', :remote => true
+    %li= link_to 'Crear Carrera', '/statics/plans/new', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Carrera', '/statics/plans/edit', :class => 'remote_link', :remote => true
+    %li= link_to 'Eliminar Carrera', '/statics/plans/destroy', :class => 'remote_link', :remote => true
 
