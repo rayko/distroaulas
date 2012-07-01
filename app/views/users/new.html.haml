@@ -1,4 +1,4 @@
-- title "New User"
+- title t('.title')
 
 - semantic_form_for @user do |f|
   = f.inputs :email, :password, :password_confirmation, :username, :full_name
@@ -6,4 +6,4 @@
     = f.input :role, :collection => User.roles
   = f.buttons
 
-%p= link_to "Back to List", users_path, :class => "ui-corner-all button"
+%p= link_to t('.links.back'), users_path, :class => "ui-corner-all button"

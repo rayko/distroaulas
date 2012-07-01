@@ -1,19 +1,24 @@
-- title "Reset pass"
-%h2 User Data
-%p
-  %b Username:
-  = @user.username
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Full name:
-  = @user.full_name
+- title t('.title')
+%h2= t('.user_data')
+%ul
+  %li
+    %b= User.human_attribute_name(:username) + ':'
+    = @user.username
+  %li
+    %b= User.human_attribute_name(:email) + ':'
+    = @user.email
+  %li
+    %b= User.human_attribute_name(:full_name) + ':'
+    = @user.full_name
+  %li
+    %b= User.human_attribute_name(:role) + ':'
+    = t("shared.roles.#{@user.role}")
 %hr
-%p
-  Use the next form to update the password of the user.
+%p= t('.text')
+
 - semantic_form_for @user, :url => user_update_pass_path do |f|
   - f.inputs do
     = f.input :password, :required => true
     = f.input :password_confirmation, :required => true
-  = f.buttons
+  = f.buttons do
+    = f.commit_button t('.commit_button')

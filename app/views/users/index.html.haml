@@ -1,23 +1,23 @@
-- title "Users"
+- title t('.title')
 
 %table.index
   %tr
-    %th Username
-    %th Full Name
-    %th e-Mail
-    %th Role
-    %th Actions
+    %th= User.human_attribute_name(:username)
+    %th= User.human_attribute_name(:full_name)
+    %th= User.human_attribute_name(:email)
+    %th= User.human_attribute_name(:role)
+    %th= t('shared.actions')
   - for user in @users
     %tr
       %td= user.username
       %td= user.full_name
       %td= user.email
-      %td= user.role
+      %td= t("shared.roles.#{user.role}")
       %td
-        = link_to 'Show', user if can? :read, user
-        = link_to 'Edit', edit_user_path(user) if can? :edit, user
-        = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete if can? :destroy, user
-        = link_to 'Reset Pass', user_reset_pass_path(user) if can? :reset_pass, user
+        = link_to t('.links.show'), user if can? :read, user
+        = link_to t('.links.edit'), edit_user_path(user) if can? :edit, user
+        = link_to t('.links.destroy'), user, :confirm => t('shared.destroy_confirmation'), :method => :delete if can? :destroy, user
+        = link_to t('.links.reset_pass'), user_reset_pass_path(user) if can? :reset_pass, user
 
 = will_paginate @users
-%p= link_to "New User", new_user_path, :class => "ui-corner-all button" if can? :create, User
+%p= link_to t('.links.new'), new_user_path, :class => "ui-corner-all button" if can? :create, User

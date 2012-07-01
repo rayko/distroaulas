@@ -2,4 +2,5 @@
   = f.inputs :email, :password, :password_confirmation, :username, :full_name
   - f.inputs do
     = f.input :role, :collection => User.roles
-  = f.buttons
+  = f.buttons do
+    = f.commit_button t('.commit_button')

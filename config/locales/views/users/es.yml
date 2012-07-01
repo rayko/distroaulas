@@ -1,5 +1,29 @@
 es:
   users:
+    form:
+      commit_button: "Guardar"
+    edit:
+      title: "Editar Usuario"
+      links:
+        show: "Ver"
+        back: "Volver a la Lista"
+    new:
+      title: "Nuevo Usuario"
+      links:
+        back: "Volver a la Lista"
+    reset_pass:
+      title: "Cambiar Contraseña"
+      user_data: "Datos del Usuario"
+      text: "Use el siguiente formulario para asignar una contraseña nueva al usuario."
+      commit_button: "Cambiar"
+    index:
+      title: "Usuarios"
+      links:
+        show: "Ver"
+        edit: "Editar"
+        destroy: "Eliminar"
+        reset_pass: 'Cambiar Contraseña'
+        new: "Nuevo Usuario"
     show:
       title: "Perfil"
       links:

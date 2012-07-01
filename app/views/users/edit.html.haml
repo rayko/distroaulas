@@ -1,4 +1,4 @@
-- title "Edit User"
+- title t('.title')
 
 - semantic_form_for @user do |f|
   = f.inputs :email, :username, :full_name
@@ -7,5 +7,5 @@
   = f.buttons
 
 %p
-  = link_to "Show", @user, :class => "ui-corner-all button" if can? :read, @user
-  = link_to "View All", users_path, :class => "ui-corner-all button" if can? :read, User
+  = link_to t('.links.show'), @user, :class => "ui-corner-all button" if can? :read, @user
+  = link_to t('.links.back'), users_path, :class => "ui-corner-all button" if can? :read, User
