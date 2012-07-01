@@ -7,7 +7,14 @@
             var list_content = $(element).find('.list_content')
 
             collapse_control.click(function(){
-                list_content.toggle();
+                if(list_content.is(':visible'))
+                {
+                    list_content.slideUp();
+                }
+                else
+                {
+                    list_content.slideDown();
+                }
             });
 
         });
