@@ -1,7 +1,10 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-
+// Collapsable elements
+$(document).ready(function(){
+    $('.collapsable').collapsable()
+});
 
 
 // Autocomplete in search responsable
@@ -61,37 +64,37 @@ jQuery(function($) {
         end_hour = document.getElementById('event_end_time_4i').value
         end_min = document.getElementById('event_end_time_5i').value
         errors = I18n.t('events.form_errors.title') + '\n\n'
-	error = false
+        error = false
 
         if(date == ''){
             errors += I18n.t('events.form_errors.title') + '\n';
-	    error = true;
+            error = true;
         }
 
         if(start_hour == ''){
-	    error = true;
+            error = true;
             errors += I18n.t('events.form_errors.no_start_hour') + '\n';
         }
 
         if(start_min == ''){
-	    error = true;
+            error = true;
             errors += I18n.t('events.form_errors.no_start_minute') + '\n' ;
         }
 
         if(end_hour == ''){
-	    error = true;;
+            error = true;;
             errors += I18n.t('events.form_errors.no_end_hour') + '\n';
         }
 
         if(end_min == ''){
-	    error = true;
+            error = true;
             errors += I18n.t('events.form_errors.no_end_minute') + '\n';
         }
         start = date + ' ' + start_hour + ':' + start_min + '-0300'
         end = date + ' ' + end_hour + ':' + end_min + '-0300'
 
         if(error){
-	    errors += '\n' + I18n.t('events.form_errors.error_hint')
+            errors += '\n' + I18n.t('events.form_errors.error_hint')
             alert(errors)
         }
         else{

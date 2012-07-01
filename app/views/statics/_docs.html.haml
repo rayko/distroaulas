@@ -1,14 +1,84 @@
-%b Lista de temas
-%ul
-  %li
-    = link_to 'Indice', statics_index_path
-  %li
-    = link_to 'Eventos', '/statics/events'
-  %li
-    = link_to 'Espacios', '/statics/spaces'
-  %li
-    = link_to 'Restricciones', statics_restrictions_path
-  %li
-    = link_to 'Acerca de', '/statics/about'
-  %li
-    = link_to 'Calendarios', '/statics/calendars'
+%p
+  %b Lista de temas
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} General
+  %ul.list_content
+    %li= link_to 'Indice', statics_index_path
+    %li= link_to 'Restricciones', statics_restrictions_path
+    %li= link_to 'Acerca de', '/statics/about'
+
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Calendarios
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/calendars'
+    %li= link_to 'Atributos', '/statics/event_attributes'
+    %li= link_to 'Ver Eventos', '/statics/show_attributes'
+    %li= link_to 'Crear Evento', '/statics/new_event'
+    %li= link_to 'Editar Evento', '/statics/edit_event'
+    %li= link_to 'Eliminar Evento', '/statics/destroy_event'
+    %li= link_to 'Generar Calendario', '/statics/generate_calendar'
+
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Eventos
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/events'
+    %li= link_to 'Atributos', '/statics/event_attributes'
+    %li= link_to 'Ver Eventos', '/statics/show_attributes'
+    %li= link_to 'Crear Evento', '/statics/new_event'
+    %li= link_to 'Editar Evento', '/statics/edit_event'
+    %li= link_to 'Eliminar Evento', '/statics/destroy_event'
+    %li= link_to 'Generar Calendario', '/statics/generate_calendar'
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Carreras
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/events'
+    %li= link_to 'Atributos', '/statics/event_attributes'
+    %li= link_to 'Ver Carreras', '/statics/show_attributes'
+    %li= link_to 'Crear Carrera', '/statics/new_event'
+    %li= link_to 'Editar Carrera', '/statics/edit_event'
+    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Planes
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/events'
+    %li= link_to 'Atributos', '/statics/event_attributes'
+    %li= link_to 'Ver Carreras', '/statics/show_attributes'
+    %li= link_to 'Crear Carrera', '/statics/new_event'
+    %li= link_to 'Editar Carrera', '/statics/edit_event'
+    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Materias
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/events'
+    %li= link_to 'Atributos', '/statics/event_attributes'
+    %li= link_to 'Ver Carreras', '/statics/show_attributes'
+    %li= link_to 'Crear Carrera', '/statics/new_event'
+    %li= link_to 'Editar Carrera', '/statics/edit_event'
+    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Espacios
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/events'
+    %li= link_to 'Atributos', '/statics/event_attributes'
+    %li= link_to 'Ver Carreras', '/statics/show_attributes'
+    %li= link_to 'Crear Carrera', '/statics/new_event'
+    %li= link_to 'Editar Carrera', '/statics/edit_event'
+    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Tipos de Espacio
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/spaces'
+    %li= link_to 'Atributos', '/statics/event_attributes'
+    %li= link_to 'Ver Carreras', '/statics/show_attributes'
+    %li= link_to 'Crear Carrera', '/statics/new_event'
+    %li= link_to 'Editar Carrera', '/statics/edit_event'
+    %li= link_to 'Eliminar Carrera', '/statics/destroy_event'
+
