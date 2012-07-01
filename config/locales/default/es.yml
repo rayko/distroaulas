@@ -109,6 +109,9 @@ es:
 
 # Used in array.to_sentence.
   support:
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Elija una opcion"
     array:
       words_connector: ", "
       two_words_connector: " y "
@@ -217,11 +220,6 @@ es:
       hour:   "Hora"
       minute: "Minuto"
       second: "Segundos"
-
-  support:
-    select:
-      # default value for :prompt => true in FormOptionsHelper
-      prompt: "Elija una opcion"
 
   errors:
     messages:

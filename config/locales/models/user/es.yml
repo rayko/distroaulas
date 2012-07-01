@@ -25,3 +25,4 @@ es:
         username: "Nombre de Usuario"
         full_name: "Nombre Completo"
         role: "Rol"
+        login: "Nombre de usuario o e-Mail"

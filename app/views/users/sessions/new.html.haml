@@ -2,7 +2,7 @@
 
 = semantic_form_for resource, :as => resource_name, :url => session_path(resource_name) do |form|
   = form.inputs do
-    = form.input :email
+    = form.input :login
     = form.input :password
     = form.input :remember_me, :as => :boolean, :label => t('.remember_text')
   = form.buttons do
