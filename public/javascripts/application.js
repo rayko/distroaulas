@@ -1,6 +1,15 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+// Doc links made remote
+$(document).ready(function(){
+    $('.remote_link').click(function(){
+        $('.remote_link').bind('ajax:success', function(data, xhr){
+            $('#doc-content').html(xhr)
+        });
+    });
+});
+
 // Collapsable elements
 $(document).ready(function(){
     $('.collapsable').collapsable()

@@ -4,27 +4,27 @@
 %div.collapsable
   %a.collapse_control{:href => '#none'} General
   %ul.list_content
-    %li= link_to 'Indice', statics_index_path
-    %li= link_to 'Restricciones', statics_restrictions_path
-    %li= link_to 'Acerca de', '/statics/about'
+    %li= link_to 'Indice', '/statics/general/index', :class => 'remote_link', :remote => true
+    %li= link_to 'Restricciones', '/statics/general/restrictions', :class => 'remote_link', :remote => true
+    %li= link_to 'Acerca de', '/statics/general/about', :class => 'remote_link', :remote => true
 
 
 %div.collapsable
   %a.collapse_control{:href => '#none'} Calendarios
   %ul.list_content
-    %li= link_to 'Descripcion', '/statics/calendars'
-    %li= link_to 'Atributos', '/statics/event_attributes'
-    %li= link_to 'Ver Eventos', '/statics/show_attributes'
-    %li= link_to 'Crear Evento', '/statics/new_event'
-    %li= link_to 'Editar Evento', '/statics/edit_event'
-    %li= link_to 'Eliminar Evento', '/statics/destroy_event'
-    %li= link_to 'Generar Calendario', '/statics/generate_calendar'
+    %li= link_to 'Descripcion', '/statics/calendars/calendars', :class => 'remote_link', :remote => true
+    %li= link_to 'Atributos', '/statics/events/event_attributes'
+    %li= link_to 'Ver Eventos', '/statics/events/show_attributes'
+    %li= link_to 'Crear Evento', '/statics/events/new_event'
+    %li= link_to 'Editar Evento', '/statics/events/edit_event'
+    %li= link_to 'Eliminar Evento', '/statics/events/destroy_event'
+    %li= link_to 'Generar Calendario', '/statics/events/generate_calendar'
 
 
 %div.collapsable
   %a.collapse_control{:href => '#none'} Eventos
   %ul.list_content
-    %li= link_to 'Descripcion', '/statics/events'
+    %li= link_to 'Descripcion', '/statics/events/events', :class => 'remote_link', :remote => true
     %li= link_to 'Atributos', '/statics/event_attributes'
     %li= link_to 'Ver Eventos', '/statics/show_attributes'
     %li= link_to 'Crear Evento', '/statics/new_event'
@@ -65,7 +65,7 @@
 %div.collapsable
   %a.collapse_control{:href => '#none'} Espacios
   %ul.list_content
-    %li= link_to 'Descripcion', '/statics/events'
+    %li= link_to 'Descripcion', '/statics/spaces/spaces', :class => 'remote_link', :remote => true
     %li= link_to 'Atributos', '/statics/event_attributes'
     %li= link_to 'Ver Carreras', '/statics/show_attributes'
     %li= link_to 'Crear Carrera', '/statics/new_event'
