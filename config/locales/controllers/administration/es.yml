@@ -1,0 +1,5 @@
+es:
+  controllers:
+    administration:
+      alerts:
+        permission_denied: "No tiene permiso para acceder a esta pagina."

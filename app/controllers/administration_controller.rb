@@ -1,5 +1,5 @@
 class AdministrationController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :check_role
 
   def index
   end
@@ -23,5 +23,12 @@ class AdministrationController < ApplicationController
     @op_count = User.op_count
     @normal_users_count = User.user_count
 
+  end
+
+  private
+  def check_role
+    if current_user.role != 'admin'
+      redirect_to root_path, :alert => show_alert(:permission_denied)
+    end
   end
 end
