@@ -1,0 +1,45 @@
+%h1 Importar un Archivo
+
+%p
+  Para importar un archivo, antes asegurese de que es correcto y de que los objetos
+  asociados estan bien escritos. Luego siga estos pasos:
+  %ol
+    %li Posicione el cursor sobre el item Otros y seleccione Importar...
+    %li Al final de la pagina, seleccione el tipo de objeto que desea importar
+    %li En el formulario, abra el cuadro de dialogo y navegue hasta la ubicacion del archivo
+    %li Seleccione Importar
+
+%p
+  Depende del volumen de datos a imporatr esta operacion puede demorar unos minutos. Puede
+  dividir el archivo en varias partes y realizar esta operacion varias veces tambien. Al
+  finalizar la importacion, el sistema mostrara una lista con el resultado de cada fila
+  del archivo. Los posibles estados que encontrara son:
+  %ul
+    %li Registro Guardado: Datos correctos
+    %li No se encuentra el objeto*: el objeto asociado no existe en la base de datos o esta mal escrito.
+    %li Un error impidio guardar este registro: el sistema rechazo el registro por algun motivo. Verifique los datos.
+    %li Ya existe. Ignorado: el registro se encontro el la base de datos y se ha ignorado.
+    %li No hay datos para importar: el archivo esta vacio.
+    %li La importacion ha finalizado: la importacion finalizo correctamente.
+  %i * Depende del objeto que se importa
+
+%p
+  Al final de la pagina vera un conteo de los registros procesados como resumen de la operacion.
+
+%p
+  Dado que hay objetos que requieren de otros, existe un orden logico para importar datos. Para
+  el caso de los espacios se define asi:
+  %ol
+    %li Importar Tipos de Espacio
+    %li Importar Espacios
+
+%p
+  Para los elementos de la organizacion el orden es el siguiente:
+  %ol
+    %li Importar Planes
+    %li Importar Carreras
+    %li Importar Materias
+
+%p
+  Siguiendo los ordenes establecidos, podra cargar todos los datos necesarios sin mayores
+  problemas, y se asegura de que los objetos necesarios existen.

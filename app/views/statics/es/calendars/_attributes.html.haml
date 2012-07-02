@@ -1,0 +1,30 @@
+%h1 Atributos de Calendario
+
+%p
+  Los calendarios son objetos relativamente simples que sirven para organizar
+  eventos y poder separarlos segun algun criterio. A continuacion se especifican
+  los atributos que se definen en un calendario:
+
+%table.index
+  %tr
+    %th Nombre
+    %th Tipo
+    %th Obligatorio
+    %tr
+      %td Nombre
+      %td Alfanumerico
+      %td Si
+    %tr
+      %td Carrera
+      %td Objeto
+      %td No
+
+%p
+  Los atributos de tipo
+  %i Objeto
+  se refieren a otros objetos que existan en el sistema y que se pueden asociar
+  con el Calendario. En este caso el atributo es
+  %i Carrera
+  y para poder asociar un calendario con una carrera, esta debe existir antes de
+  asociarlo.
+

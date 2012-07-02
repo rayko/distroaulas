@@ -12,18 +12,18 @@
 %div.collapsable
   %a.collapse_control{:href => '#none'} Calendarios
   %ul.list_content
-    %li= link_to 'Descripcion', '/statics/calendars/calendars', :class => 'remote_link', :remote => true
-    %li= link_to 'Atributos', '/statics/calendars/calendar_attributes', :class => 'remote_link', :remote => true
-    %li= link_to 'Ver Eventos', '/statics/calendars/show', :class => 'remote_link', :remote => true
-    %li= link_to 'Crear Evento', '/statics/calendars/new', :class => 'remote_link', :remote => true
-    %li= link_to 'Editar Evento', '/statics/calendars/edit', :class => 'remote_link', :remote => true
-    %li= link_to 'Eliminar Evento', '/statics/calendars/destroy', :class => 'remote_link', :remote => true
+    %li= link_to 'Descripcion', '/statics/calendars/overview', :class => 'remote_link', :remote => true
+    %li= link_to 'Atributos', '/statics/calendars/attributes', :class => 'remote_link', :remote => true
+    %li= link_to 'Ver Calendarios', '/statics/calendars/show', :class => 'remote_link', :remote => true
+    %li= link_to 'Crear Calendario', '/statics/calendars/new', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Calendario', '/statics/calendars/edit', :class => 'remote_link', :remote => true
+    %li= link_to 'Eliminar Calendario', '/statics/calendars/destroy', :class => 'remote_link', :remote => true
 
 
 %div.collapsable
   %a.collapse_control{:href => '#none'} Eventos
   %ul.list_content
-    %li= link_to 'Descripcion', '/statics/events/events', :class => 'remote_link', :remote => true
+    %li= link_to 'Descripcion', '/statics/events/overview', :class => 'remote_link', :remote => true
     %li= link_to 'Atributos', '/statics/events/attributes', :class => 'remote_link', :remote => true
     %li= link_to 'Ver Eventos', '/statics/events/show', :class => 'remote_link', :remote => true
     %li= link_to 'Crear Evento', '/statics/events/new', :class => 'remote_link', :remote => true
@@ -51,3 +51,54 @@
     %li= link_to 'Editar Carrera', '/statics/plans/edit', :class => 'remote_link', :remote => true
     %li= link_to 'Eliminar Carrera', '/statics/plans/destroy', :class => 'remote_link', :remote => true
 
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Espacios
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/spaces/overview', :class => 'remote_link', :remote => true
+    %li= link_to 'Atributos', '/statics/spaces/attributes', :class => 'remote_link', :remote => true
+    %li= link_to 'Ver Espacios', '/statics/spaces/show', :class => 'remote_link', :remote => true
+    %li= link_to 'Crear Espacio', '/statics/spaces/new', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Espacio', '/statics/spaces/edit', :class => 'remote_link', :remote => true
+    %li= link_to 'Eliminar Espacio', '/statics/spaces/destroy', :class => 'remote_link', :remote => true
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Tipos de Espacios
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/space_types/overview', :class => 'remote_link', :remote => true
+    %li= link_to 'Atributos', '/statics/space_types/attributes', :class => 'remote_link', :remote => true
+    %li= link_to 'Crear Tipo de Espacio', '/statics/space_types/new', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Tipo de Espacio', '/statics/space_types/edit', :class => 'remote_link', :remote => true
+    %li= link_to 'Eliminar Tipo de Espacio', '/statics/space_types/destroy', :class => 'remote_link', :remote => true
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Equipamiento
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/equipment/overview', :class => 'remote_link', :remote => true
+    %li= link_to 'Atributos', '/statics/equipment/attributes', :class => 'remote_link', :remote => true
+    %li= link_to 'Crear Equipo', '/statics/equipment/new', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Equipo', '/statics/equipment/edit', :class => 'remote_link', :remote => true
+    %li= link_to 'Eliminar Equipo', '/statics/equipment/destroy', :class => 'remote_link', :remote => true
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Usuarios
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/users/overview', :class => 'remote_link', :remote => true
+    %li= link_to 'Atributos', '/statics/users/attributes', :class => 'remote_link', :remote => true
+    %li= link_to 'Ver Usuarios', '/statics/users/show', :class => 'remote_link', :remote => true
+    %li= link_to 'Crear Usuario', '/statics/users/new', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Usuario', '/statics/users/edit', :class => 'remote_link', :remote => true
+    %li= link_to 'Eliminar Usuario', '/statics/users/destroy', :class => 'remote_link', :remote => true
+    %li= link_to 'Registrarse', '/statics/users/signup', :class => 'remote_link', :remote => true
+    %li= link_to 'Cambiar Contraseña', '/statics/users/reset_pass', :class => 'remote_link', :remote => true
+    %li= link_to 'Acceso al Sitio', '/statics/users/sessions', :class => 'remote_link', :remote => true
+    %li= link_to 'Editar Perfil', '/statics/users/edit_profile', :class => 'remote_link', :remote => true
+    %li= link_to 'Roles', '/statics/users/roles', :class => 'remote_link', :remote => true
+
+%div.collapsable
+  %a.collapse_control{:href => '#none'} Importar
+  %ul.list_content
+    %li= link_to 'Descripcion', '/statics/importer/overview', :class => 'remote_link', :remote => true
+    %li= link_to 'Importar un Archivo', '/statics/importer/import', :class => 'remote_link', :remote => true
+    %li= link_to 'Obtener Plantilla', '/statics/importer/templates', :class => 'remote_link', :remote => true
+    %li= link_to 'Exportar Datos', '/statics/importer/export', :class => 'remote_link', :remote => true
+    %li= link_to 'Formatos de Archivo', '/statics/importer/formats', :class => 'remote_link', :remote => true

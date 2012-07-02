@@ -1,0 +1,87 @@
+%h1 Atributos de Evento
+
+%p
+  Los eventos, por ser el principal objeto que el sistema maneja, posee la mayor cantidad
+  de atributos en comparacion con otros objetos. Es importante entenderlos para poder
+  aprovechar al maximo las funcionalidades de Distroaulas.
+
+%p
+  A continuacion se especifican los atributos de los eventos:
+
+%table.index
+  %tr
+    %th Nombre
+    %th Tipo
+    %th Obligatorio
+    %tr
+      %td Calendario
+      %td Objeto
+      %td Si
+    %tr
+      %td Materia
+      %td Objeto
+      %td No
+    %tr
+      %td Nombre
+      %td Alfanumerico
+      %td Si
+    %tr
+      %td Responsable a Cargo
+      %td Alfanumerico
+      %td No
+    %tr
+      %td Fecha de Inicio
+      %td Fecha
+      %td Si
+    %tr
+      %td Hora de Inicio
+      %td Hora
+      %td Si
+    %tr
+      %td Hora de Fin
+      %td Hora
+      %td Si
+    %tr
+      %td Espacio
+      %td Objeto
+      %td No
+    %tr
+      %td Ocurrencias Omitidas
+      %td Fecha
+      %td No
+    %tr
+      %td Ocurrencias Adicionales
+      %td Fecha
+      %td No
+    %tr
+      %td Recurrente
+      %td Binario
+      %td No
+    %tr
+      %td Fecha y Hora de Fin de Repeticion
+      %td Fecha y Hora
+      %td Si*
+    %tr
+      %td Frecuencia
+      %td Opciones Predefinidas
+      %td Si*
+    %tr
+      %td Intervalo
+      %td Numerico
+      %td No
+    %tr
+      %td Cantidad de Ocurrencias
+      %td Numerico
+      %td No
+
+%i * Solo obligatorio si la opcion Recurrente es seleccionada
+
+%p
+  Note que el formulario de creacion de eventos posee algunos atributos mas como
+  Carrera y Plan. Estos no son atributos del evento, sino que sirven de ayuda para
+  especificar una Materia.
+
+%p
+  Cuando se crea un evento recurrente, se debe especificar la fecha y hora del fin
+  de repeticion. Sin embargo, la cantidad de ocurrencias tiene presedencia sobr este
+  atributo. Puede o no especificar este ultimo segun sus necesidades.

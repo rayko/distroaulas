@@ -1,0 +1,49 @@
+%h1 Roles
+
+%p
+  En Distroaulas se defino un esquema de roles que permite generar usuarios con diferentes
+  permisos en el sitio y poder limitar las acciones. En el sistema existen tres roles:
+  %ol
+    %li Administradores
+    %li Operadores
+    %li Usuarios
+
+%h3 Administradores
+
+%p
+  Poseen control total sobre el sitio, pueden crear, editar o eliminar cualquier objeto
+  en el sitio, incluyendo usuarios. Los administradores son los unicos que pueden crear
+  otros usuarios administradores u operadores. Las acciones que pueden hacer los administradores
+  se detallan a continuacion:
+  %ul
+    %li Crear, ver, editar y eliminar Eventos
+    %li Crear, ver, editar y eliminar Planes
+    %li Crear, ver, editar y eliminar Carreras
+    %li Crear, ver, editar y eliminar Materias
+    %li Crear, ver, editar y eliminar Equipamiento
+    %li Crear, ver, editar y eliminar Usuarios
+    %li Crear, ver, editar y eliminar Calendarios
+    %li Crear, ver, editar y eliminar Espacios
+    %li Crear, ver, editar y eliminar Tipos de Espacio
+    %li Genrar calendarios
+    %li Cambiar contraseñas de otros usuarios
+    %li Cambier roles de otros usuarios
+
+%h3 Operadores
+
+%p
+  Los operadores se crearon para limitar algunas acciones de estos usuarios. Cuentan
+  con los privilegios de administradores mayormente, pero las siguientes acciones
+  son revocadas de los operadores:
+  %ol
+    %li Crear, editar o eliminar otros usuarios
+    %li Cambiar roles de otros usuarios
+
+%h3 Usuarios
+
+%p
+  Finalmente los usuarios son personas registradas que no tienen ningun tipo de privilegio
+  editar, eliminar. Solo pueden consultar informacion general en el sitio y solo podran
+  editar su propio perfil.
+
+
