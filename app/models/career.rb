@@ -52,7 +52,7 @@ class Career < ActiveRecord::Base
     result = []
     if file
       careers_file = Spreadsheet.open file.path
-      careers = careers_file.worksheet 'Careers'
+      careers = careers_file.worksheet Career.model_name.human
       counters = { :all => -1, :saved => 0, :not_saved => 0 }
       1.upto careers.row_count do |row_index|
         counters[:all] += 1

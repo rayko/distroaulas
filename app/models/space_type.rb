@@ -49,7 +49,7 @@ class SpaceType < ActiveRecord::Base
     result = []
     if file
       space_types_file = Spreadsheet.open file.path
-      space_types = space_types_file.worksheet 'Space Types'
+      space_types = space_types_file.worksheet SpaceType.model_name.human
       1.upto space_types.row_count do |row_index|
         unless space_types.row(row_index)[0].blank?
           space_type = SpaceType.find_by_name space_types.row(row_index)[0].strip
