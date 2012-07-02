@@ -9,7 +9,6 @@ es:
         name: "Nombre"
         spaces: "Espacios"
     space_type_import_info:
-      missing_career: "%{name}... No se encuentra la carrera: %{career}. Registro ignorado."
       saved: "%{name}... Registro guardado!"
       not_saved: "%{name}... Un error impidio guardar este registro."
       duplicated: "%{name}... Ya existe. Ingorado."
