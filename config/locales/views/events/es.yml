@@ -103,7 +103,7 @@ es:
       links:
         print_page: "Imprimir esta pagina"
     tip_summary:
-      responsible: "Responsable:g "
+      responsible: "Responsable: "
       recurrent: "Recurrente? "
       is_recurrent: "Si"
       not_recurrent: "No"
