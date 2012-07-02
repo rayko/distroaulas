@@ -50,26 +50,32 @@ class SpaceType < ActiveRecord::Base
     if file
       space_types_file = Spreadsheet.open file.path
       space_types = space_types_file.worksheet SpaceType.model_name.human
+      counters = { :all => -1, :saved => 0, :not_saved => 0 }
       1.upto space_types.row_count do |row_index|
+        counters[:all] += 1
         unless space_types.row(row_index)[0].blank?
           space_type = SpaceType.find_by_name space_types.row(row_index)[0].strip
           unless space_type
             space_type = SpaceType.new :name => space_types.row(row_index)[0]
             if space_type.save!
-              result << "#{space_types.row(row_index)[0]}... Saved!"
+              result << I18n.t('activerecord.space_type_import_info.saved', :name => space_types.row(row_index)[0])
+              counters[:saved] += 1
             else
-              result << "#{space_types.row(row_index)[0]}... Failed to save!"
+              result << I18n.t('activerecord.space_type_import_info.not_saved', :name => space_types.row(row_index)[0])
+              counters[:not_saved] += 1
             end
           else
-            result << "#{space_types.row(row_index)[0]}... Already exists. Ignored."
+            result << I18n.t('activerecord.space_type_import_info.duplicated', :name => space_types.row(row_index)[0])
+            counters[:not_saved] += 1
           end
         end
       end
     end
     if result.empty?
-      result << "Nothing to import."
+      result << I18n.t('activerecord.space_type_import_info.empty')
     end
-    result << "Import finished!"
+    result << I18n.t('activerecord.space_type_import_info.finished')
+    result << I18n.t('activerecord.space_type_import_info.count', :all => counters[:all], :saved => counters[:saved], :not_saved => counters[:not_saved])
     return result
   end
 end
