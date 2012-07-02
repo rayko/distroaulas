@@ -92,7 +92,9 @@ class Space < ActiveRecord::Base
     if file
       spaces_file = Spreadsheet.open file.path
       spaces = spaces_file.worksheet self.model_name.human
+      counters = { :all => -1, :saved => 0, :not_saved => 0 }
       1.upto spaces.row_count do |row_index|
+        counters[:all] += 1
         unless spaces.row(row_index)[0].blank? || spaces.row(row_index)[1].blank? || spaces.row(row_index)[2].blank?
           space = Space.find_by_name spaces.row(row_index)[0].strip
 
@@ -108,26 +110,31 @@ class Space < ActiveRecord::Base
                                 :description => spaces.row(row_index)[4]
 
               if space.save!
-                result << "#{spaces.row(row_index)[0]}... Saved!"
+                result << I18n.t('activerecord.space_import_info.saved', :name => spaces.row(row_index)[0])
+                counters[:saved] += 1
               else
-                result << "#{spaces.row(row_index)[0]}... Failed to save!"
+                result << I18n.t('activerecord.space_import_info.not_saved', :name => spaces.row(row_index)[0])
+                counters[:not_saved] += 1
               end
 
             else
-              result << "#{spaces.row(row_index)[0]}... Missing Space Type: #{spaces.row(row_index)[1]}. Ignored."
+              result << I18n.t('activerecord.space_import_info.missing_type', :name => spaces.row(row_index)[0], :space_type => spaces.row(row_index)[1])
+              counters[:not_saved] += 1
             end
 
           else
-            result << "#{spaces.row(row_index)[0]}... Already exists. Ignored."
+            result << I18n.t('activerecord.space_import_info.duplicated', :name => spaces.row(row_index)[0])
+            counters[:not_saved] += 1
           end
 
         end
       end
     end
     if result.empty?
-      result << "Nothing to import."
+      result << I18n.t('activerecord.space_import_info.empty')
     end
-    result << "Import finished!"
+    result << I18n.t('activerecord.space_import_info.finished')
+    result << I18n.t('activerecord.space_import_info.count', :all => counters[:all], :saved => counters[:saved], :not_saved => counters[:not_saved])
     return result
   end
 

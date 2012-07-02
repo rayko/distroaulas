@@ -53,7 +53,9 @@ class Career < ActiveRecord::Base
     if file
       careers_file = Spreadsheet.open file.path
       careers = careers_file.worksheet 'Careers'
+      counters = { :all => -1, :saved => 0, :not_saved => 0 }
       1.upto careers.row_count do |row_index|
+        counters[:all] += 1
         unless careers.row(row_index)[0].blank? || careers.row(row_index)[2].blank?
           career = Career.find_by_name careers.row(row_index)[0].strip
 
@@ -66,26 +68,31 @@ class Career < ActiveRecord::Base
                                   :short_name => careers.row(row_index)[1]
 
               if career.save!
-                result << "#{careers.row(row_index)[0]}... Saved!"
+                result << I18n.t('activerecord.career_import_info.saved', :name => careers.row(row_index)[0])
+                counters[:saved] += 1
               else
-                result << "#{careers.row(row_index)[0]}... Failed to save!"
+                result << I18n.t('activerecord.career_import_info.not_saved', :name => careers.row(row_index)[0])
+                counters[:not_saved] += 1
               end
 
             else
-              result << "#{careers.row(row_index)[0]}... Missing Plan: #{careers.row(row_index)[1]}. Ignored."
+              result << I18n.t('activerecord.career_import_info.missing_plan', :name => careers.row(row_index)[0], :plan => careers.row(row_index)[1])
+              counters[:not_saved] += 1
             end
 
           else
-            result << "#{careers.row(row_index)[0]}... Already exists. Ignored."
+            result << I18n.t('activerecord.career_import_info.duplicated', :name => careers.row(row_index)[0])
+            counters[:not_saved] += 1
           end
 
         end
       end
     end
     if result.empty?
-      result << "Nothing to import."
+      result << I18n.t('activerecord.career_import_info.empty')
     end
-    result << "Import finished!"
+    result << I18n.t('activerecord.career_import_info.finished')
+    result << I18n.t('activerecord.career_import_info.count', :all => counters[:all], :saved => counters[:saved], :not_saved => counters[:not_saved])
     return result
   end
 

@@ -44,28 +44,35 @@ class Plan < ActiveRecord::Base
     result = []
     if file
       plans_file = Spreadsheet.open file.path
-      plans = plans_file.worksheet 'Plans'
+      plans = plans_file.worksheet Plan.model_name.human
+      counters = {:all => -1, :saved => 0, :not_saved => 0}
       1.upto plans.row_count do |row_index|
-        unless plans.row(row_index)[0].blank?
-          plan = Plan.find_by_name plans.row(row_index)[0].to_s
+        counters[:all] += 1
+        name = plans.row(row_index)[0].to_s.strip
+        unless name.blank?
+          plan = Plan.find_by_name name
 
           unless plan
-            plan = Plan.new :name => plans.row(row_index)[0]
+            plan = Plan.new :name => name
             if plan.save!
-              result << "#{plans.row(row_index)[0]}... Saved!"
+              result << I18n.t('activerecord.plan_import_info.saved', :name => name)
+              counters[:saved] += 1
             else
-              result << "#{plans.row(row_index)[0]}... Failed to save!"
+              result << I18n.t('activerecord.plan_import_info.not_saved', :name => name)
+              counters[:not_saved] += 1
             end
           else
-            result << "#{plans.row(row_index)[0]}... Already exists. Ignored."
+            result << I18n.t('activerecord.plan_import_info.duplicated', :name => name)
+            counters[:not_saved] += 1
           end
         end
       end
     end
     if result.empty?
-      result << "Nothing to import."
+      result << I18n.t('activerecord.plan_import_info.empty')
     end
-    result << "Import finished!"
+    result << I18n.t('activerecord.plan_import_info.finished')
+    result << I18n.t('activerecord.plan_import_info.count', :all => counters[:all], :saved => counters[:saved], :not_saved => counters[:not_saved])
     return result
 
   end

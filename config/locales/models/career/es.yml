@@ -10,3 +10,11 @@ es:
         plan_id: "ID de Plan"
         created_at: "Creado el"
         updated_at: "Actualizado el"
+    career_import_info:
+      missing_plan: "%{name}... No se encuentra el plan: %{plan}. Registro ignorado."
+      saved: "%{name}... Registro guardado!"
+      not_saved: "%{name}... Un error impidio guardar este registro."
+      duplicated: "%{name}... Ya existe. Ingorado."
+      empty: "No hay datos para importar."
+      finished: "La importacion ha finalizado!"
+      count: "Registros procesados: %{all} - Guardados: %{saved} - No guardados: %{not_saved}"
