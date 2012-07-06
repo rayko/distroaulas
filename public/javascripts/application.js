@@ -3,11 +3,10 @@
 
 function eventClickInfo(){
     $('.clickable').click(function(){
-
-
-
-        date = $(this).attr('data-date')
-        event_id = $(this).attr('data-event_id')
+        $('#assign_occurrences').tagit('removeAll');
+        date = $(this).attr('data-date');
+        event_id = $(this).attr('data-event_id');
+        $('#assign_event_id').attr('value', event_id);
         if(date){
             event_info_url = '/ajax_event_info?event_id=' + event_id + '&date=' + date
         }
