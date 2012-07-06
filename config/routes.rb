@@ -41,6 +41,8 @@ DistroaulasRails3::Application.routes.draw do
     member do
       get :assign_event
       post :assign_event
+      post :create_events
+      get :equipment_events
     end
   end
 

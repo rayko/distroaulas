@@ -17,3 +17,34 @@ es:
       title: "Nuevo Equipo"
       links:
         back: "Volver a la lista"
+
+    assign_event:
+      title: "Asignar Evento"
+      text: "En esta seccion podra asignar las ocurrencias de un evento
+            existente a este equipo. Para hacerlo, realice una busqueda
+            del evento que desea asignar, y en la lista resultante haga
+            click sobre el evento deseado. A continuacion, navegue
+            la vista semanal para ver las ocurrencias del evento seleccionado
+            y haga click en las ocurrencias que desee asignar. Mientras visualiza
+            y agrega ocurrencias puede repetir la busqueda y elejir otros eventos
+            para asignarlos."
+      equipment_info: "Informacion sobre el equipo"
+    search_result:
+      headers:
+        name: "Nombre"
+        date: "Fecha"
+        starts: "Inicio"
+        ends: "Fin"
+        calendar: "Calendario"
+    event_info:
+      event_info: "Informacion del evento"
+      links:
+        previous_week: "Semana anterior"
+        current_week: "Semana actual"
+        next_week: "Semana siguiente"
+      add_occurrence: "Agregar"
+    assign_form:
+      assign_form_title: "Asignar ocurrencias"
+      labels:
+        occurrences: "Ocurrencias"
+      commit_button: "Asignar"

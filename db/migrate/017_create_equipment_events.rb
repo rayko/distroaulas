@@ -1,9 +1,8 @@
 class CreateEquipmentEvents < ActiveRecord::Migration
   def self.up
     create_table :equipment_events do |t|
-      t.date :event_date
-      t.time :start_hour
-      t.time :end_hour
+      t.datetime :dtstart
+      t.datetime :dtend
       t.integer :event_id
       t.integer :equipment_id
       t.integer :space_id

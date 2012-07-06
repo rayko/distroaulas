@@ -65,6 +65,29 @@ class EquipmentController < ApplicationController
     render :partial => 'event_info', :locals => { :date => @date, :event => @event }
   end
 
+  def create_events
+    @equipment = Equipment.find_by_id params[:id]
+    events = params[:assign][:occurrences].split(',')
+    events_data = []
+    events.each do |event|
+      event_attr = event.split('||').collect{ |d| d.strip }
+      event_id, event_date, event_time = event_attr
+      event_time = event_time.split('-')
+      event_start = DateTime.parse "#{event_date} #{event_time[0]}"
+      event_end = DateTime.parse "#{event_date} #{event_time[1]}"
+      events_data << { :dtstart => event_start, :dtend => event_end, :event_id => event_id, :equipment_id => @equipment.id }
+    end
+    @events = EquipmentEvent.create_events events_data
+
+    flash[:notice] = show_notice :assign_success
+    render :equipment_events
+  end
+
+  def equipment_events
+    @equipment = Equipment.find_by_id params[:id]
+    @events = @equipment.equipment_events
+  end
+
   private
   def clean_params p=nil
     p.delete_if{ |key, value| value.blank? }

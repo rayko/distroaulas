@@ -9,7 +9,7 @@
   %div.weekly-small
     = weekly_calendar(event.rical_occurrences(:after => date, :before => (date + 7.days)), :date => date, :include_24_hours => false) do |w|
       = w.week(:business_hours => params[:business_hours], :clickable_hours => false) do |event,truncate|
-        =  link_to t('.add_occurrence'), '#none', 'data-date' => event.dtstart.strftime('%d-%m-%Y'), 'data-start_hour' => event.dtstart.strftime('%H:%M'), 'data-end_hour' => event.dtend.strftime('%H:%M'), :class => 'event_add_occurrence'
+        =  link_to t('.add_occurrence'), '#none', 'data-event_id' => event.id, 'data-date' => event.dtstart.strftime('%d-%m-%Y'), 'data-start_hour' => event.dtstart.strftime('%H:%M'), 'data-end_hour' => event.dtend.strftime('%H:%M'), :class => 'event_add_occurrence'
 = link_to t('.links.previous_week'), '#none', 'data-event_id' => event.id, 'data-date' => (date - 7.days).strftime("%d-%m-%Y"), :class => 'clickable_link'
 \|
 = link_to t('.links.current_week'), '#none', 'data-event_id' => event.id, 'data-date' => Date.today, :class => 'clickable_link'

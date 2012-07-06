@@ -1,9 +1,8 @@
 %h3= t('.assign_form_title')
 
-= semantic_form_for :assign, :url => '' do |form|
+= semantic_form_for :assign, :url => create_events_equipment_path(params[:id]) do |form|
   = form.inputs do
     = form.input :occurrences, :label => t('.labels.occurrences'), :as => :string, :input_html => {:class => 'occurrences-tagbox'}
-    = form.input :event_id, :as => :hidden
     = form.input :equipment_id, :as => :hidden, :input_html => {:value => params[:id]}
   = form.buttons do
     = form.commit_button t('.commit_button')

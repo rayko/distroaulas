@@ -1,0 +1,18 @@
+%h1= t('.title')
+
+%h3= t('.equipment')
+%ul
+  %li
+    %b= Equipment.human_attribute_name(:name) + ':'
+    = @equipment.name
+  %li
+    %b= Equipment.human_attribute_name(:description) + ':'
+    = @equipment.description
+
+%h3= t('.events')
+%ul
+  - @events.each do |event|
+    %li
+      = event.event ? "#{event.event.name} - " : ''
+      = "#{l(event.dtstart, :format => :long)}, #{l(event.dtstart, :format => :short_time)} - #{l(event.dtend, :format => :short_time)}"
+

@@ -3,10 +3,8 @@
 
 function eventClickInfo(){
     $('.clickable').click(function(){
-        $('#assign_occurrences').tagit('removeAll');
         date = $(this).attr('data-date');
         event_id = $(this).attr('data-event_id');
-        $('#assign_event_id').attr('value', event_id);
         if(date){
             event_info_url = '/ajax_event_info?event_id=' + event_id + '&date=' + date
         }
@@ -22,7 +20,7 @@ function eventClickInfo(){
                 $('.week_event').attr('onclick', "");
                 $('#assign_form').show()
                 $(".event_add_occurrence").click(function() {
-                    text = $(this).attr('data-date') + ' || ' + $(this).attr('data-start_hour') + '-' + $(this).attr('data-end_hour')
+                    text = $(this).attr('data-event_id') + ' || ' + $(this).attr('data-date') + ' || ' + $(this).attr('data-start_hour') + '-' + $(this).attr('data-end_hour')
                     $("#assign_occurrences").tagit('createTag', text);
                 });
                 eventClickInfoLink();
@@ -44,7 +42,7 @@ function eventClickInfoLink(){
             success: function(data, xhr){
                 document.getElementById('event_info').innerHTML = data;
                 $(".event_add_occurrence").click(function() {
-                    text = $(this).attr('data-date') + ' || ' + $(this).attr('data-start_hour') + '-' + $(this).attr('data-end_hour')
+                    text = $(this).attr('data-event_id') + ' || ' + $(this).attr('data-date') + ' || ' + $(this).attr('data-start_hour') + '-' + $(this).attr('data-end_hour')
                     $("#assign_occurrences").tagit('createTag', text);
                 });
                 $('.week_event').attr('onclick', "");
