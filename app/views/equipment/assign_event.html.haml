@@ -1,0 +1,15 @@
+- title t('.title')
+
+%p= t('.text')
+%p= t('.equipment_info')
+
+%div#search
+  = render :partial => 'events/search_form', :locals => {:url => assign_event_equipment_path(params[:id])}
+
+%div#search_result
+  Search Results
+
+%div#event_info
+
+%div#assign_form
+  = render :partial => 'assign_form'

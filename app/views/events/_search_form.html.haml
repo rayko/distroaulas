@@ -1,0 +1,13 @@
+= semantic_form_for :search, :url => url, :remote => true do |form|
+  = form.inputs t('.search_events'), :class => 'separated' do
+    = form.input :calendar_id, :label => t('.labels.calendar'), :as => :select, :collection => Calendar.all, :required => false
+    = form.input :plan, :label => t('.labels.plan'), :as => :select, :collection => Plan.all, :required => false
+    = image_tag 'loading.gif', :class => "loading-icon-small career-loading"
+    = form.input :career_id, :label => t('.labels.career'), :as => :select, :collection => [], :required => false
+    = form.input :space_id, :label => t('.labels.space'), :as => :select, :collection => Space.all, :required => false
+    = form.input :recurrent, :label => t('.labels.recurrent'), :as => :boolean, :required => false
+    = image_tag 'loading.gif', :class => "loading-icon-small responsible-loading"
+    = form.input :responsible, :label => t('.labels.responsible'), :as => :string, :required => false
+    = form.buttons do
+      = form.commit_button t('.buttons.search')
+      = image_tag 'loading.gif', :class => "search-loading-icon-small search-loading"

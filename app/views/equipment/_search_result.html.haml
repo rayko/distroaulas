@@ -1,0 +1,19 @@
+
+%table.index
+  %tr
+    %th= t('.headers.name')
+    %th= t('.headers.date')
+    %th= t('.headers.starts')
+    %th= t('.headers.ends')
+    %th= t('.headers.calendar')
+  - for event in events
+    %tr{:class => 'clickable', 'data-event_id' => event.id}
+      %td= event.name
+      %td= event.dtstart.strftime '%d-%m-%Y'
+      %td= event.dtstart.strftime '%H:%M'
+      %td= event.dtend.strftime '%H:%M'
+      %td= event.calendar.name
+
+
+- if events.empty?
+  %i= t('.no_result')

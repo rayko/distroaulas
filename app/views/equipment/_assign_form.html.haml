@@ -1,0 +1,7 @@
+%h3= t('.assign_form_title')
+
+= semantic_form_for :assign, :url => '' do |form|
+  = form.inputs do
+    = form.input :occurrences, :label => t('.labels.occurrences'), :as => :string, :input_html => {:class => 'occurrences-tagbox'}
+  = form.buttons do
+    = form.commit_button t('.commit_button')

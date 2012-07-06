@@ -33,7 +33,16 @@ DistroaulasRails3::Application.routes.draw do
     post '/matters' => 'importer#upload_matters', :as => 'importer_upload_matters'
   end
 
-  resources :equipment, :only => [:index, :new, :create, :update, :destroy, :edit]
+
+  scope '/equipment' do
+    post '/search_events' => 'equipment#search_events', :as => 'search_events_equipment'
+  end
+  resources :equipment, :only => [:index, :new, :create, :update, :destroy, :edit] do
+    member do
+      get :assign_event
+      post :assign_event
+    end
+  end
 
   resources :calendars
 
@@ -49,6 +58,7 @@ DistroaulasRails3::Application.routes.draw do
   match 'ajax_careers_by_plan/:id' => 'careers#ajax_careers_by_plan'
   match 'new_event' => 'application#new_event', :as => 'new_event_from_free_space'
   match 'events/tip_summary/:id' => 'events#tip_summary'
+  match '/ajax_event_info' => 'equipment#event_info'
 
   resources :space_types, :only => [:index, :new, :create, :update, :destroy, :edit]
 

@@ -82,8 +82,10 @@ es:
              la cual esta preparada para ser impresa. Sin embargo, verifique las opciones de
              impresion del navegador para asegurarse de que la impresion se corresponda con
              la vista."
-      search_events: "Buscar Eventos"
 
+
+    search_form:
+      search_events: "Buscar Eventos"
       labels:
         calendar: "Calendario"
         plan: "Plan"

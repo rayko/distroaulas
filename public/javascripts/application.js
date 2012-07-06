@@ -1,6 +1,60 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+function eventClickInfo(){
+    $('.clickable').click(function(){
+
+
+
+        date = $(this).attr('data-date')
+        event_id = $(this).attr('data-event_id')
+        if(date){
+            event_info_url = '/ajax_event_info?event_id=' + event_id + '&date=' + date
+        }
+        else{
+            event_info_url = '/ajax_event_info?event_id=' + event_id
+        };
+        $.ajax({
+            url: event_info_url,
+            dataType: 'html',
+            contentType: 'text/html; charset=utf-8',
+            success: function(data, xhr){
+                document.getElementById('event_info').innerHTML = data;
+                $('.week_event').attr('onclick', "");
+                $('#assign_form').show()
+                $(".event_add_occurrence").click(function() {
+                    text = $(this).attr('data-date') + ' || ' + $(this).attr('data-start_hour') + '-' + $(this).attr('data-end_hour')
+                    $("#assign_occurrences").tagit('createTag', text);
+                });
+                eventClickInfoLink();
+            }
+        });
+        // set event click url to other
+    });
+};
+
+function eventClickInfoLink(){
+    $('.clickable_link').click(function(){
+        date = $(this).attr('data-date')
+        event_id = $(this).attr('data-event_id')
+        event_info_url = '/ajax_event_info?event_id=' + event_id + '&date=' + date
+        $.ajax({
+            url: event_info_url,
+            dataType: 'html',
+            contentType: 'text/html; charset=utf-8',
+            success: function(data, xhr){
+                document.getElementById('event_info').innerHTML = data;
+                $(".event_add_occurrence").click(function() {
+                    text = $(this).attr('data-date') + ' || ' + $(this).attr('data-start_hour') + '-' + $(this).attr('data-end_hour')
+                    $("#assign_occurrences").tagit('createTag', text);
+                });
+                $('.week_event').attr('onclick', "");
+                eventClickInfoLink();
+            }
+        });
+    });
+};
+
 // Doc links made remote
 $(document).ready(function(){
     $('.remote_link').click(function(){
@@ -416,6 +470,12 @@ jQuery(function() {
 jQuery(function() {
     $(".exdate-tagbox").tagit();
 });
+jQuery(function() {
+    $(".occurrences-tagbox").tagit();
+    $('#assign_form').hide()
+});
+
+
 
 // Makes the tagboxes read only
 $(document).ready(function() {

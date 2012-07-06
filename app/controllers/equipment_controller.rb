@@ -37,4 +37,36 @@ class EquipmentController < ApplicationController
     @equipment.destroy
     redirect_to equipment_index_url, :notice => show_notice(:destroy_success)
   end
+
+  def assign_event
+    if request.post?
+      #clean up params to send to model
+      params[:search].delete :plan
+      if params[:search][:recurrent] == "1"
+        params[:search][:recurrent] = true
+      else
+        params[:search].delete :recurrent
+      end
+      # search events with criteria
+      @events = Event.search_events clean_params(params[:search])
+    end
+  end
+
+  def event_info
+    @event = Event.find_by_id params[:event_id]
+    if params[:date]
+      @date = Date.parse params[:date]
+    else
+      @date = Date.today
+    end
+    while !@date.monday?
+      @date -= 1.day
+    end
+    render :partial => 'event_info', :locals => { :date => @date, :event => @event }
+  end
+
+  private
+  def clean_params p=nil
+    p.delete_if{ |key, value| value.blank? }
+  end
 end
