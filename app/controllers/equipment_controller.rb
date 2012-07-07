@@ -83,6 +83,13 @@ class EquipmentController < ApplicationController
     render :equipment_events
   end
 
+  def remove_event
+    @event = EquipmentEvent.find_by_id params[:event_id]
+    @event.destroy
+    redirect_to equipment_events_equipment_path(params[:id]), :notice => show_notice(:equipment_event_remove_success)
+
+  end
+
   def equipment_events
     @equipment = Equipment.find_by_id params[:id]
     @events = @equipment.equipment_events

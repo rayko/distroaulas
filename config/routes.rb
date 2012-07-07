@@ -43,6 +43,7 @@ DistroaulasRails3::Application.routes.draw do
       post :assign_event
       post :create_events
       get :equipment_events
+      delete :remove_event
     end
   end
 
