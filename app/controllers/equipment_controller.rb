@@ -78,8 +78,12 @@ class EquipmentController < ApplicationController
       events_data << { :dtstart => event_start, :dtend => event_end, :event_id => event_id, :equipment_id => @equipment.id }
     end
     @events = EquipmentEvent.create_events events_data
-
-    flash[:notice] = show_notice :assign_success
+    @text = I18n.t('equipment.equipment_events.event_list')
+    if @events.size != events_data.size
+      flash[:notice] = show_notice :assign_success_with_colission
+    else
+      flash[:notice] = show_notice :assign_success
+    end
     render :equipment_events
   end
 

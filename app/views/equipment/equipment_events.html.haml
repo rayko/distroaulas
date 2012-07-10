@@ -9,7 +9,11 @@
     %b= Equipment.human_attribute_name(:description) + ':'
     = @equipment.description
 
-%h3= t('.events')
+- if @text
+  %h3= @text
+- else
+  %h3= t('.events')
+
 - if @events.any?
   %ul
     - @events.each do |event|

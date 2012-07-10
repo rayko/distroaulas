@@ -12,9 +12,27 @@ class EquipmentEvent < ActiveRecord::Base
     events.each do |event|
       event[:dtstart] = time_to_rfc(event[:dtstart])
       event[:dtend] = time_to_rfc(event[:dtend])
-      events_created << self.create(event)
+      new_event = self.new event
+      unless collides? new_event
+        new_event.save
+        events_created << new_event
+      end
     end
     return events_created
+  end
+
+  def self.collides? event=nil
+    events = self.select('dtstart, dtend')
+    colision = false
+    events.each do |e|
+      if event.dtstart.between? e.dtstart, e.dtend
+        colision = true
+      end
+      if event.dtend.between? e.dtstart, e.dtend
+        colision = true
+      end
+    end
+    return colision
   end
 
   private
