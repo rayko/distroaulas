@@ -10,10 +10,12 @@
     = @equipment.description
 
 %h3= t('.events')
-%ul
-  - @events.each do |event|
-    %li
-      = event.event ? "#{event.event.name} - " : ''
-      = "#{l(event.dtstart, :format => :long)}, #{l(event.dtstart, :format => :short_time)} - #{l(event.dtend, :format => :short_time)}"
-      = link_to t('.links.remove'), remove_event_equipment_path(:id => @equipment.id, :event_id => event.id), :confirm => t('shared.destroy_confirmation'), :method => :delete
-
+- if @events.any?
+  %ul
+    - @events.each do |event|
+      %li
+        = event.event ? "#{event.event.name} - " : ''
+        = "#{l(event.dtstart, :format => :long)}, #{l(event.dtstart, :format => :short_time)} - #{l(event.dtend, :format => :short_time)}"
+        = link_to t('.links.remove'), remove_event_equipment_path(:id => @equipment.id, :event_id => event.id), :confirm => t('shared.destroy_confirmation'), :method => :delete
+- else
+  %i= t('.no_events')
