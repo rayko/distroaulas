@@ -10,6 +10,8 @@ es:
     index:
       title: "Equipos"
       links:
+        events: "Eventos"
+        assign_event: "Asignar Eventos"
         edit: "Editar"
         destroy: "Eliminar"
         new: "Nuevo Equipo"
@@ -29,6 +31,11 @@ es:
             y agrega ocurrencias puede repetir la busqueda y elejir otros eventos
             para asignarlos."
       equipment_info: "Informacion sobre el equipo"
+    equipment_events:
+      title: "Eventos para el equipo"
+      equipment: "Equipo"
+      events: "Eventos"
+      weekly_view: "Vista Semanal"
     search_result:
       headers:
         name: "Nombre"

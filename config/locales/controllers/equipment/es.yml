@@ -2,6 +2,8 @@ es:
   controllers:
     equipment:
       notices:
+        assign_success: "Se han asignado los eventos."
+        assign_success_with_colission: "Se han asignado los eventos. Algunos han presentado colisiones y no se han asignado"
         create_success: "El equipo fue creado correctamente."
         update_success: "El equipo fue actualizado correctamente."
         destroy_success: "El equipo fue eliminado correctamente."
