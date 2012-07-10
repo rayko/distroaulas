@@ -21,5 +21,21 @@
         = event.event ? "#{event.event.name} - " : ''
         = "#{l(event.dtstart, :format => :long)}, #{l(event.dtstart, :format => :short_time)} - #{l(event.dtend, :format => :short_time)}"
         = link_to t('.links.remove'), remove_event_equipment_path(:id => @equipment.id, :event_id => event.id), :confirm => t('shared.destroy_confirmation'), :method => :delete
+  %h3= t('.weekly_view')
+  = link_to t('.links.previous_week'), :date => (@date - 7.days).strftime("%d-%m-%Y")
+  \|
+  = link_to t('.links.current_week'), :date => Date.today
+  \|
+  = link_to t('.links.next_week'), :date => (@date + 7.days).strftime("%d-%m-%Y")
+  %div#weekly-view
+    = weekly_calendar(@events, :date => @date, :include_24_hours => false, :disable_onclick => true) do |w|
+      = w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate|
+        = event.name
+  = link_to t('.links.previous_week'), :date => (@date - 7.days).strftime("%d-%m-%Y")
+  \|
+  = link_to t('.links.current_week'), :date => Date.today
+  \|
+  = link_to t('.links.next_week'), :date => (@date + 7.days).strftime("%d-%m-%Y")
+
 - else
   %i= t('.no_events')

@@ -95,8 +95,41 @@ class EquipmentController < ApplicationController
   end
 
   def equipment_events
+    if params[:date]
+      @date = Date.parse params[:date]
+    else
+      @date = Date.today
+    end
+    while !@date.monday?
+      @date -= 1.day
+    end
     @equipment = Equipment.find_by_id params[:id]
     @events = @equipment.equipment_events
+  end
+
+  def new_event
+    @equipment_event = EquipmentEvent.new
+  end
+
+  def create_single_event
+    params[:equipment_event][:start_hour] = "#{params[:equipment_event]['start_hour(4i)']}:#{params[:equipment_event]['start_hour(5i)']}"
+    params[:equipment_event][:end_hour] = "#{params[:equipment_event]['end_hour(4i)']}:#{params[:equipment_event]['end_hour(5i)']}"
+    params[:equipment_event].delete 'start_hour(1i)'
+    params[:equipment_event].delete 'start_hour(2i)'
+    params[:equipment_event].delete 'start_hour(3i)'
+    params[:equipment_event].delete 'start_hour(4i)'
+    params[:equipment_event].delete 'start_hour(5i)'
+    params[:equipment_event].delete 'end_hour(1i)'
+    params[:equipment_event].delete 'end_hour(2i)'
+    params[:equipment_event].delete 'end_hour(3i)'
+    params[:equipment_event].delete 'end_hour(4i)'
+    params[:equipment_event].delete 'end_hour(5i)'
+    @equipment_event = EquipmentEvent.new(params[:equipment_event])
+    if @equipment_event.save
+      redirect_to equipment_events_equipment_path(@equipment_event.equipment_id), :notice => show_notice(:create_single_event_success)
+    else
+      render :action => 'new_event'
+    end
   end
 
   private

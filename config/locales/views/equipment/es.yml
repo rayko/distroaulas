@@ -36,6 +36,10 @@ es:
       equipment: "Equipo"
       events: "Eventos"
       weekly_view: "Vista Semanal"
+      links:
+        previous_week: "Semana anterior"
+        current_week: "Semana actual"
+        next_week: "Semana siguiente"
     search_result:
       headers:
         name: "Nombre"

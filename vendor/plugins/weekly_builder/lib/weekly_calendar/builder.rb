@@ -1,9 +1,9 @@
 class WeeklyCalendar::Builder
   include ::ActionView::Helpers::TagHelper
 
-  def initialize(objects, template, options, start_date, end_date, row_title, disable_day_name, main_title, hours)
+  def initialize(objects, template, options, start_date, end_date, row_title, disable_day_name, main_title, hours, disable_onclick)
     raise ArgumentError, "WeeklyBuilder expects an Array but found a #{objects.inspect}" unless objects.is_a? Array
-    @objects, @template, @options, @start_date, @end_date, @row_title, @disable_day_name, @main_title, @hours = objects, template, options, start_date, end_date, row_title, disable_day_name, main_title, hours
+    @objects, @template, @options, @start_date, @end_date, @row_title, @disable_day_name, @main_title, @hours, @disable_onclick = objects, template, options, start_date, end_date, row_title, disable_day_name, main_title, hours, disable_onclick
   end
 
   def days
@@ -76,7 +76,11 @@ class WeeklyCalendar::Builder
           for event in @objects
             if event.starts_at.strftime('%j').to_s == day.strftime('%j').to_s
              if event.starts_at.strftime('%H').to_i >= start_hour and event.ends_at.strftime('%H').to_i <= end_hour
-                concat(tag("div", :class => "week_event", :style =>"left:#{left(event.starts_at,options[:business_hours])}px;width:#{width(event.starts_at,event.ends_at)}px;", :onclick => "location.href='/events/#{event.id}';"))
+               if @disable_onclick
+                 concat(tag("div", :class => "week_event", :style =>"left:#{left(event.starts_at,options[:business_hours])}px;width:#{width(event.starts_at,event.ends_at)}px;"))
+               else
+                 concat(tag("div", :class => "week_event", :style =>"left:#{left(event.starts_at,options[:business_hours])}px;width:#{width(event.starts_at,event.ends_at)}px;", :onclick => "location.href='/events/#{event.id}';"))
+               end
                   truncate = truncate_width(width(event.starts_at,event.ends_at))
                   yield(event,truncate)
                 concat("</div>")
