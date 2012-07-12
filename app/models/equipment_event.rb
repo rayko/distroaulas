@@ -8,7 +8,7 @@ class EquipmentEvent < ActiveRecord::Base
 
   attr_accessor :date, :start_hour, :end_hour
 
-  before_validation :setup_dates
+  # before_validation :setup_dates
 
   def self.create_events events=[]
     # Create one or more events with given data
@@ -26,6 +26,18 @@ class EquipmentEvent < ActiveRecord::Base
       end
     end
     return events_created
+  end
+
+  def date
+    Date.parse(I18n.l(self.dtstart, :format => :short))
+  end
+
+  def start_hour
+    self.dtstart
+  end
+
+  def end_hour
+    self.dtend
   end
 
   def self.collides? event=nil

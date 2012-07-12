@@ -1,6 +1,48 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+// Equipment event validations
+$(document).ready(function() {
+    $('#equipment_event_submit').click(function(){
+        start_hour = $('#equipment_event_start_hour_4i').attr('value');
+        start_minute = $('#equipment_event_start_hour_5i').attr('value');
+        end_hour = $('#equipment_event_end_hour_4i').attr('value');
+        end_minute = $('#equipment_event_end_hour_5i').attr('value');
+        invalid = false;
+        message = I18n.t('equipment.new_event.errors.title')
+        if(start_hour == ''){
+            message += I18n.t('equipment.new_event.errors.start_hour_blank')
+            invalid = true
+        };
+        if(start_minute == ''){
+            invalid = true
+            message += I18n.t('equipment.new_event.errors.start_minute_blank')
+        };
+        if(end_hour == ''){
+            invalid = true
+            message += I18n.t('equipment.new_event.errors.end_hour_blank')
+        };
+        if(end_minute == ''){
+            invalid = true
+            message += I18n.t('equipment.new_event.errors.end_minute_blank')
+        };
+
+        event_start = parseInt(start_hour + start_minute)
+        event_end = parseInt(end_hour + end_minute)
+
+        if(event_end <= event_start){
+            invalid = true
+            message += I18n.t('equipment.new_event.errors.hour_range_invalid')
+        }
+        if(invalid){
+            alert(message)
+            return false
+        }
+
+    });
+});
+
+
 function eventClickInfo(){
     $('.clickable').click(function(){
         date = $(this).attr('data-date');

@@ -109,11 +109,12 @@ class EquipmentController < ApplicationController
 
   def new_event
     @equipment_event = EquipmentEvent.new
+    @equipment_event.dtstart = DateTime.now
   end
 
   def create_single_event
-    params[:equipment_event][:start_hour] = "#{params[:equipment_event]['start_hour(4i)']}:#{params[:equipment_event]['start_hour(5i)']}"
-    params[:equipment_event][:end_hour] = "#{params[:equipment_event]['end_hour(4i)']}:#{params[:equipment_event]['end_hour(5i)']}"
+    params[:equipment_event][:dtstart] = Time.parse "#{params[:equipment_event][:date].gsub('/', '-')} #{params[:equipment_event]['start_hour(4i)']}:#{params[:equipment_event]['start_hour(5i)']}"
+    params[:equipment_event][:dtend] = Time.parse "#{params[:equipment_event][:date].gsub('/', '-')} #{params[:equipment_event]['end_hour(4i)']}:#{params[:equipment_event]['end_hour(5i)']}"
     params[:equipment_event].delete 'start_hour(1i)'
     params[:equipment_event].delete 'start_hour(2i)'
     params[:equipment_event].delete 'start_hour(3i)'
@@ -124,10 +125,13 @@ class EquipmentController < ApplicationController
     params[:equipment_event].delete 'end_hour(3i)'
     params[:equipment_event].delete 'end_hour(4i)'
     params[:equipment_event].delete 'end_hour(5i)'
-    @equipment_event = EquipmentEvent.new(params[:equipment_event])
-    if @equipment_event.save
-      redirect_to equipment_events_equipment_path(@equipment_event.equipment_id), :notice => show_notice(:create_single_event_success)
+    temp = EquipmentEvent.new params[:equipment_event]
+    @equipment_event = EquipmentEvent.create_events [params[:equipment_event]]
+    if @equipment_event.any?
+      redirect_to equipment_events_equipment_path(params[:id]), :notice => show_notice(:create_single_event_success)
     else
+      @equipment_event = temp
+      flash[:alert] = show_alert :event_colision
       render :action => 'new_event'
     end
   end
