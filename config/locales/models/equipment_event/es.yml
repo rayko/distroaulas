@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      equipment_event: EquipmentEvent
+    attributes:
+      equipment_event:
+        name: "Nombre"
+        date: "Fecha"
+        start_hour: "Hora de inicio"
+        end_hour: "Hora de fin"

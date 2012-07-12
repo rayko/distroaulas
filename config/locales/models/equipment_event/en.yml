@@ -1,0 +1,35 @@
+en:
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        password: "Contraseña"
+        password_confirmation: "Password Confirmation"
+        email: "e-Mail"
+        encrypted_password: "Encrypted Password"
+        password_salt: "Password Salt"
+        reset_password_token: "Reset Password Token"
+        remember_token: "Remember Token"
+        remember_created_at: "Remember Token Created at"
+        sign_in_count: "Sign in Count"
+        current_sign_in_ip: "Current Sign in IP"
+        last_sign_in_at: "Last sign in at"
+        last_sign_in_ip: "Last Sign in IP"
+        confirmation_token: "Comfirmation Token"
+        confirmet_at: "Confirmed at"
+        confirmation_sent_at: "Confirmation sent at"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        login: "Login"
+        name: "Name"
+        birth_date: "Birth Date"
+        credits: "Credits"
+        biography: "Biography"
+        country: "Country"
+        province: "Province"
+        city: "City"
+        bands: "Bands"
+        roles: "Roles"
+        band_roles: "Band Roles"
+        band_applies: "Band Applies"

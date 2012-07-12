@@ -15,11 +15,14 @@ es:
         edit: "Editar"
         destroy: "Eliminar"
         new: "Nuevo Equipo"
+        new_event: "Nuevo Evento"
     new:
       title: "Nuevo Equipo"
       links:
         back: "Volver a la lista"
-
+    new_event:
+      title: "Nuevo Evento para el Equipo"
+      commit_button: "Crear"
     assign_event:
       title: "Asignar Evento"
       text: "En esta seccion podra asignar las ocurrencias de un evento
@@ -40,6 +43,7 @@ es:
         previous_week: "Semana anterior"
         current_week: "Semana actual"
         next_week: "Semana siguiente"
+        remove: "Eliminar"
     search_result:
       headers:
         name: "Nombre"
