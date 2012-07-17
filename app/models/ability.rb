@@ -16,8 +16,10 @@ class Ability
       can :update_pass, User, :id => user.id
     end
     if user.role == 'user'
-      can :manage, User, :id => user.id
       can :read, :all
+      cannot :create, User
+      can :read, User, :id => user.id
+      can :edit, User, :id => user.id
     end
 
 

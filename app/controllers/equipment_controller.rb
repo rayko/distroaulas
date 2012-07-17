@@ -1,6 +1,6 @@
 class EquipmentController < ApplicationController
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:assign_event, :event_info, :create_events, :remove_event, :equipment_events, :new_event, :create_single_event]
 
   def index
     @equipment = Equipment.paginate(:page => params[:page])
@@ -39,6 +39,7 @@ class EquipmentController < ApplicationController
   end
 
   def assign_event
+    authorize! :manage, Equipment
     if request.post?
       #clean up params to send to model
       params[:search].delete :plan
@@ -53,6 +54,7 @@ class EquipmentController < ApplicationController
   end
 
   def event_info
+    authorize! :manage, Equipment
     @event = Event.find_by_id params[:event_id]
     if params[:date]
       @date = Date.parse params[:date]
@@ -66,6 +68,7 @@ class EquipmentController < ApplicationController
   end
 
   def create_events
+    authorize! :manage, Equipment
     @equipment = Equipment.find_by_id params[:id]
     events = params[:assign][:occurrences].split(',')
     events_data = []
@@ -88,6 +91,7 @@ class EquipmentController < ApplicationController
   end
 
   def remove_event
+    authorize! :manage, Equipment
     @event = EquipmentEvent.find_by_id params[:event_id]
     @event.destroy
     redirect_to equipment_events_equipment_path(params[:id]), :notice => show_notice(:equipment_event_remove_success)
@@ -108,11 +112,13 @@ class EquipmentController < ApplicationController
   end
 
   def new_event
+    authorize! :manage, Equipment
     @equipment_event = EquipmentEvent.new
     @equipment_event.dtstart = DateTime.now
   end
 
   def create_single_event
+    authorize! :manage, Equipment
     params[:equipment_event][:dtstart] = Time.parse "#{params[:equipment_event][:date].gsub('/', '-')} #{params[:equipment_event]['start_hour(4i)']}:#{params[:equipment_event]['start_hour(5i)']}"
     params[:equipment_event][:dtend] = Time.parse "#{params[:equipment_event][:date].gsub('/', '-')} #{params[:equipment_event]['end_hour(4i)']}:#{params[:equipment_event]['end_hour(5i)']}"
     params[:equipment_event].delete 'start_hour(1i)'

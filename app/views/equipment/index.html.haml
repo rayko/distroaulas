@@ -12,9 +12,9 @@
       %td
         = link_to t('.links.edit'), edit_equipment_path(equipment) if can? :edit, equipment
         = link_to t('.links.destroy'), equipment, :confirm => t('shared.destroy_confirmation'), :method => :delete if can? :destroy, equipment
-        = link_to t('.links.assign_event'), assign_event_equipment_path(equipment.id)
-        = link_to t('.links.events'), equipment_events_equipment_path(equipment.id)
-        = link_to t('.links.new_event'), new_event_equipment_path(equipment.id)
+        = link_to t('.links.assign_event'), assign_event_equipment_path(equipment.id) if can? :manage, Equipment
+        = link_to t('.links.events'), equipment_events_equipment_path(equipment.id) if can? :read, Equipment
+        = link_to t('.links.new_event'), new_event_equipment_path(equipment.id) if can? :manage, Equipment
 
 
 = will_paginate @equipment
