@@ -1,5 +1,5 @@
-- semantic_form_for @event do |f|
-  - f.inputs do
+= semantic_form_for @event do |f|
+  = f.inputs do
     = f.input :calendar
     = f.input :plan, :as => :select, :collection => Plan.all
     = image_tag 'loading.gif', :class => "loading-icon-small career-loading"
@@ -23,7 +23,10 @@
     - if session[:new_event_space_id]
       = f.input :space, :as => :select, :collection => [Space.find_by_id(session[:new_event_space_id])]
     - else
-      = f.input :space, :as => :select, :collection => []
+      - if @event.space
+        = f.input :space, :as => :select, :collection => [@event.space]
+      - else
+        = f.input :space, :as => :select, :collection => []
 
 
     = text_field_tag :rdate_picker, '', :class => 'ui-date-picker', :style => "margin-left: 25%"
