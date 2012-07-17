@@ -13,7 +13,7 @@ class EquipmentController < ApplicationController
   def create
     @equipment = Equipment.new(params[:equipment])
     if @equipment.save
-      redirect_to @equipment, :notice => show_notice(:create_success)
+      redirect_to equipment_index_path, :notice => show_notice(:create_success)
     else
       render :action => 'new'
     end
@@ -26,7 +26,7 @@ class EquipmentController < ApplicationController
   def update
     @equipment = Equipment.find(params[:id])
     if @equipment.update_attributes(params[:equipment])
-      redirect_to @equipment, :notice  => show_notice(:update_success)
+      redirect_to equipment_index_path, :notice  => show_notice(:update_success)
     else
       render :action => 'edit'
     end

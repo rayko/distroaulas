@@ -3,5 +3,4 @@
 = render 'form'
 
 %p
-  = link_to t('.links.show'), @equipment, :class => "ui-corner-all button" if can? :read, @equipment
   = link_to t('.links.back'), equipment_index_path, :class => "ui-corner-all button" if can? :read, Equipment
