@@ -345,7 +345,7 @@ jQuery(function($) {
 
 // Ajax update for event career field
 jQuery(function($) {
-    $("#event_plan").change(function() {
+    $("#event_plan_id").change(function() {
         // make a POST call and replace the content
         if (this.value) {
             $.ajax({
@@ -362,7 +362,7 @@ jQuery(function($) {
                     var i = 0;
 
                     // Get the element to update
-                    select_field = document.getElementById('event_career');
+                    select_field = document.getElementById('event_career_id');
 
                     // Get matter element
                     select_matter = document.getElementById('event_matter_id');
@@ -392,7 +392,7 @@ jQuery(function($) {
 
 // Ajax update for event matter field
 jQuery(function($) {
-    $("#event_career").change(function() {
+    $("#event_career_id").change(function() {
         // make a POST call and replace the content
         if (this.value) {
             $.ajax({

@@ -2,7 +2,8 @@ class Event < ActiveRecord::Base
   attr_accessible :name, :matter, :matter_id, :space, :space_id, :calendar,
                   :calendar_id, :dtstart, :dtend, :exdate, :rdate, :recurrent,
                   :freq, :interval, :until_date, :byday, :count, :plan, :career,
-                  :start_date, :start_time, :end_time, :responiable, :days_of_recurr
+                  :start_date, :start_time, :end_time, :responiable, :days_of_recurr,
+                  :plan, :career
 
   # Virtual attributes for easy creation
   attr_accessor :plan, :career, :days_of_recurr
@@ -12,6 +13,8 @@ class Event < ActiveRecord::Base
   belongs_to :matter
   belongs_to :space
   belongs_to :calendar
+  belongs_to :plan
+  belongs_to :career
 
   validates :calendar, :presence => true
   validates :name, :presence => true
@@ -31,6 +34,22 @@ class Event < ActiveRecord::Base
   validates_with UntilDateValidator
 
   require 'reccurrence_rule'
+
+  def career
+    self.matter.career if self.matter
+  end
+
+  def plan
+    self.matter.career.plan if self.matter
+  end
+
+  def plan_id
+    self.plan.id if self.matter
+  end
+
+  def career_id
+    self.career.id if self.matter
+  end
 
   # Returns a RiCal Event with the data on the event object
   def to_rical

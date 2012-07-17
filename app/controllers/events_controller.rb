@@ -38,7 +38,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    @event.byday = @event.byday.split(',')
+    # @event.byday = @event.byday.split(',')
   end
 
   def update
