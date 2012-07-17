@@ -1,6 +1,20 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+// Calendar filter in event index
+$(document).ready(function(){
+    $('.filter_events').click(function(){
+        if($('.calendar_filter').attr('value') == ''){
+            window.location = '/events'
+        }
+        else{
+            window.location = '/events?calendar=' + $('.calendar_filter').attr('value')
+        }
+    });
+
+});
+
+
 // Equipment event validations
 $(document).ready(function() {
     $('#equipment_event_submit').click(function(){

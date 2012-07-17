@@ -3,7 +3,11 @@ class EventsController < ApplicationController
   load_and_authorize_resource :except => [:generate_calendar, :calendar_preview, :tip_summary, :search, :get_responsibles_list]
 
   def index
-    @events = Event.paginate(:page => params[:page])
+    if params[:calendar]
+      @events = Event.paginate(:page => params[:page], :conditions => { :calendar_id => params[:calendar]})
+    else
+      @events = Event.paginate(:page => params[:page])
+    end
   end
 
   def show
@@ -30,7 +34,7 @@ class EventsController < ApplicationController
       if session[:new_event_date]
         session.delete :new_event_date
       end
-      redirect_to @event, :notice => "Successfully created event."
+      redirect_to @event, :notice => show_notice(:create_success)
     else
       render :action => 'new'
     end
