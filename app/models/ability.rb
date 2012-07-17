@@ -11,12 +11,14 @@ class Ability
     if user.role == 'op'
       can :manage, [Calendar, Career, Equipment, Event, Matter, Plan, Space, SpaceType]
       can :read, User
+      can :read_index, User
       can :edit, User, :id => user.id
       can :reset_pass, User, :id => user.id
       can :update_pass, User, :id => user.id
     end
     if user.role == 'user'
-      can :read, :all
+      cannot :read_index, User
+      can :read, [Calendar, Career, Equipment, Event, Matter, Plan, Space, SpaceType]
       cannot :create, User
       can :read, User, :id => user.id
       can :edit, User, :id => user.id

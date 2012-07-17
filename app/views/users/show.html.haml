@@ -20,5 +20,4 @@
     %strong= User.human_attribute_name(:role) + ':'
     = t("shared.roles.#{@user.role}")
 
-= link_to t('.links.back'), users_path, :class => "ui-corner-all button" if can? :read, User
-= link_to t('.links.edit'), edit_user_registration_path, :class => "ui-corner-all button"
+= link_to t('.links.edit'), edit_user_registration_path, :class => "ui-corner-all button" if can? :edit, @user

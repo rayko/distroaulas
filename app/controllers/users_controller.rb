@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
+    authorize! :read_index, User
     @users = User.paginate(:page => params[:page])
   end
 
