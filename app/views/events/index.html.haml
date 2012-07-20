@@ -3,7 +3,7 @@
 %div#event_filter
   = t('.calendar')
   = select_tag :calendar, ("<option value=\"\">#{t('.all')}</option>").html_safe + options_from_collection_for_select(Calendar.all, "id", "name"), :class => 'calendar_filter'
-  = link_to(t('.buttons.go'), '#none', :class => 'filter_events')
+  = link_to(t('.links.go'), '#none', :class => 'filter_events')
 
 %table.index
   %tr

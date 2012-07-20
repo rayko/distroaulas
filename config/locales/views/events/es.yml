@@ -26,7 +26,10 @@ es:
 
     index:
       title: "Eventos"
+      calendar: "Calendario"
+      all: "Todos"
       links:
+        go: "Filtrar"
         new: "Nuevo Evento"
         generate_calendar: "Generar Calendario"
         show: "Ver"
