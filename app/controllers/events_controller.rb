@@ -48,7 +48,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(params[:event])
-      redirect_to @event, :notice  => "Successfully updated event."
+      redirect_to @event, :notice  => show_notice(:update_success)
     else
       render :action => 'edit'
     end
@@ -57,7 +57,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_url, :notice => "Successfully destroyed event."
+    redirect_to events_url, :notice => show_notice(:destroy_success)
   end
 
   def generate_calendar
