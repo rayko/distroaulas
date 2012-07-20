@@ -20,4 +20,5 @@
 = will_paginate @equipment
 %p
   = link_to t('.links.new'), new_equipment_path, :class => "ui-corner-all button" if can? :create, Equipment
+  = link_to t('.links.all_equipment_events'), calendar_equipments_path, :class => "ui-corner-all button"
 

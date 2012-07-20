@@ -1,5 +1,11 @@
 es:
   equipment:
+    calendar:
+      title: "Calendario de Equipos"
+      labels:
+        date: "Fecha"
+      buttons:
+        go: "Filtrar"
     form:
       commit: "Guardar"
     edit:
@@ -10,6 +16,7 @@ es:
     index:
       title: "Equipos"
       links:
+        all_equipment_events: "Ver todos los eventos de equipo"
         events: "Eventos"
         assign_event: "Asignar Eventos"
         edit: "Editar"

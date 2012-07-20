@@ -36,6 +36,8 @@ DistroaulasRails3::Application.routes.draw do
 
   scope '/equipment' do
     post '/search_events' => 'equipment#search_events', :as => 'search_events_equipment'
+    get '/calendar' => 'equipment#calendar', :as => 'calendar_equipments'
+    post '/calendar' => 'equipment#calendar', :as => 'calendar_equipments'
   end
   resources :equipment, :only => [:index, :new, :create, :update, :destroy, :edit] do
     member do

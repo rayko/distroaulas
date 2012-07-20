@@ -38,6 +38,15 @@ class EquipmentController < ApplicationController
     redirect_to equipment_index_url, :notice => show_notice(:destroy_success)
   end
 
+  def calendar
+    if request.post?
+      @date = Time.parse params[:date]
+    else
+      @date = Time.now
+    end
+    @equipments = Equipment.all
+  end
+
   def assign_event
     authorize! :manage, Equipment
     if request.post?
