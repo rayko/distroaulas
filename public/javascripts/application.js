@@ -183,7 +183,7 @@ jQuery(function($) {
         error = false
 
         if(date == ''){
-            errors += I18n.t('events.form_errors.title') + '\n';
+            errors += I18n.t('events.form_errors.no_date') + '\n';
             error = true;
         }
 
@@ -495,7 +495,7 @@ jQuery(function($) {
 
 // Datepicker
 $(document).ready(function(){
-  $('input.ui-date-picker').datepicker();
+    $('input.ui-date-picker').datepicker({minDate: new Date});
 });
 
 // Filter toggle button to hide/show filter options on events view
