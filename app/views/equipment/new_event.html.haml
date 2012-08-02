@@ -3,7 +3,7 @@
 = semantic_form_for @equipment_event, :url => create_single_event_equipment_path(params[:id]) do |form|
   = form.inputs do
     = form.input :name, :as => :string
-    = form.input :date, :as => :date_picker
+    = form.input :date, :as => :date_picker, :input_html => {'data-limited' => 'y'}
     = form.input :start_hour, :as => :time
     = form.input :end_hour, :as => :time
     = form.input :equipment_id, :as => :hidden, :input_html => {:value => params[:id]}

@@ -495,7 +495,13 @@ jQuery(function($) {
 
 // Datepicker
 $(document).ready(function(){
-    $('input.ui-date-picker').datepicker({minDate: new Date});
+    if($('input.ui-date-picker').attr('data-limited')){
+	$('input.ui-date-picker').datepicker({minDate: new Date});
+    }
+    else{
+	$('input.ui-date-picker').datepicker();
+    }
+    
 });
 
 // Filter toggle button to hide/show filter options on events view

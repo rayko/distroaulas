@@ -10,9 +10,9 @@
     = image_tag 'loading.gif', :class => "loading-icon-small responsible-loading"
     = f.input :responsible
     - if session[:new_event_date]
-      = f.input :start_date, :as => :date_picker, :input_html => {:value => Date.parse(session[:new_event_date]).strftime("%d/%m/%Y")}
+      = f.input :start_date, :as => :date_picker, :input_html => {:value => Date.parse(session[:new_event_date]).strftime("%d/%m/%Y"), "data-limited" => "y"}
     - else
-      = f.input :start_date, :as => :date_picker
+      = f.input :start_date, :as => :date_picker, :input_html => {"data-limited" => "y"}
     = f.input :start_time, :as => :time
     = f.input :end_time, :as => :time
 
