@@ -1,0 +1,135 @@
+%h1 Detalles Tecnicos
+
+%p
+  Esta pagina provee un poco de informacion tecnica relacionada con la preparacion
+  e instalacion de Distroaulas en otro sistema.
+
+%h3 Requisitos
+
+%p
+  Distroaulas fue construido utilizando el entorno de desarrollo Ruby on Rails,
+  en conjunto con el lenguaje Ruby. Actualmente Distroaulas utiliza la version
+  3.0.10 de Ruby on Rails, y la version 1.9.2 de Ruby.
+
+%p
+  En el mundo de Ruby, los paquetes de codigo que agregan funcionalidad extra se
+  denominan gemas. Se han usado varias de estas gemas, las cuales estan disponibles
+  en la web y deberan ser descargadas para que Distroaulas funcione.
+
+%p
+  La aplicacion fue desarrollada sobre plataformas Linux, y la mayoria de las gemas
+  disponibles requieren librerias de Linux para poder funcionar. Cualqueir version
+  de Ubuntu Server reciente sera suficiente para poder utilizar Distroaulas. Virtualmente
+  en cualquier sistema Linux deberia funcionar. Sin embargo, no se provee soporte sobre
+  plataformas Windows.
+
+%p
+  A continuacion se listan las gemas en las que Distroaulas depende actualmente:
+  %ul
+    %li rails 3.0.10
+    %li sqlite3 1.3.4
+    %li nifty-generators 0.4.6
+    %li compass 0.11.5
+    %li formtastic 1.2.3
+    %li ri_cal 0.8.8
+    %li haml-rails 0.3.4
+    %li haml 3.1.2
+    %li devise 1.5.3
+    %li cancan 1.6.7
+    %li jquery-rails 1.0.12
+    %li spreadsheet 0.6.5.9
+    %li will_paginate 3.0
+    %li i18n-js 2.1.2
+    %li axlsx 1.1.7
+    %li roo 1.10.1
+
+%p
+  Finalmente, otro requisito importante es Git para aplicar actualizaciones
+  en el futuro, asi como parches o pequeñas mejoras.
+
+
+%h3 Estructura de la aplicacion
+
+%p
+  Los proyectos de Ruby on Rails comparten la misma estructura de carpetas:
+  %ul
+    %li Vistas: distroaulas/app/views
+    %li CSS: distroaulas/app/stylesheets (se compilan a distroaulas/public/stylesheets)
+    %li Librerias JavaScript: distroaulas/public/javascript
+    %li Configuraciones generales: distroaulas/config
+
+
+  Las carpetas listadas son las mas relevantes. Hay otras carpetas como distroaulas/log
+  para revisar informacion registrada, o distroaulas/db que guarda informacion de
+  la base de datos.
+
+%p
+  En la carpeta de configuraciones generales estaran los archivos que definen la
+  zona horaria, el lenguaje de la aplicacion, la conexion con la base de datos
+  y otros datos como el nombre del sitio y la direccion de SMTP para los correos
+  electronicos.
+
+
+
+%h3 Base de Datos
+
+%p
+  La base de datos por defecto que usa Distroaulas es SQLite, debido a la facilidad
+  de administracion. Puede optar por otras base de datos como PostgreSQL o MySQL.
+  Para la mayoria de las bases de datos se requeren credenciales de acceso, las
+  cuales se pueden especificar en Distroaulas para utilizarlas. Dentro de la carpeta
+  de configuraciones generales hay plantillas para SQLite, MySQL y PostgreSQL. Solo
+  renombrelas eliminando la extencion ".template", actualize los datos de ser
+  necesario y podra trabajar con el motor deseado.
+
+%p
+  Si necesita reconstruir una nueva base de datos puede posicionarse dentro de la
+  carpeta de la aplicacion y correr el comando rake por consola:
+  %ul
+    %li rake db:setup
+  Esto creara la estructura necesaria en la nueva base de datos, y un
+  usuario inicial para poder acceder.
+
+%h3 Repositorio de codigo
+
+%p
+  Distroaulas reside en un servidor privado por el momento. Para clonar el Distroaulas
+  ejecute lo siguiente:
+  %ul
+    %li git clone gitosis@raykosite.com:distroaulas.git
+
+  Esto instalara los archivos iniciales.
+
+%h3 Instalacion de Gemas
+
+%p
+  Ruby on Rails provee un manejador de paquetes llamado Bundler. En un entorno inicial
+  es posible que requiera ser instalado:
+  %ul
+    %li gem install bundler
+%p
+  Una vez instalado bundler el siguiente comando instala las gemas necesarias:
+  %ul
+    %li bundle install
+
+%h3 Actualizaciones
+
+%p
+  Dependiendo de la naturaleza de las actualizaciones, puede ser mas o menos complicado.
+  En el sitio del proyecto en Redmine (
+  %a{:href => 'redmine.raykosite.com'} redmine.raykosite.com
+  ) se anunciaran dichas actualizaciones y la forma de aplicarlas. En la mayoria de los
+  casos, bastara con hacer un pull del repositorio:
+  %ul
+    %li git pull origin master
+
+%p
+  En otros casos, cuando la actualizacion sea mas amplia podria requerir instalar gemas
+  mas nuevas o adicionales, en cuyo caso, correr el comando "bundle install" lo solucionara.
+
+%h3 Soporte
+
+%p
+  Como se ha mencionado en otras secciones, el soporte de Distroaulas se proveera mediante
+  el sitio del proyecto en Redmine, ya sea para reportar problemas o mejoras y de cualquier
+  naturaleza, tanto para usuarios normales o usuarios con conocimientos mas tecnicos.
