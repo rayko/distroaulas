@@ -49,7 +49,7 @@
 
 %p
   %strong= t('.calendar')
-  %div.calendar
+  %div.event_calendar
     %div.calendar_title
       %p
         = link_to '<', {:month => (@date.beginning_of_month - 1).strftime("01-%m-%Y")}, :class => "ui-corner-all button"
