@@ -9,7 +9,7 @@
     = l(@user.created_at, :format => :long)
   %li
     %strong= User.human_attribute_name(:last_sign_in_at) + ':'
-    = l(@user.last_sign_in_at, :format => :long)
+    = @user.last_sign_in_at ? l(@user.last_sign_in_at, :format => :long) : ''
   %li
     %strong= User.human_attribute_name(:username) + ':'
     = @user.username
