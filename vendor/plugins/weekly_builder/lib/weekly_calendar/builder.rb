@@ -40,21 +40,21 @@ class WeeklyCalendar::Builder
       start_hour = hstart.strftime('%k').to_i
       end_hour = hend.strftime('%k').to_i
       while hstart <= hend
-        hours << hstart.strftime('%l%P')
+        hours << hstart.strftime('%H')
         hstart += 1.hours
       end
       header_row = "header_row"
       day_row = "day_row"
       grid = "grid"
     elsif options[:business_hours] == "true" or options[:business_hours].blank?
-      hours = ["1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm"]
+      hours = ["13","14","15","16","17","18","19","20","21","22","23"]
       header_row = "header_row"
       day_row = "day_row"
       grid = "grid"
       start_hour = 13
       end_hour = 23
     else
-      hours = ["1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm","12am"]
+      hours = ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","00"]
       header_row = "full_header_row"
       day_row = "full_day_row"
       grid = "full_grid"
