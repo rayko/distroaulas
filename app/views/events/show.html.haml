@@ -33,7 +33,7 @@
 
       %li
         = t('.byday')
-        = @event.byday.blank? ? @event.dtstart.strftime("%A") : @event.byday
+        = @event.byday.blank? ? @event.dtstart.strftime("%A") : @event.byday.split(',').collect{|day| t("shared.days.#{day.downcase}")}.join(', ')
 
       %li
         = t('.until_date')

@@ -27,6 +27,7 @@ class EventsController < ApplicationController
     @event.plan = params[:event][:plan]
     @event.career = params[:event][:career]
     @event.start_date = Date.parse(params[:event][:start_date]) unless params[:event][:start_date].blank?
+    @event.byday = parse_byday @event.byday
     if @event.save
       if session[:new_event_space_id]
         session.delete :new_event_space_id
@@ -42,11 +43,12 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    # @event.byday = @event.byday.split(',')
+    @event.byday = @event.byday.split(',')
   end
 
   def update
     @event = Event.find(params[:id])
+    params[:event][:byday] = parse_byday params[:event][:byday]
     if @event.update_attributes(params[:event])
       redirect_to @event, :notice  => show_notice(:update_success)
     else
@@ -122,6 +124,15 @@ class EventsController < ApplicationController
   private
   def clean_params p=nil
     p.delete_if{ |key, value| value.blank? }
+  end
+
+  def parse_byday byday, reverse=false
+    unless reverse
+      byday.delete_if{ |day| day.blank? }
+      return byday.join(',')
+    else
+      return byday.split(',')
+    end
   end
 end
 

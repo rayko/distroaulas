@@ -43,8 +43,8 @@
     = f.input :until_date, :as => :datetime, :hint => t('.hints.until_date')
     = f.input :freq, :as => :select, :collection => [[t('.daily'), 'DAILY'], [t('.weekly'), 'WEEKLY'], [t('.monthly'), 'MONTHLY'], [t('.yearly'), 'YEARLY']], :include_blank => false, :hint => t('.hints.freq')
     = f.input :interval, :as => :select, :collection => [1,2,3,4,5,6], :hint => t('.hints.interval')
-    // = f.input :byday, :as => :check_boxes, :collection => [['Monday', 'MON',], ['Tuesday', 'TUE',], ['Wensday', 'WEN',], ['Thursday', 'THU',], ['Friday', 'FRI',], ['Saturday', 'SAT',], ['Sunday', 'SUN',]]
-    // = f.input :byday, :hint => t('.hints.days_of_reccurrence')
+    = f.input :byday, :as => :check_boxes, :collection => [[t('shared.days.monday'), 'MO',], [t('shared.days.tuesday'), 'TU',], [t('shared.days.wensday'), 'WE',], [t('shared.days.thursday'), 'TH',], [t('shared.days.friday'), 'FR',], [t('shared.days.saturday'), 'SA',], [t('shared.days.sunday'), 'SU',]]
+    //= f.input :byday, :hint => t('.hints.days_of_reccurrence')
     = f.input :count, :as => :select, :collection => [1,2,3,4,5,6,7,8,9,10], :hint => t('.hints.count')
   = f.buttons do
     = f.commit_button t('.buttons.commit')

@@ -7,3 +7,18 @@ es:
       op: "Operador"
       user: "Usuario"
 
+    days:
+      monday: "Lunes"
+      tuesday: "Martes"
+      wensday: "Miercoles"
+      thursday: "Jueves"
+      friday: "Viernes"
+      saturday: "Sabado"
+      sunday: "Domingo"
+      mo: "Lu"
+      tu: "Ma"
+      we: "Mi"
+      th: "Ju"
+      fr: "Vi"
+      sa: "Sa"
+      su: "Do"
