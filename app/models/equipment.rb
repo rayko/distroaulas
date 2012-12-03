@@ -3,6 +3,9 @@ class Equipment < ActiveRecord::Base
 
   has_many :equipment_events
 
+
+  validates :name, :presence => true
+
   def remove_event data
     hours = data[:hours].split('-')
     date = data[:date]

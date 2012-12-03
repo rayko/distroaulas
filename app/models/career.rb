@@ -4,6 +4,10 @@ class Career < ActiveRecord::Base
   belongs_to :plan
   has_many :matters
 
+  validates :name, :presence => true
+  validates :short_name, :presence => true
+  validates :plan, :presence => true
+
   def self.to_xlsx
     records = self.all
     xlsx = Axlsx::Package.new

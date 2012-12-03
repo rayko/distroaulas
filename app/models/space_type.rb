@@ -6,6 +6,8 @@ class SpaceType < ActiveRecord::Base
   require 'spreadsheet'
   require 'axlsx'
 
+  validates :name, :presence => true
+
 
   def self.to_xlsx
     records = SpaceType.all

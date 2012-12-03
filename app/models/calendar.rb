@@ -4,6 +4,8 @@ class Calendar < ActiveRecord::Base
   belongs_to :career
   has_many :events
 
+  validates :name, :presence => true
+
   require 'ri_cal'
 
   def to_rical

@@ -3,6 +3,8 @@ class Plan < ActiveRecord::Base
 
   has_many :careers
 
+  validates :name, :presence => true
+
   def self.to_xlsx
     records = self.all
     xlsx = Axlsx::Package.new

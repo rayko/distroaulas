@@ -6,6 +6,10 @@ class Space < ActiveRecord::Base
 
   has_many :events
 
+  validates :name, :presence => true
+  validates :short_name, :presence => true
+  validates :space_type, :presence => true
+
   def rical_events
     events = []
     self.events.each do |event|

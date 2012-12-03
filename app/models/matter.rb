@@ -4,6 +4,12 @@ class Matter < ActiveRecord::Base
 
   belongs_to :career
 
+
+  validates :name, :presence => true
+  validates :short_name, :presence => true
+  validates :career, :presence => true
+  validates :year, :presence => true
+
   has_many :events
 
   def occurrences options={}
