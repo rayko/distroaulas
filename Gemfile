@@ -17,7 +17,7 @@ gem 'i18n-js'
 gem 'axlsx'
 gem 'roo'
 gem 'rspec-rails'
-gem 'postgres'
+gem 'pg'
 
 # Use unicorn as the web server
 gem 'unicorn'
