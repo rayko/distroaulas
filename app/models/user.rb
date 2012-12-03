@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :username
   validates :username, :presence => true
+  validates :role, :presence => true
 
   attr_accessor :login
 
@@ -31,8 +32,9 @@ class User < ActiveRecord::Base
 
 
   # Posible roles for users
+  # TODO Implement I18n for role names
   def self.roles
-    [['User', 'user'], ['Administrator', 'admin'], ['Operator', 'op']]
+    [['Usuario', 'user'], ['Administrador', 'admin'], ['Operador', 'op']]
   end
 
   def self.admin_count
