@@ -17,16 +17,6 @@
     = f.input :end_time, :as => :time
 
 
-    = link_to t('.check_free_spaces'), '#none', :class => 'check_free_spaces', :id => 'check_free_spaces'
-    %br
-    = image_tag 'loading.gif', :class => "loading-icon-small spaces-loading"
-    - if session[:new_event_space_id]
-      = f.input :space, :as => :select, :collection => [Space.find_by_id(session[:new_event_space_id])]
-    - else
-      - if @event.space
-        = f.input :space, :as => :select, :collection => [@event.space]
-      - else
-        = f.input :space, :as => :select, :collection => []
 
 
     = text_field_tag :rdate_picker, '', :class => 'ui-date-picker', :style => "margin-left: 25%"
@@ -46,5 +36,18 @@
     = f.input :byday, :as => :check_boxes, :collection => [[t('shared.days.monday'), 'MO',], [t('shared.days.tuesday'), 'TU',], [t('shared.days.wensday'), 'WE',], [t('shared.days.thursday'), 'TH',], [t('shared.days.friday'), 'FR',], [t('shared.days.saturday'), 'SA',], [t('shared.days.sunday'), 'SU',]]
     //= f.input :byday, :hint => t('.hints.days_of_reccurrence')
     = f.input :count, :as => :select, :collection => [1,2,3,4,5,6,7,8,9,10], :hint => t('.hints.count')
+
+    = link_to t('.check_free_spaces'), '#none', :class => 'check_free_spaces', :id => 'check_free_spaces'
+    %br
+    = image_tag 'loading.gif', :class => "loading-icon-small spaces-loading"
+    - if session[:new_event_space_id]
+      = f.input :space, :as => :select, :collection => [Space.find_by_id(session[:new_event_space_id])]
+    - else
+      - if @event.space
+        = f.input :space, :as => :select, :collection => [@event.space]
+      - else
+        = f.input :space, :as => :select, :collection => []
+
+
   = f.buttons do
     = f.commit_button t('.buttons.commit')
