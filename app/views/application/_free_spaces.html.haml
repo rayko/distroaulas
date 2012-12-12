@@ -1,5 +1,5 @@
 %div
-  - form_tag new_event_from_free_space_path do
+  = form_tag new_event_from_free_space_path do
     = label_tag t('.labels.current_free_spaces')
     = select_tag :space, options_from_collection_for_select(spaces, :id, :name), :include_blank => true
     = hidden_field_tag :date, @datetime || Date.today

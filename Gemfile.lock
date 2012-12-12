@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.8.3)
     abstract (1.0.0)
     actionmailer (3.0.10)
       actionpack (= 3.0.10)
@@ -31,6 +32,8 @@ GEM
     addressable (2.3.2)
     archive-tar-minitar (0.5.2)
     arel (2.0.10)
+    autotest-rails (4.1.2)
+      ZenTest (~> 4.5)
     axlsx (1.1.7)
       nokogiri (>= 1.4.1)
       rake (>= 0.8.7)
@@ -56,6 +59,7 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
+    database_cleaner (0.9.1)
     devise (1.5.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -230,12 +234,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autotest-rails
   axlsx
   cancan
   capybara
   compass
+  database_cleaner
   devise
-  factory_girl_rails
+  factory_girl_rails (~> 4.0)
   formtastic (~> 1.2.3)
   haml
   haml-rails

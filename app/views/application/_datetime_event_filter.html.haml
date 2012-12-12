@@ -1,11 +1,11 @@
 %div#filter_options
-  - form_tag do
+  = form_tag do
     = label_tag t('.labels.toggle_filter')
     = check_box_tag 'toggle_filter', 1, true, :class => 'toggle_filter'
 %div#datetime_event_filter
   %p
-    - field_set_tag t('.filter') do
-      - form_tag do
+    = field_set_tag t('.filter') do
+      = form_tag do
         = t('.labels.date')
         = text_field_tag :date, '', :class => 'ui-date-picker', :size => 8
         = t('.labels.space_type')

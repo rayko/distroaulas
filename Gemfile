@@ -31,16 +31,19 @@ group :development, :test do
   gem 'railroady'
   gem 'rails-erd'
   gem 'sqlite3'
+  gem 'unicorn'
 end
 
 group :test do
   gem "rack-test"
   gem "shoulda", :require => false
   gem "rspec-rails"
-  gem "factory_girl_rails"
-  gem "capybara"#, :git => "git://github.com/jnicklas/capybara.git"
+  gem "factory_girl_rails", "~> 4.0"
+  gem "capybara"
   gem "launchy"
   gem "steak"
   gem "sqlite3"
+  gem "database_cleaner"
+  gem "autotest-rails"
 end
 
