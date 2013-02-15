@@ -16,7 +16,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
+  adapter: postgresql
+  database: distroaulas_production
+  host: localhost
   timeout: 5000
+  username: distroaulas
+  password: inox66por
+  template: template0
+

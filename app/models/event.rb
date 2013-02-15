@@ -79,7 +79,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.expired_events_count
-    self.where(['dtend < ? AND recurrent IS ?', DateTime.now, false]).size + self.where(['recurrent IS ? AND until_date < ?', true, DateTime.now]).size
+    self.where(['dtend < ? AND recurrent = ?', DateTime.now, false]).size + self.where(['recurrent = ? AND until_date < ?', true, DateTime.now]).size
   end
 
   def self.with_matters_count

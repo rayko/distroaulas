@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 18) do
     t.string   "responsible"
   end
 
-  create_table "planos", :force => true do |t|
+  create_table "plans", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

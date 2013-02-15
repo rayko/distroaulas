@@ -27,6 +27,8 @@ gem 'unicorn'
 # and rake tasks are available in development mode:
 group :development, :test do
   gem 'webrat'
+  gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
+  gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'railroady'
   gem 'rails-erd'
