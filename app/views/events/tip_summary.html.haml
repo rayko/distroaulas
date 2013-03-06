@@ -19,6 +19,7 @@
         = t('.next_occurrence')
         = l(@event.to_rical.occurrences(:starting => DateTime.now, :count => 1)[0].dtstart, :format => :long)
       - else
+        = t('.next_occurrence')
         Ninguna
 
   %li
