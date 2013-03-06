@@ -15,7 +15,7 @@
       = t('.freq')
       = t("events.shared.#{@event.freq.downcase}", :count => @event.count || 0)
     %li
-      - if @event.to_rical.occurrences.any?
+      - if @event.to_rical.occurrences(:starting => DateTime.now, :count => 1).any?
 	= t('.next_occurrence')
 	= l(@event.to_rical.occurrences(:starting => DateTime.now, :count => 1)[0].dtstart, :format => :long)
       - else
