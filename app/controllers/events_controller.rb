@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     @event.plan = params[:event][:plan]
     @event.career = params[:event][:career]
     @event.start_date = Date.parse(params[:event][:start_date]) unless params[:event][:start_date].blank?
-    @event.byday = parse_byday @event.byday
+    # @event.byday = parse_byday @event.byday
     if @event.save
       if session[:new_event_space_id]
         session.delete :new_event_space_id
@@ -135,4 +135,3 @@ class EventsController < ApplicationController
     end
   end
 end
-

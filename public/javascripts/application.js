@@ -459,7 +459,7 @@ jQuery(function($) {
                 document.getElementById('event_count_input').style['display'] = '';
                 document.getElementById('event_freq_input').style['display'] = '';
                 document.getElementById('event_interval_input').style['display'] = '';
-                document.getElementById('event_byday_input').style['display'] = '';
+                //document.getElementById('event_byday_input').style['display'] = '';
                 document.getElementById('event_until_date_input').style['display'] = '';
             }
             else {
@@ -467,7 +467,7 @@ jQuery(function($) {
                 document.getElementById('event_count_input').style['display'] = 'none';
                 document.getElementById('event_freq_input').style['display'] = 'none';
                 document.getElementById('event_interval_input').style['display'] = 'none';
-                document.getElementById('event_byday_input').style['display'] = 'none';
+                //document.getElementById('event_byday_input').style['display'] = 'none';
             };
         };
     });
@@ -480,7 +480,7 @@ jQuery(function($) {
             document.getElementById('event_count_input').style['display'] = '';
             document.getElementById('event_freq_input').style['display'] = '';
             document.getElementById('event_interval_input').style['display'] = '';
-            document.getElementById('event_byday_input').style['display'] = '';
+            //document.getElementById('event_byday_input').style['display'] = '';
             document.getElementById('event_until_date_input').style['display'] = '';
         }
         else {
@@ -488,7 +488,7 @@ jQuery(function($) {
             document.getElementById('event_count_input').style['display'] = 'none';
             document.getElementById('event_freq_input').style['display'] = 'none';
             document.getElementById('event_interval_input').style['display'] = 'none';
-            document.getElementById('event_byday_input').style['display'] = 'none';
+            //document.getElementById('event_byday_input').style['display'] = 'none';
         };
     });
 });
@@ -496,12 +496,12 @@ jQuery(function($) {
 // Datepicker
 $(document).ready(function(){
     if($('input.ui-date-picker').attr('data-limited')){
-	$('input.ui-date-picker').datepicker({minDate: new Date});
+        $('input.ui-date-picker').datepicker({minDate: new Date});
     }
     else{
-	$('input.ui-date-picker').datepicker();
+        $('input.ui-date-picker').datepicker();
     }
-    
+
 });
 
 // Filter toggle button to hide/show filter options on events view
